@@ -1,0 +1,2 @@
+class KimmsController < ApplicationController
+end
