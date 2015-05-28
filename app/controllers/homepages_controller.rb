@@ -1,6 +1,6 @@
 class HomepagesController < ApplicationController
 
-	def inedx # halaman homepage awal
+	def index # halaman homepage awal
 
 	end
 

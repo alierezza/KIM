@@ -1,4 +1,4 @@
-ini halaman homepage
+ini halaman homepage yang berisi slider, dll.. (halaman awal)...
 
 
 <% if user_signed_in? %>
@@ -6,6 +6,7 @@ ini halaman homepage
 	<%= link_to "Panel", dashboards_path %>
 	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
 <% else %>
+	
 	<h2>Log in</h2>
 	  <%= form_for(:user, :url => session_path(:user)) do |f| %>
 	  <div class="field">
@@ -24,4 +25,6 @@ ini halaman homepage
 	    <%= f.submit "Log in" %>
 	  </div>
 	<% end %>
+
+	<%= link_to "Register new user", new_register_path %>
 <% end %>

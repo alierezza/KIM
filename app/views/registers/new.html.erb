@@ -1,0 +1,37 @@
+halaman untuk register new Member</br>
+<%= link_to "create" ,registers_path, :method=>"post" %>
+<%= link_to "Homepage", homepages_path %>
+
+<%= form_for(@user, url: registers_path, :method=>"POST") do |f| %>
+	<%= f.label "Nama Organisasi","Nama Organisasi" %>
+	<%= f.text_field :nama %></br>
+
+	<%= f.label "Alamat", "Alamat" %>
+	<%= f.text_area :alamat %></br>
+
+	<%= f.label "Kota/Kabupaten", "Kota / Kabupaten" %>
+	<%= f.text_field :kota %></br>
+
+	<%= f.label "e-mail", "E-Mail" %>
+	<%= f.email_field :email %></br>
+
+	<%= f.label "telp", "Telp" %>
+	<%= f.number_field :telp %></br>
+
+	<%= f.label "Fax", "Fax" %>
+	<%= f.number_field :fax %></br>
+
+
+
+
+	<%= f.label :jenis_anggota %><br />
+	<%= f.radio_button :jenis_anggota, true, :checked => true %>
+    <%= f.label :jenis_anggota, "Agen", :value => "true"  %>
+    <%= f.radio_button :jenis_anggota, false %>
+    <%= f.label :jenis_anggota, "SPBE", :value => "false" %>
+    <%= f.radio_button :jenis_anggota, false %>
+    <%= f.label :jenis_anggota, "Lain-lain", :value => "false" %>
+    
+</br>
+	<%= f.submit "Save" %>
+<% end %>

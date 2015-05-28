@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 20150528094323) do
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
     t.string   "role",                   limit: 255, default: "User", null: false
+    t.string   "email_recovery",         limit: 255
+    t.string   "nama",                   limit: 255
+    t.string   "alamat",                 limit: 255
+    t.string   "kota",                   limit: 255
+    t.string   "telp",                   limit: 255
+    t.string   "fax",                    limit: 255
+    t.string   "jenis_anggota",          limit: 255
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
   end

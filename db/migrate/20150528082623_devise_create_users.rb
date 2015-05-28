@@ -19,7 +19,18 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
 
-      t.string  :role, null: false, default: "User"
+      t.string  :role, null: false, default: "User" # User, SuperAdmin, Admin, Crew
+      t.string  :email_recovery #digunakan untuk forgot password kirim email.
+      t.string  :nama
+      t.string  :alamat
+      t.string  :kota
+      t.string  :telp
+      t.string  :fax
+      t.string  :jenis_anggota # ini hanya untuk role: User, selain user isi kosong.
+
+      t.boolean  :admin_approval #status approve dari admin
+      t.boolean  :crew_approval #status approve dari crew
+
 
       ## Confirmable
       # t.string   :confirmation_token
