@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528094323) do
+ActiveRecord::Schema.define(version: 20150529155708) do
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -24,9 +24,43 @@ ActiveRecord::Schema.define(version: 20150528094323) do
   end
 
   create_table "kimms", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "user_id",                       limit: 4
+    t.string   "jenis_sim",                     limit: 255
+    t.datetime "masa_berlaku_sim"
+    t.datetime "masa_berlaku_stnk"
+    t.datetime "masa_berlaku_kir"
+    t.datetime "masa_berlaku_tera"
+    t.string   "no_polisi",                     limit: 255
+    t.string   "tipe",                          limit: 255
+    t.integer  "kapasitas_tangki",              limit: 4
+    t.boolean  "admin_approval",                limit: 1,   default: false
+    t.boolean  "crew_approval",                 limit: 1,   default: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
+    t.string   "sim_file_name",                 limit: 255
+    t.string   "sim_content_type",              limit: 255
+    t.integer  "sim_file_size",                 limit: 4
+    t.datetime "sim_updated_at"
+    t.string   "stnk_file_name",                limit: 255
+    t.string   "stnk_content_type",             limit: 255
+    t.integer  "stnk_file_size",                limit: 4
+    t.datetime "stnk_updated_at"
+    t.string   "kir_file_name",                 limit: 255
+    t.string   "kir_content_type",              limit: 255
+    t.integer  "kir_file_size",                 limit: 4
+    t.datetime "kir_updated_at"
+    t.string   "tera_file_name",                limit: 255
+    t.string   "tera_content_type",             limit: 255
+    t.integer  "tera_file_size",                limit: 4
+    t.datetime "tera_updated_at"
+    t.string   "ktp_file_name",                 limit: 255
+    t.string   "ktp_content_type",              limit: 255
+    t.integer  "ktp_file_size",                 limit: 4
+    t.datetime "ktp_updated_at"
+    t.string   "surat_permohonan_file_name",    limit: 255
+    t.string   "surat_permohonan_content_type", limit: 255
+    t.integer  "surat_permohonan_file_size",    limit: 4
+    t.datetime "surat_permohonan_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

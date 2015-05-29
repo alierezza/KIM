@@ -1,7 +1,8 @@
 class KimmsController < ApplicationController
+	before_action :authenticate_user!
 
 	def index
-		
+		@kims = User.find(current_user).kimms.all
 	end
 
 	def show
@@ -9,7 +10,7 @@ class KimmsController < ApplicationController
 	end
 
 	def new
-
+		@kim = Kimm.new
 	end
 
 	def create

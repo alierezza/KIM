@@ -1,3 +1,23 @@
 <%= link_to "Panel", dashboards_path %>
-
+<%= link_to "Add KIM", new_kimm_path %>
 ini halaman KIM
+</br>
+
+<table>
+<thead>
+	<th>Jenis KIM</th>
+	<th>Masa Berlaku SIM</th>
+	<th>Gambar SIM</th>
+	<Th colspan=2></th>
+</thead>
+<tbody>
+	<% @kims.each_with_index do |kim| %>
+		<tr>
+			<td><%=  kim.jenis_sim %></td>
+			<td><%= kim.masa_berlaku_sim %></td>
+			<th><%= image_tag kim.sim.url %></th>
+		</tr>
+	<% end %>
+</tbody>
+</table>
+<%= %>

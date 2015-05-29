@@ -1,0 +1,22 @@
+add new kim</br>
+
+
+
+<%= form_for(@kim) do |f| %>
+
+
+	<%= f.label "Jenis SIM","Jenis SIM" %>
+	<%= f.radio_button :jenis_sim, "B1", :checked => true %>
+    <%= f.label "B1", "B1", :value => "true"  %>
+    <%= f.radio_button :jenis_sim, "B2" %>
+    <%= f.label "B2", "B2", :value => "false" %></br>
+ 
+ 	<%= f.label "Masa Berlaku SIM","Masa Berlaku SIM" %>
+    <%= f.date_field :masa_berlaku_sim %></br>
+
+    <%= f.label "Upload SIM" %>
+    <%= f.file_field :sim %>
+
+	<%= f.submit "Submit" %>
+
+<% end %>

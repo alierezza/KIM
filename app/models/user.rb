@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   	def active_for_authentication?
 	  super && admin_approval
 	end
+
+	has_many :kimms
+	
 end

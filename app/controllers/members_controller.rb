@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
-
+	before_action :authenticate_user!
+	
 	def index 
 		@users = User.where("role=?  and admin_approval=?","User",false).all
 	end
