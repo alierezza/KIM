@@ -1,0 +1,2 @@
+module KimmsHelper
+end
