@@ -1,5 +1,5 @@
 halaman untuk register new Member</br>
-<%= link_to "create" ,registers_path, :method=>"post" %>
+
 <%= link_to "Homepage", homepages_path %>
 
 <%= form_for(@user, url: registers_path, :method=>"POST") do |f| %>
@@ -25,11 +25,11 @@ halaman untuk register new Member</br>
 
 
 	<%= f.label :jenis_anggota %><br />
-	<%= f.radio_button :jenis_anggota, true, :checked => true %>
+	<%= f.radio_button :jenis_anggota, "Agen", :checked => true %>
     <%= f.label :jenis_anggota, "Agen", :value => "true"  %>
-    <%= f.radio_button :jenis_anggota, false %>
+    <%= f.radio_button :jenis_anggota, "SPBE" %>
     <%= f.label :jenis_anggota, "SPBE", :value => "false" %>
-    <%= f.radio_button :jenis_anggota, false %>
+    <%= f.radio_button :jenis_anggota, "Lain-lain" %>
     <%= f.label :jenis_anggota, "Lain-lain", :value => "false" %>
     
 </br>

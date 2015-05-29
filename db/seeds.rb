@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+# seed buat ADMIN
+User.create!(:email=>"testing@hosting.natanetwork.com", :password=>"1234567", :password_confirmation=>"1234567", :email_recovery=>"testing@hosting.natanetwork.com", :role=>"Admin", :admin_approval=>true)

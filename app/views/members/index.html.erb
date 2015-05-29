@@ -1,0 +1,26 @@
+list users
+
+<%= link_to "Panel", dashboards_path %>
+
+<table class="">
+	<thead>
+		<th>Username</th>
+		<th>Nama</th>
+		<th>Alamat</th>
+		<th>Kota / Kabupaten</th>
+		<th colspan=2></th>
+	</thead>
+	<tbody>
+		<% @users.each_with_index do |user| %>
+			<tr>
+				<td><%= user.email %></td>
+				<td><%= user.nama %></td>
+				<td><%= user.alamat %></td>
+				<td><%= user.kota %></td>
+				<td><%= link_to "Approve", edit_member_path(user,:status=>true) %></td>
+				<td><%= link_to "Reject", edit_member_path(user, :status=>false) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+

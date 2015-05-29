@@ -28,8 +28,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :fax
       t.string  :jenis_anggota # ini hanya untuk role: User, selain user isi kosong.
 
-      t.boolean  :admin_approval #status approve dari admin
-      t.boolean  :crew_approval #status approve dari crew
+      t.boolean  :admin_approval, default: false #status approve dari admin
 
 
       ## Confirmable

@@ -9,6 +9,19 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     dashboards_path #your path
   end
+
+  def after_sign_out_path_for(resource_or_scope)
+    if params[:reset_password]
+        @user = User.find(params[:reset_password])
+        token = SecureRandom.hex(10)
+        @user.reset_password_token = Devise.token_generator.digest(self, :reset_password_token, token)
+        @user.reset_password_sent_at = Time.now
+        @user.save
+        "http://#{request.env['HTTP_HOST']}/users/password/edit?reset_password_token=" + token
+    else
+      "http://#{request.env['HTTP_HOST']}"
+    end
+  end
   
   protected
 

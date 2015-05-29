@@ -8,10 +8,16 @@ class Ability
         can :read, Kimm, :id => user.id
         can :create, Kimm
         can :update, Kimm, :id => user.id
+        can :destroy, Kimm, :id => user.id
+
+        can :create_kim, User
 
     elsif user.role == "Admin"
-
-
+        can :update, Kimm, :id=>user.id
+        can :read, User
+        can :update, User
+        
+        can :user_approval, User
 
 
     elsif user.role == "SuperAdmin"

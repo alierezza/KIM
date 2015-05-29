@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'homepages#index'
 
-  resources :homepages, :dashboards, :kimms, :registers
+  resources :homepages, :dashboards, :kimms, :registers, :members
   
 
   get "prasyarat/" => "homepages#prasyarat", :as => :prasyarat

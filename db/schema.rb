@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150528094323) do
     t.string   "telp",                   limit: 255
     t.string   "fax",                    limit: 255
     t.string   "jenis_anggota",          limit: 255
+    t.boolean  "admin_approval",         limit: 1,   default: false
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
   end

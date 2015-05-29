@@ -1,10 +1,16 @@
-ini halaman dashboard Admin, Superadmin, User, Crew
-</br>
-nanti di limit pake cancancan bisa kan ya..hehe
-</br></br>
+<%= "Login as : #{current_user.email}, role : #{current_user.role}" %></br>
 
 <%= link_to "Homepage", homepages_path %>
-<%= link_to "Create New KIM", kimms_path %>
+
+<% if can? :create_kim, current_user %>
+	<%= link_to "Create New KIM", kimms_path %>
+<% end %>
+
+<% if can? :user_approval, current_user %>
+	<%= link_to "User Approval", members_path %>
+<% end %>
+
+<%= link_to "Change password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete %>
 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
 
 
