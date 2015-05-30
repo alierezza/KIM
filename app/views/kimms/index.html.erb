@@ -3,21 +3,105 @@
 ini halaman KIM
 </br>
 
-<table>
+
+
+
+Tabel data KIM yang dikembalikan oleh admin karena alasan tertentu..
+<table border=1>
 <thead>
 	<th>Jenis KIM</th>
 	<th>Masa Berlaku SIM</th>
 	<th>Gambar SIM</th>
+	<th>Status Admin</th>
+	<th>Status Crew</th>
+	<th>Download KIM</th>
+	<th>Reason Rejected</th>
 	<Th colspan=2></th>
 </thead>
 <tbody>
-	<% @kims.each_with_index do |kim| %>
+	<% @kims.where("message IS NOT NULL and admin_approval IS NULL").each_with_index do |kim| %>
 		<tr>
-			<td><%=  kim.jenis_sim %></td>
+			<td><%=  link_to kim.jenis_sim, kim %></td>
 			<td><%= kim.masa_berlaku_sim %></td>
-			<th><%= image_tag kim.sim.url %></th>
+			<td><%= image_tag kim.sim.url(:medium) %></td>
+			<td><%= kim.admin_approval==nil and kim.message==nil ? "Waiting.." : kim.message != nil ? "Rollback" : kim.admin_approval==true ? "Approved" : "Rejected" %></td>
+			<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved" : "Rejected" %></td>
+			<td><% if kim.admin_approval == true and kim.crew_approval == true %>
+					Download
+				<% else %>
+					Unknown
+				<% end %>
+			</td>
+			<td><%= kim.message %></td>
+			<td><%= link_to "Update", edit_kimm_path(kim) %></td>
+			<td><%= link_to "Delete", kimm_path(kim), :method=>"DELETE" %></td>
 		</tr>
 	<% end %>
 </tbody>
 </table>
-<%= %>
+
+
+Tabel data KIM yang telah di insert kan (menunggu status di approve dari 2 pihak)
+<table border=1>
+<thead>
+	<th>Jenis KIM</th>
+	<th>Masa Berlaku SIM</th>
+	<th>Gambar SIM</th>
+	<th>Status Admin</th>
+	<th>Status Crew</th>
+	<th>Download KIM</th>
+	<Th colspan=2></th>
+</thead>
+<tbody>
+	<% @kims.where("message IS NULL").each_with_index do |kim| %>
+		<tr>
+			<td><%=  link_to kim.jenis_sim, kim %></td>
+			<td><%= kim.masa_berlaku_sim %></td>
+			<td><%= image_tag kim.sim.url(:medium) %></td>
+			<td><%= kim.admin_approval==nil ? "Waiting.." : kim.admin_approval==true ? "Approved" : "Rejected" %></td>
+			<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved" : "Rejected" %></td>
+			<td><% if kim.admin_approval == true and kim.crew_approval == true %>
+					Download
+				<% else %>
+					Unknown
+				<% end %>
+			</td>
+			<td><%= link_to "Update", edit_kimm_path(kim) %></td>
+			<td><%= link_to "Delete", kimm_path(kim), :method=>"DELETE" %></td>
+		</tr>
+	<% end %>
+</tbody>
+</table>
+
+
+
+Tabel data KIM yang sudah di approve oleh ke 2 pihak (admin dan crew)
+<thead>
+	<th>Jenis KIM</th>
+	<th>Masa Berlaku SIM</th>
+	<th>Gambar SIM</th>
+	<th>Status Admin</th>
+	<th>Status Crew</th>
+	<th>Download KIM</th>
+	<Th colspan=2></th>
+</thead>
+<tbody>
+	<% @kims.where("admin_approval = ? and crew_approval = ?",true,true).each_with_index do |kim| %>
+		<tr>
+			<td><%=  link_to kim.jenis_sim, kim %></td>
+			<td><%= kim.masa_berlaku_sim %></td>
+			<td><%= image_tag kim.sim.url(:medium) %></td>
+			<td><%= kim.admin_approval==nil ? "Waiting.." : kim.admin_approval==true ? "Approved" : "Rejected" %></td>
+			<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved" : "Rejected" %></td>
+			<td><% if kim.admin_approval == true and kim.crew_approval == true %>
+					Download
+				<% else %>
+					Unknown
+				<% end %>
+			</td>
+			<td><%= link_to "Update", edit_kimm_path(kim) %></td>
+			<td><%= link_to "Delete", kimm_path(kim), :method=>"DELETE" %></td>
+		</tr>
+	<% end %>
+</tbody>
+</table>

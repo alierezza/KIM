@@ -11,8 +11,9 @@ class CreateKimms < ActiveRecord::Migration
       t.string :no_polisi
       t.string :tipe
       t.integer :kapasitas_tangki
-      t.boolean :admin_approval, :default=>false #jika di approve admin
-      t.boolean :crew_approval, :default=>false #jika di approve crew
+      t.boolean :admin_approval #jika di approve admin
+      t.boolean :crew_approval #jika di approve crew
+      t.string :message
       t.timestamps null: false
     end
   end

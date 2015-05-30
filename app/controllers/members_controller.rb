@@ -3,6 +3,7 @@ class MembersController < ApplicationController
 	
 	def index 
 		@users = User.where("role=?  and admin_approval=?","User",false).all
+		authorize! :user_approval, @user
 	end
 
 	def show
@@ -31,6 +32,8 @@ class MembersController < ApplicationController
 				redirect_to dashboards_path
 			end
 		end
+		
+		authorize! :user_approval, @user
 	end
 
 	def update

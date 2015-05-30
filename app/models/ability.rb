@@ -5,24 +5,24 @@ class Ability
     
 
     if user.role == "User" #user biasa
-        can :read, Kimm, :id => user.id
-        can :create, Kimm
-        can :update, Kimm, :id => user.id
-        can :destroy, Kimm, :id => user.id
+        can :read_kim, User, :id => user.id
+        can :show_kim, User, :id => user.id
+        can :create_kim, User, :id => user.id
+        can :update_kim, User, :id => user.id
+        can :destroy_kim, User, :id => user.id
 
-        can :create_kim, User
 
     elsif user.role == "Admin"
-        can :update, Kimm, :id=>user.id
-        can :read, User
-        can :update, User
-        
+        can :show_kim, User
+        can :update_kim, User
+
         can :user_approval, User
+        can :kim_approval, User
 
 
     elsif user.role == "SuperAdmin"
-        can :manage, Kimm
-
+        can :create_admin, User
+        can :create_crew, User
 
 
     elsif user.role == "Crew"

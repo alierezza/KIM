@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'homepages#index'
 
-  resources :homepages, :dashboards, :kimms, :registers, :members
+  resources :homepages, :dashboards, :kimms, :registers, :members, :crews
   
 
   get "prasyarat/" => "homepages#prasyarat", :as => :prasyarat
 
+  get "kim_approval/" => "kimms#kim_approval", :as => :kim_approval
+  get "download/:id/kim/:id2" => "kimms#download", :as => :download, constraints: { id: /[^\/]+/, id2: /[^\/]+/ }
 end

@@ -1,5 +1,6 @@
 class Kimm < ActiveRecord::Base
 
+
 	belongs_to :user
 
 	validates :jenis_sim, :presence=>true
@@ -11,7 +12,7 @@ class Kimm < ActiveRecord::Base
 	validates :tipe, :presence=>true
 	validates :kapasitas_tangki, :presence=>true
 
-	has_attached_file :sim, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+	  has_attached_file :sim, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   	validates_attachment_content_type :sim, :content_type => /\Aimage\/.*\Z/
 
   	has_attached_file :stnk, :styles => { :medium => "300x300>", :thumb => "100x100>" }

@@ -1,0 +1,46 @@
+<%= link_to "Back", kimms_path %></br>
+
+<% if @kim.message != nil %>
+	Message / Reason rejected:
+	<%= @kim.message %></br>
+<% end %>
+
+Jenis KIM:
+<%= @kim.jenis_sim %></br>
+
+Masa berlaku SIM:
+<%= @kim.masa_berlaku_sim %></br>
+<%= image_tag @kim.sim.url(:medium) %></br>
+<%= link_to "Download SIM", download_path(@kim.stnk_file_name,@kim.id, :status=>"sim") %></br>
+
+Masa berlaku STNK:
+<%= @kim.masa_berlaku_stnk %></br>
+<%= image_tag @kim.stnk.url(:medium) %></br>
+<%= link_to "Download STNK", download_path(@kim.stnk_file_name,@kim.id, :status=>"stnk") %></br>
+
+Masa berlaku KIR:
+<%= @kim.masa_berlaku_kir %></br>
+<%= image_tag @kim.kir.url(:medium) %></br>
+<%= link_to "Download STNK", download_path(@kim.stnk_file_name,@kim.id, :status=>"kir") %></br>
+
+Masa berlaku TERA:
+<%= @kim.masa_berlaku_tera %></br>
+<%= image_tag @kim.tera.url(:medium) %></br>
+<%= link_to "Download TERA", download_path(@kim.tera_file_name,@kim.id, :status=>"tera") %></br>
+
+Masa berlaku KTP:
+<%= image_tag @kim.ktp.url(:medium) %></br>
+<%= link_to "Download KTP", download_path(@kim.ktp_file_name,@kim.id, :status=>"ktp") %></br>
+
+Surat Permohonan:
+<%= image_tag @kim.surat_permohonan.url(:medium) %></br>
+<%= link_to "Download Surat Permohonan", download_path(@kim.surat_permohonan_file_name,@kim.id, :status=>"surat permohonan") %></br>
+
+No Polisi:
+<%= @kim.no_polisi %></br>
+
+Tipe:
+<%= @kim.tipe %></br>
+
+Kapasitas Tangki:
+<%= @kim.kapasitas_tangki %></br>

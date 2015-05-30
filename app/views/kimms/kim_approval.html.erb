@@ -1,0 +1,43 @@
+<%= link_to "Panel", dashboards_path %>
+ini halaman KIM APPROVAL
+</br>
+
+<table border=1>
+<thead>
+	<th>Jenis KIM</th>
+	<th>Masa Berlaku SIM</th>
+	<th>Gambar SIM</th>
+	<th>Status Admin</th>
+	<th>Status Crew</th>
+	<Th colspan=3></th>
+</thead>
+<tbody>
+	<% @kims.each_with_index do |kim| %>
+		<tr>
+			<td><%=  link_to kim.jenis_sim, kim %></td>
+			<td><%= kim.masa_berlaku_sim %></td>
+			<td><%= image_tag kim.sim.url(:medium) %></td>
+			<td><% if kim.admin_approval==nil and kim.message==nil %>
+					<%= "Waiting.." %>
+				<% elsif kim.message != nil %>
+					<%= "Rollback" %>
+				<% elsif kim.admin_approval == true %>
+					<%= "Approved" %>
+				<% else %>
+					<%= "Rejected" %>
+				<% end %></td>
+			<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved" : "Rejected" %></td>
+			<% if kim.admin_approval == nil %>
+				<td><%= link_to "Approve", edit_kimm_path(kim, :status=>"approve") %></td>
+				<td><%= link_to "Rollback", edit_kimm_path(kim,:status=>"rollback", :message=>"asdasdasdasd") %></td>
+				<td><%= link_to "Reject", edit_kimm_path(kim, :status=>"reject") %></td>
+			<% else %>
+				<td></td>
+				<td></td>
+				<td></td>
+			<% end %>
+		</tr>
+	<% end %>
+</tbody>
+</table>
+<%= %>

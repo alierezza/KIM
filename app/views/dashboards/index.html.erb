@@ -3,12 +3,25 @@
 <%= link_to "Homepage", homepages_path %>
 
 <% if can? :create_kim, current_user %>
-	<%= link_to "Create New KIM", kimms_path %>
+	<%= link_to "KIM", kimms_path %>
 <% end %>
 
 <% if can? :user_approval, current_user %>
 	<%= link_to "User Approval", members_path %>
 <% end %>
+
+<% if can? :kim_approval, current_user %>
+	<%= link_to "KIM Approval", kim_approval_path %>
+<% end %>
+
+<% if can? :create_admin, current_user %>
+	<%= link_to "Admin", crews_path %>
+<% end %>
+
+<% if can? :create_crew, current_user %>
+	<%= link_to "Crew", crews_path %>
+<% end %>
+
 
 <%= link_to "Change password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete %>
 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
