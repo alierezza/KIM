@@ -22,9 +22,12 @@ class KimmsController < ApplicationController
 	end
 
 	def create
+		no_registration = SecureRandom.base64(10).split("=")[0]
+		params[:kimm][:no_registrasi] = no_registration
 		@kim = User.find(current_user).kimms.new(params_kim)
 		respond_to do |format|
 	      if @kim.save
+	      	UserMailer.no_registration_kim(current_user).deliver
 	        format.html { redirect_to kimms_path, notice: 'Kim has been added'}
 	        format.json { render action: 'new', status: :created, location: @kim }
 	      else
@@ -41,6 +44,7 @@ class KimmsController < ApplicationController
 		if params[:status] == "approve"
 			@kim.admin_approval = true
 			@kim.message = nil
+			@kim.admin_approved_by = current_user.nama
 			@kim.save
 			flash[:notice] = "KIM has been approved"
 			redirect_to kim_approval_path

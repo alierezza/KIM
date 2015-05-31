@@ -11,6 +11,8 @@ class Ability
         can :update_kim, User, :id => user.id
         can :destroy_kim, User, :id => user.id
 
+        can :create_feedback, User
+
 
     elsif user.role == "Admin"
         can :show_kim, User
@@ -27,7 +29,7 @@ class Ability
 
     elsif user.role == "Crew"
 
-
+        can :user_approval_by_crew, User
 
 
     end

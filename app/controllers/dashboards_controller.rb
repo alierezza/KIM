@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
 	before_action :authenticate_user!
 
-	def index #panel
+	def index 
 		
 	end
 
@@ -10,23 +10,27 @@ class DashboardsController < ApplicationController
 	end
 
 	def new
-
+		@kims = Kimm.where("crew_approval IS NULL").page(params[:id])
 	end
 
 	def create
 
 	end
 
-	def edit #ganti password diri sendiri
-		# @user = User.find(params[:id])
-		# @user.password =
-		# @user.password_confirmation = 
-		# if @user.save
-		# 	flas[:notice] = "New password has been set"
-		# else
-		# 	flash[:alert] = "Failed to change password"
-		# end
-		# redirect_to dashboards_path
+	def edit
+		@kim = Kimm.find(params[:id])
+		if params[:status] == "approve"
+			@kim.crew_approval = true
+			@kim.crew_approved_by = current_user.nama
+			@kim.save
+			flash[:notice] = "KIM has been approved"
+		elsif params[:status] == "reject"
+			@kim.crew_approval = false
+			@kim.admin_approval = false
+			@kim.save
+			flash[:alert] = "KIM has been rejected"
+		end
+		redirect_to new_dashboard_path
 
 	end
 

@@ -7,21 +7,29 @@
 <% end %>
 
 <% if can? :user_approval, current_user %>
-	<%= link_to "User Approval", members_path %>
+	<%= link_to "User Approval (admin)", members_path %>
 <% end %>
 
 <% if can? :kim_approval, current_user %>
 	<%= link_to "KIM Approval", kim_approval_path %>
 <% end %>
 
+<% if can? :create_feedback, current_user %>
+	<%= link_to "Feedback", new_feedback_path %>
+<% end %>
+
+
 <% if can? :create_admin, current_user %>
-	<%= link_to "Admin", crews_path %>
+	<%= link_to "Admin", admins_path %>
 <% end %>
 
 <% if can? :create_crew, current_user %>
 	<%= link_to "Crew", crews_path %>
 <% end %>
 
+<% if can? :user_approval_by_crew, current_user %>
+	<%= link_to "User Approval (crew)", new_dashboard_path %>
+<% end %>
 
 <%= link_to "Change password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete %>
 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 

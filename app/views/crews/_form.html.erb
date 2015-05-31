@@ -1,0 +1,66 @@
+<% if params[:action] == "new" or params[:action] == "create" %>
+
+    <%= form_for(@crew, url: crews_path, :method=>"POST" ) do |f| %>
+
+     	<%= f.label "Email for login" %>
+        <% if params[:action] == "edit" or params[:action] == "update" %>
+            <%= f.text_field :email, :disabled=>true %></br>
+        <% else %>
+            <%= f.text_field :email, :required=>true %></br>
+        <% end %>
+
+        <%= f.label "Nama" %>
+        <%= f.text_field :nama, :required=>true %></br>
+
+        <% if params[:action] == "edit" or params[:action] == "update" %>
+            <%= f.label "Email Recovery" %>
+            <%= f.email_field :email_recovery, :required=>true %></br>
+        
+        <% else %>
+            <%= f.label "Password", "Password" %>
+            <%= f.password_field :password, :required=>true %></br>
+
+            <%= f.label "Password Confirmation" %>
+            <%= f.password_field :password_confirmation, :required=>true %>
+
+        <% end %>
+
+    	<%= f.submit "Submit" %>
+
+    <% end %>
+
+<% else %>
+
+        <%= form_for(@crew, url: crew_path(@crew), :method=>"PUT" ) do |f| %>
+
+        <%= f.label "Email for login" %>
+        <% if params[:action] == "edit" or params[:action] == "update" %>
+            <%= f.text_field :email, :disabled=>true %></br>
+        <% else %>
+            <%= f.text_field :email, :required=>true %></br>
+        <% end %>
+
+        <%= f.label "Nama" %>
+        <% if params[:action] == "edit" or params[:action] == "update" %>
+            <%= f.text_field :nama, :disabled=>true %></br>
+        <% else %>
+            <%= f.text_field :nama, :required=>true %></br>
+        <% end %>
+
+        <% if params[:action] == "edit" or params[:action] == "update" %>
+            <%= f.label "Email Recovery" %>
+            <%= f.email_field :email_recovery, :required=>true %></br>
+        
+        <% else %>
+            <%= f.label "Password", "Password" %>
+            <%= f.password_field :password, :required=>true %></br>
+
+            <%= f.label "Password Confirmation" %>
+            <%= f.password_field :password_confirmation, :required=>true %>
+
+        <% end %>
+
+        <%= f.submit "Submit" %>
+
+    <% end %>
+<% end %>

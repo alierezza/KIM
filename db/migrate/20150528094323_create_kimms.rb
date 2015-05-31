@@ -14,6 +14,12 @@ class CreateKimms < ActiveRecord::Migration
       t.boolean :admin_approval #jika di approve admin
       t.boolean :crew_approval #jika di approve crew
       t.string :message
+      t.string :admin_approved_by
+      t.string :crew_approved_by
+      t.string :no_registrasi
+
+      t.datetime :expired_date, :default=>nil
+
       t.timestamps null: false
     end
   end

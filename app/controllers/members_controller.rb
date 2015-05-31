@@ -3,7 +3,7 @@ class MembersController < ApplicationController
 	
 	def index 
 		@users = User.where("role=?  and admin_approval=?","User",false).all
-		authorize! :user_approval, @user
+		authorize! :user_approval, current_user
 	end
 
 	def show
@@ -22,8 +22,10 @@ class MembersController < ApplicationController
 		if params[:status]
 			@user = User.find(params[:id])
 			@user.admin_approval = params[:status]
+			@user.approved_by = current_user.nama
 			@user.save
 			if params[:status] == "true"
+				UserMailer.user_approved(@user).deliver
 				flash[:notice] = "User has been approved"
 				redirect_to members_path
 			else

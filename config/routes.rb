@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :passwords => "passwords" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'homepages#index'
 
-  resources :homepages, :dashboards, :kimms, :registers, :members, :crews
+  resources :homepages, :dashboards, :kimms, :registers, :members, :admins, :crews, :feedbacks
+  resources :users, path: "admins"
+  resources :users, path: "crews"
   
 
   get "prasyarat/" => "homepages#prasyarat", :as => :prasyarat

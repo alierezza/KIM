@@ -1,0 +1,29 @@
+<%= link_to "Panel", dashboards_path %>
+<%= link_to "Add Admin", new_admin_path %>
+ini halaman List of ADMIN
+</br>
+
+
+
+
+Tabel list ADMIN
+<table border=1>
+<thead>
+	<th>Email for login</th>
+	<th>Email Recovery</th>
+	<th>Nama</th>
+	<Th colspan=2></th>
+</thead>
+<tbody>
+	<% @admins.each_with_index do |admin| %>
+		<tr>
+			<td><%= admin.email %></td>
+			<td><%= admin.email_recovery %></td>
+			<td><%= admin.nama %></td>
+			<td><%= link_to "Update", edit_admin_path(admin) %></td>
+			<td><%= link_to "Delete", admin_path(admin), :method=>"DELETE" %></td>
+		</tr>
+	<% end %>
+</tbody>
+</table>
+<%= paginate @admins %>

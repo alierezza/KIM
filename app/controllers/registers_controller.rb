@@ -22,7 +22,7 @@ class RegistersController < ApplicationController
 
 		respond_to do |format|
 		     if @user.save
-		     	UserMailer.user_registration(@user,password).deliver!
+		     	UserMailer.user_registration(@user,password).deliver
 		       format.html { redirect_to homepages_path, notice: 'New User was successfully created'}
 		       format.json { render action: 'index', status: :created, location: @user }
 		     else

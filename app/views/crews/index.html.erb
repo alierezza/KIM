@@ -1,0 +1,29 @@
+<%= link_to "Panel", dashboards_path %>
+<%= link_to "Add Crew", new_crew_path %>
+ini halaman List of CREW
+</br>
+
+
+
+
+Tabel list CREW
+<table border=1>
+<thead>
+	<th>Email for login</th>
+	<th>Email Recovery</th>
+	<th>Nama</th>
+	<Th colspan=2></th>
+</thead>
+<tbody>
+	<% @crews.each_with_index do |crew| %>
+		<tr>
+			<td><%= crew.email %></td>
+			<td><%= crew.email_recovery %></td>
+			<td><%= crew.nama %></td>
+			<td><%= link_to "Update", edit_crew_path(crew) %></td>
+			<td><%= link_to "Delete", crew_path(crew), :method=>"DELETE", :data => {:confirm => 'Are you sure?'} %></td>
+		</tr>
+	<% end %>
+</tbody>
+</table>
+<%= paginate @crews %>

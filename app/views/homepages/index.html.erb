@@ -10,7 +10,7 @@ ini halaman homepage yang berisi slider, dll.. (halaman awal)...
 	<h2>Log in</h2>
 	  <%= form_for(:user, :url => session_path(:user)) do |f| %>
 	  <div class="field">
-	    <%= f.label :email %><br />
+	    <%= f.label "Email for login" %><br />
 	    <%= f.email_field :email, autofocus: true %>
 	  </div>
 	  <div class="field">

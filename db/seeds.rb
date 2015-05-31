@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# seed buat ADMIN
-User.create!(:email=>"testing@hosting.natanetwork.com", :password=>"1234567", :password_confirmation=>"1234567", :email_recovery=>"testing@hosting.natanetwork.com", :role=>"Admin", :admin_approval=>true)
+# seed buat SUPERADMIN
 
-User.create!(:email=>"kaskus@yahoo.com", :password=>"1234567", :password_confirmation=>"1234567", :email_recovery=>"kaskus@yahoo.com", :role=>"SuperAdmin", :admin_approval=>true)
+User.create!(:email=>"superadmin@yahoo.com", :password=>"1234567", :password_confirmation=>"1234567", :email_recovery=>"hendranatas@yahoo.com", :role=>"SuperAdmin", :admin_approval=>true, :created_by => "SuperAdmin")

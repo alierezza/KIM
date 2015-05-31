@@ -11,11 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529155708) do
+ActiveRecord::Schema.define(version: 20150531165654) do
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer  "q1",         limit: 4
+    t.integer  "q2",         limit: 4
+    t.integer  "q3",         limit: 4
+    t.integer  "q4",         limit: 4
+    t.integer  "q5",         limit: 4
+    t.integer  "q6",         limit: 4
+    t.integer  "q7",         limit: 4
+    t.integer  "q8",         limit: 4
+    t.integer  "q9",         limit: 4
+    t.integer  "q10",        limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "homepages", force: :cascade do |t|
@@ -33,10 +48,14 @@ ActiveRecord::Schema.define(version: 20150529155708) do
     t.string   "no_polisi",                     limit: 255
     t.string   "tipe",                          limit: 255
     t.integer  "kapasitas_tangki",              limit: 4
-    t.boolean  "admin_approval",                limit: 1,   default: false
-    t.boolean  "crew_approval",                 limit: 1,   default: false
-    t.datetime "created_at",                                                null: false
-    t.datetime "updated_at",                                                null: false
+    t.boolean  "admin_approval",                limit: 1
+    t.boolean  "crew_approval",                 limit: 1
+    t.string   "message",                       limit: 255
+    t.string   "admin_approved_by",             limit: 255
+    t.string   "crew_approved_by",              limit: 255
+    t.string   "no_registrasi",                 limit: 255
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "sim_file_name",                 limit: 255
     t.string   "sim_content_type",              limit: 255
     t.integer  "sim_file_size",                 limit: 4
@@ -83,6 +102,8 @@ ActiveRecord::Schema.define(version: 20150529155708) do
     t.string   "fax",                    limit: 255
     t.string   "jenis_anggota",          limit: 255
     t.boolean  "admin_approval",         limit: 1,   default: false
+    t.string   "created_by",             limit: 255
+    t.string   "approved_by",            limit: 255
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
   end

@@ -29,7 +29,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :jenis_anggota # ini hanya untuk role: User, selain user isi kosong.
 
       t.boolean  :admin_approval, default: false #status approve dari admin
-
+      t.string  :created_by #ini untuk admin dan crew saja
+      t.string  :approved_by #ini untuk user
 
       ## Confirmable
       # t.string   :confirmation_token

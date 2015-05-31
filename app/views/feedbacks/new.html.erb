@@ -1,0 +1,32 @@
+<%= link_to "back", dashboards_path %></br>
+
+<%= form_for(@feedback) do |f| %>
+
+1. Produk yang diperoleh dari Depot LPG Tanjung Perak memiliki kualitas yang baik atau bebas dari cacat (Product Quality)</br>
+	<%= f.radio_button :q1, 0, :checked => false %>
+	<%= f.label "Sangat Setuju","Sangat Setuju" %>
+	<%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+	</br>
+
+	2. Depot LPG Tanjung Perak mengetahui kebutuhan anda (Needs)</br>
+	<%= f.radio_button :q1, 0, :checked => false %>
+	<%= f.label "Sangat Setuju","Sangat Setuju" %>
+	<%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+	</br>
+
+
+<% end %>
