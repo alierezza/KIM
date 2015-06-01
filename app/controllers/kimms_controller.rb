@@ -7,7 +7,7 @@ class KimmsController < ApplicationController
 	end
 
 	def kim_approval
-		@kims = Kimm.order("admin_approval ASC").page(params[:page])
+		@kims = Kimm.where("admin_approval IS NULL and message IS NULL").order("admin_approval ASC").page(params[:page])
 		authorize! :kim_approval, current_user
 	end
 

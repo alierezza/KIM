@@ -6,6 +6,66 @@ ini halaman KIM
 
 
 
+
+STATUS KIM
+<table border=1>
+<thead>
+	<th>Status Admin</th>
+	<th>Status Crew</th>
+	<th>Download KIM</th>
+	<th>Expired Date</th>
+	<th>Notification</th>
+	<th>No Polisi</th>
+	<!-- <Th colspan=2></th> -->
+</thead>
+<tbody>
+	<% @kims.where("message IS NULL").each_with_index do |kim| %>
+		<tr>
+	
+			<td><%= kim.admin_approval==nil ? "Waiting.." : kim.admin_approval==true ? "Approved" : "Rejected" %></td>
+			<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved" : "Rejected" %></td>
+			<td>
+				<% begin %>
+					<% if kim.admin_approval == true and kim.crew_approval == true and kim.expired_date >= Time.now %>
+						Print
+					<% elsif kim.expired_date < Time.now %>
+						-
+					<% end %>
+				<% rescue %>
+					-
+				<% end %>
+			</td>
+			<td><%= kim.expired_date == nil ? "-": kim.expired_date %></td>
+			<td>
+				<% begin %>
+				<% if kim.expired_date >= Time.now %>				
+					<% if kim.expired_date < Time.now + 1.month and kim.expired_date >= Time.now + 7.days %>
+						kuning
+					<% elsif kim.expired_date < Time.now + 7.days and kim.expired_date >= Time.now %>
+						oranye
+					<% else %>
+						hijau
+					<% end %>
+				<% else %>
+					Merah
+				<% end %>
+				<% rescue %>
+					-
+				<% end %>
+			</td>
+			<td><%= kim.no_polisi %></td>
+	<!-- 		<td><%#= link_to "Update", edit_kimm_path(kim) %></td>
+			<td><%#= link_to "Delete", kimm_path(kim), :method=>"DELETE" %></td> -->
+		</tr>
+	<% end %>
+</tbody>
+</table>
+
+
+
+
+
+
 Tabel data KIM yang dikembalikan oleh admin karena alasan tertentu..
 <table border=1>
 <thead>
@@ -39,52 +99,3 @@ Tabel data KIM yang dikembalikan oleh admin karena alasan tertentu..
 	<% end %>
 </tbody>
 </table>
-
-
-STATUS KIM
-<table border=1>
-<thead>
-	<th>Jenis KIM</th>
-	<th>Masa Berlaku SIM</th>
-	<th>Gambar SIM</th>
-	<th>Status Admin</th>
-	<th>Status Crew</th>
-	<th>Download KIM</th>
-	<th>Expired Date</th>
-	<th>Alert</th>
-	<!-- <Th colspan=2></th> -->
-</thead>
-<tbody>
-	<% @kims.where("message IS NULL").each_with_index do |kim| %>
-		<tr>
-			<td><%=  link_to kim.jenis_sim, kim %></td>
-			<td><%= kim.masa_berlaku_sim %></td>
-			<td><%= image_tag kim.sim.url(:medium) %></td>
-			<td><%= kim.admin_approval==nil ? "Waiting.." : kim.admin_approval==true ? "Approved" : "Rejected" %></td>
-			<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved" : "Rejected" %></td>
-			<td><% if kim.admin_approval == true and kim.crew_approval == true and kim.expired_date >= Time.now %>
-					Download
-				<% elsif kim.expired_date < Time.now %>
-					-
-				<% else %>
-					-
-				<% end %>
-			</td>
-			<td><%= kim.expired_date %></td>
-			<td>
-				<% if kim.expired_date != "" and kim.expired_date >= Time.now %>
-					<% if kim.expired_date <= Time.now + 1.month %>
-						Kurang dari 1 bln
-					<% end %>
-				<% else %>
-					Expired
-				<% end %>
-
-			</td>
-	<!-- 		<td><%#= link_to "Update", edit_kimm_path(kim) %></td>
-			<td><%#= link_to "Delete", kimm_path(kim), :method=>"DELETE" %></td> -->
-		</tr>
-	<% end %>
-</tbody>
-</table>
-

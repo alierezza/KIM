@@ -30,4 +30,9 @@ class Kimm < ActiveRecord::Base
   	has_attached_file :surat_permohonan, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   	validates_attachment_content_type :surat_permohonan, :content_type => /\Aimage\/.*\Z/
 
+    before_validation :uppercase_nopol
+
+    def uppercase_nopol
+      self.no_polisi.upcase!
+    end
 end
