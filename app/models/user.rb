@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 	end
 
 	has_many :kimms, :dependent => :destroy
-
+  has_many :lkps, :dependent => :destroy
 
 # 	def self.find_for_database_authentication(warden_conditions)
 # binding.pry
@@ -24,5 +24,13 @@ class User < ActiveRecord::Base
 #         #where(conditions.to_h).first
 #       end
 #     end
+
+  def self.weekly
+
+  end
+
+  def self.monthly
+
+  end
 	
 end

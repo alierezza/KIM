@@ -2,31 +2,137 @@
 
 <%= form_for(@feedback) do |f| %>
 
-1. Produk yang diperoleh dari Depot LPG Tanjung Perak memiliki kualitas yang baik atau bebas dari cacat (Product Quality)</br>
-	<%= f.radio_button :q1, 0, :checked => false %>
+    1. Produk yang diperoleh dari Depot LPG Tanjung Perak memiliki kualitas yang baik atau bebas dari cacat (Product Quality)</br>
+	<%= f.radio_button :q1, 10, :checked => false, :required=>true %>
 	<%= f.label "Sangat Setuju","Sangat Setuju" %>
-	<%= f.radio_button :q1, 0, :checked => false %>
+	<%= f.radio_button :q1, 7.5, :checked => false, :required=>true %>
     <%= f.label "Setuju", "Setuju" %>
-    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.radio_button :q1, 5, :checked => false, :required=>true %>
     <%= f.label "Netral", "Netral" %>
-    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.radio_button :q1, 2.5, :checked => false, :required=>true %>
     <%= f.label "Tidak Setuju", "Tidak Setuju" %>
-    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.radio_button :q1, 0, :checked => false, :required=>true %>
     <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
 	</br>
 
 	2. Depot LPG Tanjung Perak mengetahui kebutuhan anda (Needs)</br>
-	<%= f.radio_button :q1, 0, :checked => false %>
+	<%= f.radio_button :q2, 10, :checked => false, :required=>true %>
 	<%= f.label "Sangat Setuju","Sangat Setuju" %>
-	<%= f.radio_button :q1, 0, :checked => false %>
+	<%= f.radio_button :q2, 7.5, :checked => false, :required=>true %>
     <%= f.label "Setuju", "Setuju" %>
-    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.radio_button :q2, 5, :checked => false, :required=>true %>
     <%= f.label "Netral", "Netral" %>
-    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.radio_button :q2, 2.5, :checked => false, :required=>true %>
     <%= f.label "Tidak Setuju", "Tidak Setuju" %>
-    <%= f.radio_button :q1, 0, :checked => false %>
+    <%= f.radio_button :q2, 0, :checked => false, :required=>true %>
     <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
 	</br>
 
+    3. Respon atau jawaban Depot LPG Tanjung Perak terhadap pertanyaan atau saran dan masukan sudah baik (Response)</br>
+    <%= f.radio_button :q3, 10, :checked => false, :required=>true %>
+    <%= f.label "Sangat Setuju","Sangat Setuju" %>
+    <%= f.radio_button :q3, 7.5, :checked => false, :required=>true %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q3, 5, :checked => false, :required=>true %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q3, 2.5, :checked => false, :required=>true %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q3, 0, :checked => false, :required=>true %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+    </br>
+
+    4. Pekerja Depot LPG Tanjung Perak memiliki kompetensi yang memadai dalam pelayanan (Competency)</br>
+    <%= f.radio_button :q4, 10, :checked => false, :required=>true %>
+    <%= f.label "Sangat Setuju","Sangat Setuju" %>
+    <%= f.radio_button :q4, 7.5, :checked => false, :required=>true %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q4, 5, :checked => false, :required=>true %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q4, 2.5, :checked => false, :required=>true %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q4, 0, :checked => false, :required=>true %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+    </br>
+
+    5. Memiliki pengalaman pelayanan yang baik saat pembuatan KIM (Service Experience)</br>
+    <%= f.radio_button :q5, 10, :checked => false, :required=>true %>
+    <%= f.label "Sangat Setuju","Sangat Setuju" %>
+    <%= f.radio_button :q5, 7.5, :checked => false, :required=>true %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q5, 5, :checked => false, :required=>true %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q5, 2.5, :checked => false, :required=>true %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q5, 0, :checked => false, :required=>true %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+    </br>
+
+    6. Memiliki pengalaman pelayanan yang baik saat pembuatan Surat Perintah Angkut atau Surat Perintah Isi (Service Experience)</br>
+    <%= f.radio_button :q6, 10, :checked => false, :required=>true %>
+    <%= f.label "Sangat Setuju","Sangat Setuju" %>
+    <%= f.radio_button :q6, 7.5, :checked => false, :required=>true %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q6, 5, :checked => false, :required=>true %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q6, 2.5, :checked => false, :required=>true %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q6, 0, :checked => false, :required=>true %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+    </br>
+
+    7. Memiliki pengalaman pelayanan yang baik saat pengisian (Service Experience)</br>
+    <%= f.radio_button :q7, 10, :checked => false, :required=>true %>
+    <%= f.label "Sangat Setuju","Sangat Setuju" %>
+    <%= f.radio_button :q7, 7.5, :checked => false, :required=>true %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q7, 5, :checked => false, :required=>true %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q7, 2.5, :checked => false, :required=>true %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q7, 0, :checked => false, :required=>true %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+    </br>
+
+    8. Memiliki pengalaman pelayanan yang baik saat Good Issue (Service Experience)</br>
+    <%= f.radio_button :q8, 10, :checked => false, :required=>true %>
+    <%= f.label "Sangat Setuju","Sangat Setuju" %>
+    <%= f.radio_button :q8, 7.5, :checked => false, :required=>true %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q8, 5, :checked => false, :required=>true %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q8, 2.5, :checked => false, :required=>true %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q8, 0, :checked => false, :required=>true %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+    </br>
+
+
+    9. Secara umum pelayanan di Depot LPG Tanjung Perak sudah baik (Service Experience)</br>
+    <%= f.radio_button :q9, 10, :checked => false , :required=>true %>
+    <%= f.label "Sangat Setuju","Sangat Setuju" %>
+    <%= f.radio_button :q9, 7.5, :checked => false, :required=>true %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q9, 5, :checked => false, :required=>true %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q9, 2.5, :checked => false, :required=>true %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q9, 0, :checked => false, :required=>true %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+    </br>
+
+    10.Lingkungan Depot LPG Tanjung Perak tergolong bersih  (Housekeeping)</br>
+    <%= f.radio_button :q10, 10, :checked => false, :required=>true %>
+    <%= f.label "Sangat Setuju","Sangat Setuju" %>
+    <%= f.radio_button :q10, 7.5, :checked => false, :required=>true %>
+    <%= f.label "Setuju", "Setuju" %>
+    <%= f.radio_button :q10, 5, :checked => false, :required=>true %>
+    <%= f.label "Netral", "Netral" %>
+    <%= f.radio_button :q10, 2.5, :checked => false, :required=>true %>
+    <%= f.label "Tidak Setuju", "Tidak Setuju" %>
+    <%= f.radio_button :q10, 0, :checked => false, :required=>true %>
+    <%= f.label "Sangat Tidak Setuju", "Sangat Tidak Setuju" %>
+    </br>
+
+    <%= f.submit "Submit" %>
 
 <% end %>

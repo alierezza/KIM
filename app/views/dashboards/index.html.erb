@@ -15,9 +15,20 @@
 <% end %>
 
 <% if can? :create_feedback, current_user %>
-	<%= link_to "Feedback", new_feedback_path %>
+	<%= link_to "Create Feedback", new_feedback_path %>
 <% end %>
 
+<% if can? :view_feedback, current_user %>
+	<%= link_to "View Feedback", feedbacks_path %>
+<% end %>
+
+<% if can? :create_lkp, current_user %>
+	<%= link_to "Create LKP", new_lkp_path %>
+<% end %>
+
+<% if can? :view_lkp, current_user %>
+	<%= link_to "View LKP", lkps_path %>
+<% end %>
 
 <% if can? :create_admin, current_user %>
 	<%= link_to "Admin", admins_path %>

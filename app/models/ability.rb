@@ -12,6 +12,7 @@ class Ability
         can :destroy_kim, User, :id => user.id
 
         can :create_feedback, User
+        can :create_lkp, User
 
 
     elsif user.role == "Admin"
@@ -20,6 +21,8 @@ class Ability
 
         can :user_approval, User
         can :kim_approval, User
+        can :view_lkp, User
+        can :view_feedback, User
 
 
     elsif user.role == "SuperAdmin"

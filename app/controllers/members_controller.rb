@@ -31,7 +31,7 @@ class MembersController < ApplicationController
 			else
 				@user.destroy
 				flash[:alert] = "User has been Rejected"
-				redirect_to dashboards_path
+				redirect_to members_path
 			end
 		end
 		

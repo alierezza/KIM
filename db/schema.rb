@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531165654) do
+ActiveRecord::Schema.define(version: 20150601025905) do
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,18 +19,18 @@ ActiveRecord::Schema.define(version: 20150531165654) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.integer  "q1",         limit: 4
-    t.integer  "q2",         limit: 4
-    t.integer  "q3",         limit: 4
-    t.integer  "q4",         limit: 4
-    t.integer  "q5",         limit: 4
-    t.integer  "q6",         limit: 4
-    t.integer  "q7",         limit: 4
-    t.integer  "q8",         limit: 4
-    t.integer  "q9",         limit: 4
-    t.integer  "q10",        limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.float    "q1",         limit: 24, default: 0.0
+    t.float    "q2",         limit: 24, default: 0.0
+    t.float    "q3",         limit: 24, default: 0.0
+    t.float    "q4",         limit: 24, default: 0.0
+    t.float    "q5",         limit: 24, default: 0.0
+    t.float    "q6",         limit: 24, default: 0.0
+    t.float    "q7",         limit: 24, default: 0.0
+    t.float    "q8",         limit: 24, default: 0.0
+    t.float    "q9",         limit: 24, default: 0.0
+    t.float    "q10",        limit: 24, default: 0.0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "homepages", force: :cascade do |t|
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150531165654) do
     t.string   "admin_approved_by",             limit: 255
     t.string   "crew_approved_by",              limit: 255
     t.string   "no_registrasi",                 limit: 255
+    t.datetime "expired_date"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "sim_file_name",                 limit: 255
@@ -80,6 +81,23 @@ ActiveRecord::Schema.define(version: 20150531165654) do
     t.string   "surat_permohonan_content_type", limit: 255
     t.integer  "surat_permohonan_file_size",    limit: 4
     t.datetime "surat_permohonan_updated_at"
+  end
+
+  create_table "lkps", force: :cascade do |t|
+    t.integer  "user_id",              limit: 4
+    t.datetime "tanggal_kejadian"
+    t.string   "jam_kejadian",         limit: 255
+    t.string   "lokasi_kejadian",      limit: 255
+    t.string   "bentuk_kejadian",      limit: 255
+    t.text     "kronologis",           limit: 65535
+    t.text     "sebab_kecelakaan",     limit: 65535
+    t.integer  "korban",               limit: 4
+    t.integer  "kerugian_materi",      limit: 4
+    t.string   "gangguan_operasi",     limit: 255
+    t.text     "upaya_penanggulangan", limit: 65535
+    t.text     "saran_pencegahan",     limit: 65535
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "users", force: :cascade do |t|
