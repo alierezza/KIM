@@ -27,12 +27,11 @@ class MembersController < ApplicationController
 			if params[:status] == "true"
 				UserMailer.user_approved(@user).deliver
 				flash[:notice] = "User has been approved"
-				redirect_to members_path
 			else
 				@user.destroy
 				flash[:alert] = "User has been Rejected"
-				redirect_to members_path
 			end
+			redirect_to members_path
 		end
 		
 		authorize! :user_approval, @user

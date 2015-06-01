@@ -45,6 +45,9 @@ class KimmsController < ApplicationController
 			@kim.admin_approval = true
 			@kim.message = nil
 			@kim.admin_approved_by = current_user.nama
+
+			expired = [@kim.masa_berlaku_sim , @kim.masa_berlaku_stnk, @kim.masa_berlaku_kir, @kim.masa_berlaku_tera].min 
+			@kim.expired_date = expired
 			@kim.save
 			flash[:notice] = "KIM has been approved"
 			redirect_to kim_approval_path
