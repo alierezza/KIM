@@ -1,0 +1,18 @@
+Halo
+
+<% if @status == "Mingguan" %>
+	berikut data log nya (<%  (Time.now.to_date - 7.days).strftime("%d-%B-%Y").to_s + " s/d " + (Time.now.to_date - 1.day).strftime("%d-%B-%Y").to_s %>):<br>
+
+<% else %>
+	Berikut data log nya bulan <%= (Time.now.to_date - 1.month).strftime("%B %Y") %> :<br>
+<% end %>
+
+jumlah anggota baru: <%= @data["jumlah_anggota_baru"] %><br>
+jumlah pendaftar kim: <%= @data["jumlah_pendaftar_kim"] %><br>
+jumlah kim yang disetujui: <%= @data["jumlah_kim_yang_disetujui"] %><br>
+jumlah kim yang ditolak: <%= @data["jumlah_kim_yang_ditolak"] %><br>
+jumlah lkp: <%= @data["jumlah_lkp"] %><br><br>
+jumlah kim habis masa berlaku: <%= @data["jumlah_kim_habis_masa_berlaku"] %><br>
+jumlah kim yang menunggu persetujuan: <%= @data["jumlah_kim_yang_menunggu_persetujuan"] %><br><br>
+
+Terimakasih.

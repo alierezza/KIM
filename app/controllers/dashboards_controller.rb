@@ -2,7 +2,12 @@ class DashboardsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index 
-		
+		#user
+		@kims = User.find(current_user).kimms.page(params[:page])
+	
+		#crew
+		@kims = Kimm.where("crew_approval IS NULL").page(params[:id])
+
 	end
 
 	def show
@@ -11,6 +16,8 @@ class DashboardsController < ApplicationController
 
 	def new
 		@kims = Kimm.where("crew_approval IS NULL").page(params[:id])
+		
+		authorize! :kim_approval_by_crew, current_user
 	end
 
 	def create
@@ -27,15 +34,34 @@ class DashboardsController < ApplicationController
 		elsif params[:status] == "reject"
 			@kim.crew_approval = false
 			@kim.admin_approval = false
+			@kim.message = nil
 			@kim.save
 			flash[:alert] = "KIM has been rejected"
 		end
 		redirect_to new_dashboard_path
+		authorize! :kim_approval_by_crew, current_user
+	end
 
+	def edit_info
+		@user = User.find(params[:id])
+		authorize! :edit_info, @user
 	end
 
 	def update
+		@user = User.find(params[:id])
 
+		respond_to do |format|
+	      if @user.update(params_user)
+	        format.html { redirect_to dashboards_path, notice: 'User Info has been updated'}
+	        format.json { render action: 'new', status: :created, location: @user }
+	      else
+	        flash.now.alert = @user.errors.full_messages.to_sentence
+	        format.html { render action: "new" }
+	        format.json { render json: @user.errors, status: :unprocessable_entity }
+	      end
+	    end
+
+		authorize! :edit_info, @user
 	end
 
 	def destroy
@@ -43,4 +69,7 @@ class DashboardsController < ApplicationController
 	end
 
 private
+	def params_user
+		params.require(:user).permit!
+	end
 end

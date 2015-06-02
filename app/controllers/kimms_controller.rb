@@ -13,6 +13,13 @@ class KimmsController < ApplicationController
 
 	def show
 		@kim = Kimm.find(params[:id])
+
+		#resend email
+		if params[:status] == "email"
+			UserMailer.delay.no_registration_kim(@kim.user,@kim)
+			flash[:notice] = "Email has been sent"
+			redirect_to kimms_path
+		end
 		authorize! :show_kim, @kim.user
 	end
 
@@ -27,7 +34,7 @@ class KimmsController < ApplicationController
 		@kim = User.find(current_user).kimms.new(params_kim)
 		respond_to do |format|
 	      if @kim.save
-	      	UserMailer.no_registration_kim(current_user).deliver
+	      	UserMailer.delay.no_registration_kim(current_user,@kim)
 	        format.html { redirect_to kimms_path, notice: 'Kim has been added'}
 	        format.json { render action: 'new', status: :created, location: @kim }
 	      else
@@ -53,6 +60,7 @@ class KimmsController < ApplicationController
 			redirect_to kim_approval_path
 		elsif params[:status] == "reject"
 			@kim.admin_approval = false
+			@kim.crew_approval = false
 			@kim.message = nil
 			@kim.save
 			flash[:alert] = "KIM has been rejected"
@@ -85,7 +93,9 @@ class KimmsController < ApplicationController
 	end
 
 	def destroy
-
+		@kim = Kimm.find(params[:id])
+		@kim.destroyflash[:alert] = "KIM has been deleted"
+		redirect_to kimms_path
 		authorize! :destroy_kim, current_user
 	end
 

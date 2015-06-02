@@ -1,9 +1,4 @@
-<%= link_to "Back", kimms_path %></br>
-
-<% if @kim.message != nil %>
-	Message / Reason rejected:
-	<%= @kim.message %></br>
-<% end %>
+<%= link_to "Back", dasboars_path %></br>
 
 Jenis KIM:
 <%= @kim.jenis_sim %></br>
@@ -21,7 +16,7 @@ Masa berlaku STNK:
 Masa berlaku KIR:
 <%= @kim.masa_berlaku_kir %></br>
 <%= image_tag @kim.kir.url(:medium) %></br>
-<%= link_to "Download STNK", download_path(@kim.stnk_file_name,@kim.id, :status=>"kir") %></br>
+<%= link_to "Download KIR", download_path(@kim.stnk_file_name,@kim.id, :status=>"kir") %></br>
 
 Masa berlaku TERA:
 <%= @kim.masa_berlaku_tera %></br>
@@ -43,4 +38,4 @@ Tipe:
 <%= @kim.tipe %></br>
 
 Kapasitas Tangki:
-<%= @kim.kapasitas_tangki %></br>
+<%= @kim.kapasitas_tangki %> Liter</br>

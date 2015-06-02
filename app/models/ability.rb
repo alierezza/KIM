@@ -13,6 +13,7 @@ class Ability
 
         can :create_feedback, User
         can :create_lkp, User
+        can :edit_info, User, :id => user.id
 
 
     elsif user.role == "Admin"
@@ -24,15 +25,21 @@ class Ability
         can :view_lkp, User
         can :view_feedback, User
 
+        can :edit_info, User, :id => user.id
+
 
     elsif user.role == "SuperAdmin"
         can :create_admin, User
         can :create_crew, User
 
+        can :edit_info, User, :id => user.id
+
 
     elsif user.role == "Crew"
 
-        can :user_approval_by_crew, User
+        can :kim_approval_by_crew, User
+
+        can :edit_info, User, :id => user.id
 
 
     end

@@ -38,6 +38,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'cancancan'
   gem "whenever"
   gem "paperclip", "~> 4.2"
+  gem 'delayed_job_active_record'
+  gem 'daemons'
+  gem 'devise-async'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   
 
   get "prasyarat/" => "homepages#prasyarat", :as => :prasyarat
-
+  get "edit_info/:id" => "dashboards#edit_info", :as => :edit_info
   get "kim_approval/" => "kimms#kim_approval", :as => :kim_approval
   get "download/:id/kim/:id2" => "kimms#download", :as => :download, constraints: { id: /[^\/]+/, id2: /[^\/]+/ }
 end

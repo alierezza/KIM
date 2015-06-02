@@ -4,38 +4,34 @@ ini halaman KIM APPROVAL
 
 <table border=1>
 <thead>
-	<th>Jenis KIM</th>
+	<th>Jenis SIM</th>
 	<th>Masa Berlaku SIM</th>
-	<th>Gambar SIM</th>
-	<th>Status Admin</th>
-	<th>Status Crew</th>
-	<Th colspan=3></th>
+	<th>Masa Berlaku STNK</th>
+	<th>Masa Berlaku KIR</th>
+	<th>Masa Berlaku TERA</th>
+	<th>KTP</th>
+	<th>Surat Permohonan</th>
+	<th>No Polisi</th>
+	<th>Tipe</th>
+	<th>Kapasitas</th>
+	<Th colspan=3>Status</th>
 </thead>
 <tbody>
 	<% @kims.each_with_index do |kim| %>
 		<tr>
-			<td><%=  link_to kim.jenis_sim, kim %></td>
-			<td><%= kim.masa_berlaku_sim %></td>
-			<td><%= image_tag kim.sim.url(:medium) %></td>
-			<td><% if kim.admin_approval==nil and kim.message==nil %>
-					<%= "Waiting.." %>
-				<% elsif kim.message != nil %>
-					<%= "Rollback" %>
-				<% elsif kim.admin_approval == true %>
-					<%= "Approved" %>
-				<% else %>
-					<%= "Rejected" %>
-				<% end %></td>
-			<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved" : "Rejected" %></td>
-			<% if kim.admin_approval == nil %>
-				<td><%= link_to "Approve", edit_kimm_path(kim, :status=>"approve") %></td>
-				<td><%= link_to "Rollback", edit_kimm_path(kim,:status=>"rollback", :message=>"asdasdasdasd") %></td>
-				<td><%= link_to "Reject", edit_kimm_path(kim, :status=>"reject") %></td>
-			<% else %>
-				<td></td>
-				<td></td>
-				<td></td>
-			<% end %>
+			<td><%= link_to kim.jenis_sim, kim %></td>
+			<td><%= kim.masa_berlaku_sim.strftime("%d-%m-%Y") %></br><%= link_to "Download SIM", download_path(kim.stnk_file_name,kim.id, :status=>"sim") %></td>
+			<td><%= kim.masa_berlaku_stnk.strftime("%d-%m-%Y") %></br><%= link_to "Download STNK", download_path(kim.stnk_file_name,kim.id, :status=>"stnk") %></td>
+			<td><%= kim.masa_berlaku_kir.strftime("%d-%m-%Y") %></br><%= link_to "Download KIR", download_path(kim.stnk_file_name,kim.id, :status=>"kir") %></td>
+			<td><%= kim.masa_berlaku_tera.strftime("%d-%m-%Y") %></br><%= link_to "Download TERA", download_path(kim.tera_file_name,kim.id, :status=>"tera") %></td>
+			<td><%= link_to "Download KTP", download_path(kim.ktp_file_name,kim.id, :status=>"ktp") %></td>
+			<td><%= link_to "Download", download_path(kim.surat_permohonan_file_name,kim.id, :status=>"surat permohonan") %></td>
+			<td><%= kim.no_polisi %></td>
+			<td><%= kim.tipe %></td>
+			<td><%= kim.kapasitas_tangki %> Liter</td>
+			<td><%= link_to "Approve", edit_kimm_path(kim, :status=>"approve") %></td>
+			<td><%= link_to "Rollback", edit_kimm_path(kim,:status=>"rollback", :message=>"asdasdasdasd") %></td>
+			<td><%= link_to "Reject", edit_kimm_path(kim, :status=>"reject") %></td>
 		</tr>
 	<% end %>
 </tbody>

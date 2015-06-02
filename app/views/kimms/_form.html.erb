@@ -1,5 +1,11 @@
 <%= form_for(@kim) do |f| %>
 
+    <% if @kim.message != nil %>
+        Alasan di Rollback:
+        <%= @kim.message %></br></br>
+    <% end %>
+
+
 	<%= f.label "Jenis SIM","Jenis SIM" %>
 	<%= f.radio_button :jenis_sim, "B1", :checked => true %>
     <%= f.label "B1", "B1", :value => "true"  %>
@@ -10,7 +16,7 @@
     <%= f.date_field :masa_berlaku_sim, :required=>true %></br>
 
     <%= f.label "Upload SIM" %>
-    <%= f.file_field :sim, :required=>true %></br>
+    <%= f.file_field :sim %></br>
     <% if params[:action] == "update" or params[:action] == "edit" %>
         <%= image_tag @kim.sim.url(:medium) %>
     <% end %></br>
@@ -19,7 +25,7 @@
     <%= f.date_field :masa_berlaku_stnk, :required=>true %></br>
 
     <%= f.label "Upload stnk" %>
-    <%= f.file_field :stnk, :required=>true %></br>
+    <%= f.file_field :stnk %></br>
     <% if params[:action] == "update" or params[:action] == "edit" %>
         <%= image_tag @kim.stnk.url(:medium) %>
     <% end %></br>
@@ -28,7 +34,7 @@
     <%= f.date_field :masa_berlaku_kir, :required=>true %></br>
 
     <%= f.label "Upload KIR" %>
-    <%= f.file_field :kir, :required=>true %></br>
+    <%= f.file_field :kir %></br>
     <% if params[:action] == "update" or params[:action] == "edit" %>
         <%= image_tag @kim.kir.url(:medium) %>
     <% end %></br>
@@ -37,19 +43,19 @@
     <%= f.date_field :masa_berlaku_tera, :required=>true %></br>
 
     <%= f.label "Upload TERA" %>
-    <%= f.file_field :tera, :required=>true %></br>
+    <%= f.file_field :tera %></br>
     <% if params[:action] == "update" or params[:action] == "edit" %>
         <%= image_tag @kim.tera.url(:medium) %>
     <% end %></br>
 
     <%= f.label "Upload KTP" %>
-    <%= f.file_field :ktp, :required=>true %></br>
+    <%= f.file_field :ktp %></br>
     <% if params[:action] == "update" or params[:action] == "edit" %>
         <%= image_tag @kim.ktp.url(:medium) %>
     <% end %></br>
 
     <%= f.label "Upload Surat Permohonan" %>
-    <%= f.file_field :surat_permohonan, :required=>true %></br>
+    <%= f.file_field :surat_permohonan %></br>
     <% if params[:action] == "update" or params[:action] == "edit" %>
         <%= image_tag @kim.surat_permohonan.url(:medium) %>
     <% end %></br>
@@ -66,7 +72,7 @@
     <%= f.label "Truck Tabung 12KG", "Truck Tabung 12KG", :value => "false" %></br>
 
     <%= f.label "Kapasitas Tangki" %>
-    <%= f.number_field :kapasitas_tangki, :required=>true %></br>
+    <%= f.number_field :kapasitas_tangki, :required=>true, :min=>1 %></br>
 
 
 

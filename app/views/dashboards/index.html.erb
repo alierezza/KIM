@@ -2,16 +2,18 @@
 
 <%= link_to "Homepage", homepages_path %>
 
-<% if can? :create_kim, current_user %>
-	<%= link_to "KIM", kimms_path %>
+<% if can? :edit_info, current_user %>
+	<%= link_to "Edit Info", edit_info_path(current_user.id) %>
 <% end %>
 
+
+
 <% if can? :user_approval, current_user %>
-	<%= link_to "User Approval (admin)", members_path %>
+	<%= link_to "User Approval", members_path %>
 <% end %>
 
 <% if can? :kim_approval, current_user %>
-	<%= link_to "KIM Approval", kim_approval_path %>
+	<%= link_to "KIM Approval (by Admin)", kim_approval_path %>
 <% end %>
 
 <% if can? :create_feedback, current_user %>
@@ -38,25 +40,24 @@
 	<%= link_to "Crew", crews_path %>
 <% end %>
 
-<% if can? :user_approval_by_crew, current_user %>
-	<%= link_to "User Approval (crew)", new_dashboard_path %>
+
+<% if can? :create_kim, current_user %>
+	<%= link_to "Create KIM", kimms_path %>
 <% end %>
+
+<% if can? :kim_approval_by_crew, current_user %>
+	<%= link_to "KIM Approval (by Crew)", new_dashboard_path %>
+<% end %>
+
+
 
 <%= link_to "Change password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete %>
 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
 
 
+<br>
+Profile Picture:
+<%= image_tag current_user.photo.url(:medium) %>
 
+<br><br>
 
-<!-- PANEL USER -->
-<%#= link_to "Add KIM",  %>
-
-
-<!-- PANEL ADMIN -->
-<%#= link_to "Approve KIM",  %>
-
-
-<!-- PANEL SUPERADMIN -->
-
-
-<!-- PANEL CREW -->

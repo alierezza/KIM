@@ -1,0 +1,32 @@
+<%= link_to "back", dashboards_path %>
+
+<%= form_for(@user, url: dashboard_path(@user), :method=>"PUT") do |f| %>
+
+<%= f.label "Nama" %>
+<%= f.text_field :nama, :readonly=>true %></br>
+
+<%= f.label "Email for Login" %>
+<%= f.text_field :email, :readonly=>true %></br>
+
+<%= f.label "Email Recovery" %>
+<%= f.text_field :email_recovery, :required=>true %></br>
+
+<%= f.label "Alamat" %>
+<%= f.text_area :alamat, :required=>true %></br>
+
+<%= f.label "Telp" %>
+<%= f.number_field :telp, :required=>true %></br>
+
+<%= f.label "Fax" %>
+<%= f.number_field :fax %></br>
+
+<%= f.label "Profile Picture" %>
+<%= f.file_field :photo %></br>
+
+<%= f.label "Profile picture sekarang" %>
+<%= image_tag @user.photo.url(:medium) %></br>
+
+
+<%=f.submit "Save" %>
+
+<% end %>

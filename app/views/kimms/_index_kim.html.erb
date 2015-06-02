@@ -1,0 +1,78 @@
+
+STATUS KIM
+<table border=1>
+<thead>
+	<th>No.</th>
+	<th>Admin</th>
+	<th>Crew</th>
+	<th>Download KIM</th>
+	<th>Expired Date</th>
+	<th>Alert</th>
+	<th>No Polisi</th>
+	<Th colspan=2>Action</th>
+</thead>
+<tbody>
+	<% @kims.each_with_index do |kim,index| %>
+		<tr>
+			<td><%= index+1 %></td>
+			<td>
+				<% if kim.admin_approval==nil and kim.message==nil %>
+					<%= "Waiting.." %>
+				<% else %>
+					<% if kim.message != nil %>
+						<%= "Rollback" %>
+					<% else %>
+						<% if kim.admin_approval == true %>
+						 	<%= "Approved by #{kim.admin_approved_by}" %>
+						<% else %>
+							<%= "Rejected" %>
+						<% end %>
+					<% end %>
+				<% end %>
+			</td>
+			<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved by #{kim.crew_approved_by}" : "Rejected" %></td>
+			
+			<td>
+				<% begin %>
+					<% if kim.admin_approval == true and kim.crew_approval == true and kim.expired_date.to_date >= Time.now.to_date %>
+						Print
+					<% elsif kim.expired_date.to_date < Time.now.to_date %>
+						-
+					<% end %>
+				<% rescue %>
+					-
+				<% end %>
+			</td>
+			<td><%= kim.expired_date == nil ? "-": kim.expired_date.strftime("%d-%m-%Y") %></td>
+			<td>
+				<% begin %>
+				<% if kim.expired_date.to_date >= Time.now.to_date %>				
+					<% if kim.expired_date.to_date < Time.now.to_date + 1.month and kim.expired_date.to_date >= Time.now.to_date + 7.days %>
+						kuning
+					<% elsif kim.expired_date.to_date < Time.now.to_date + 7.days and kim.expired_date.to_date >= Time.now.to_date %>
+						oranye
+					<% else %>
+						hijau
+					<% end %>
+				<% else %>
+					Merah
+				<% end %>
+				<% rescue %>
+					-
+				<% end %>
+			</td>
+			<td><%= kim.no_polisi %></td>
+			<td>
+				<% if kim.message == nil %>
+					<%= link_to "Detail", kimm_path(kim) %>
+				<% else %>
+					<%= link_to "Update", edit_kimm_path(kim) %>
+				<% end %>
+			</td>
+			<td><%= link_to "re-send no registrasi", kimm_path(kim,:status=>"email") %></td>
+		</tr>
+	<% end %>
+</tbody>
+</table>
+
+<%= paginate @kims %>

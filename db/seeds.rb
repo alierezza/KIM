@@ -9,4 +9,4 @@
 
 # seed buat SUPERADMIN
 
-User.create!(:email=>"superadmin@yahoo.com", :password=>"1234567", :password_confirmation=>"1234567", :email_recovery=>"hendranatas@yahoo.com", :role=>"SuperAdmin", :admin_approval=>true, :created_by => "SuperAdmin")
+User.create!(:email=>"superadmin@yahoo.com", :password=>"1234567", :password_confirmation=>"1234567", :email_recovery=>"hendranatas@yahoo.com", :role=>"SuperAdmin", :admin_approval=>true, :created_by => "SuperAdmin", :nama=>"SuperAdmin")

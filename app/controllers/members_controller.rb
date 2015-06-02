@@ -25,7 +25,7 @@ class MembersController < ApplicationController
 			@user.approved_by = current_user.nama
 			@user.save
 			if params[:status] == "true"
-				UserMailer.user_approved(@user).deliver
+				UserMailer.delay.user_approved(@user)
 				flash[:notice] = "User has been approved"
 			else
 				@user.destroy
