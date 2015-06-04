@@ -9,11 +9,11 @@
 
 
 <% if can? :user_approval, current_user %>
-	<%= link_to "User Approval", members_path %>
+	<%= link_to "Member", members_path %>
 <% end %>
 
 <% if can? :kim_approval, current_user %>
-	<%= link_to "KIM Approval (by Admin)", kim_approval_path %>
+	<%= link_to "KIM", kim_approval_path, :remote=>true %>
 <% end %>
 
 <% if can? :create_feedback, current_user %>
@@ -21,7 +21,7 @@
 <% end %>
 
 <% if can? :view_feedback, current_user %>
-	<%= link_to "View Feedback", feedbacks_path %>
+	<%= link_to "Survei", feedbacks_path, :remote=>true %>
 <% end %>
 
 <% if can? :create_lkp, current_user %>
@@ -29,7 +29,7 @@
 <% end %>
 
 <% if can? :view_lkp, current_user %>
-	<%= link_to "View LKP", lkps_path %>
+	<%= link_to "LKP", lkps_path %>
 <% end %>
 
 <% if can? :create_admin, current_user %>
@@ -60,4 +60,7 @@ Profile Picture:
 <%= image_tag current_user.photo.url(:medium) %>
 
 <br><br>
+
+<div id="content">
+</div>
 

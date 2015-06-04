@@ -2,7 +2,7 @@ class MembersController < ApplicationController
 	before_action :authenticate_user!
 	
 	def index 
-		@users = User.where("role=?  and admin_approval=?","User",false).all
+		@users = User.where("role=? ","User").order("admin_approval ASC").all
 		authorize! :user_approval, current_user
 	end
 
