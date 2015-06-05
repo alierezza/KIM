@@ -20,7 +20,7 @@
 		<% end %>
 
 		<% if can? :kim_approval, current_user %>
-		<%= link_to "KIM", kim_approval_path, class: "btn btn-default" %>
+		<%= link_to "KIM", kim_approval_path, class: "btn btn-default", :remote=>true %>
 		<% end %>
 
 		<% if can? :create_feedback, current_user %>
@@ -28,7 +28,7 @@
 		<% end %>
 
 		<% if can? :view_feedback, current_user %>
-		<%= link_to "Survei", feedbacks_path, class: "btn btn-default" %>
+		<%= link_to "Survei", feedbacks_path, class: "btn btn-default", :remote=>true %>
 		<% end %>
 
 		<% if can? :create_lkp, current_user %>
