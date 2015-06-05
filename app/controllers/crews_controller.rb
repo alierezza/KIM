@@ -17,7 +17,7 @@ class CrewsController < ApplicationController
 		@crew = User.new(params_crew)
 		respond_to do |format|
 	      if @crew.save
-	        format.html { redirect_to crews_path, notice: 'Crew has been added'}
+	        format.html { redirect_to dashboards_path(:page=>"crew"), notice: 'Crew has been added'}
 	        format.json { render action: 'new', status: :created, location: @crew }
 	      else
 	        flash.now.alert = @crew.errors.full_messages.to_sentence
@@ -35,7 +35,7 @@ class CrewsController < ApplicationController
 		@crew = User.find(params[:id])
 		respond_to do |format|
 	      if @crew.update(params_crew)
-	        format.html { redirect_to crews_path, notice: 'Crew has been updated'}
+	        format.html { redirect_to dashboards_path(:page=>"crew"), notice: 'Crew has been updated'}
 	        format.json { render action: 'new', status: :created, location: @crew }
 	      else
 	        flash.now.alert = @crew.errors.full_messages.to_sentence
@@ -49,7 +49,7 @@ class CrewsController < ApplicationController
 		@crew = User.find(params[:id])
 		@crew.destroy
 		flash[:notice] = "Crew has been deleted"
-		redirect_to crews_path
+		redirect_to dashboards_path(:page=>"crew")
 	end
 
 private

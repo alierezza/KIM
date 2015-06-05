@@ -19,7 +19,7 @@ class AdminsController < ApplicationController
 		@admin = User.new(params_admin)
 		respond_to do |format|
 	      if @admin.save
-	        format.html { redirect_to admins_path, notice: 'Admin has been added'}
+	        format.html { redirect_to dashboards_path, notice: 'Admin has been added'}
 	        format.json { render action: 'new', status: :created, location: @admin }
 	      else
 	        flash.now.alert = @admin.errors.full_messages.to_sentence
@@ -37,7 +37,7 @@ class AdminsController < ApplicationController
 		@admin = User.find(params[:id])
 		respond_to do |format|
 	      if @admin.update(params_admin)
-	        format.html { redirect_to admins_path, notice: 'Admin has been updated'}
+	        format.html { redirect_to dashboards_path, notice: 'Admin has been updated'}
 	        format.json { render action: 'new', status: :created, location: @admin }
 	      else
 	        flash.now.alert = @admin.errors.full_messages.to_sentence
@@ -51,7 +51,7 @@ class AdminsController < ApplicationController
 		@admin = User.find(params[:id])
 		@admin.destroy
 		flash[:notice] = "Admin has been deleted"
-		redirect_to admins_path
+		redirect_to dashboards_path
 	end
 
 private

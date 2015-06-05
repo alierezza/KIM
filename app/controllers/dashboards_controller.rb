@@ -15,7 +15,7 @@ class DashboardsController < ApplicationController
 	end
 
 	def new
-		@kims = Kimm.where("crew_approval IS NULL").page(params[:id])
+		@kims = Kimm.where("crew_approval IS NULL").search(params[:search]).page(params[:page])
 		
 		authorize! :kim_approval_by_crew, current_user
 	end

@@ -1,31 +1,194 @@
-ini halaman homepage yang berisi slider, dll.. (halaman awal)...
+<div class="container">
+	<div class="wrapper">
+		<ul id="sb-slider" class="sb-slider">
+			<li>
+				<%= image_tag "1.jpg" %>
+
+				<div class="sb-description">
+					<h3>Creative Lifesaver</h3>
+				</div>
+			</li>
+			<li>.
+				<%= image_tag "2.jpg" %>
+				<div class="sb-description">
+					<h3>Honest Entertainer</h3>
+				</div>
+			</li>
+			<li>
+				<%= image_tag "3.jpg" %>
+				<div class="sb-description">
+					<h3>Brave Astronaut</h3>
+				</div>
+			</li>
+			<li>
+				<%= image_tag "4.jpg" %>
+				<div class="sb-description">
+					<h3>Affectionate Decision Maker</h3>
+				</div>
+			</li>
+			<li>
+				<%= image_tag "5.jpg" %>
+				<div class="sb-description">
+					<h3>Faithful Investor</h3>
+				</div>
+			</li>
+			<li>
+				<%= image_tag "6.jpg" %>
+				<div class="sb-description">
+					<h3>Groundbreaking Artist</h3>
+				</div>
+			</li>
+			<li>
+				<%= image_tag "7.jpg" %>
+				<div class="sb-description">
+					<h3>Selfless Philantropist</h3>
+				</div>
+			</li>
+		</ul>
+
+		<div id="shadow" class="shadow"></div>
+
+		<div id="nav-arrows" class="nav-arrows">
+			<a href="#">Next</a>
+			<a href="#">Previous</a>
+		</div>
+
+	</div><!-- /wrapper -->
+</div>
+
+<div class='mid_wrapper row'>
+	<div class='col-md-12'>
+		<div class='col-md-8' style="border: solid 1px #ccc;">
+			asdasd
+		</div>
+
+		<div class='login_side col-md-4' style="border: solid 1px #ccc; height: 240px;">
+			<% if !user_signed_in? %>
+		<%= form_for(:user, :url => session_path(:user)) do |f| %>
+			<div class="form-group">
+				<%= f.label :email, class: 'control-label' %>
+				<%= f.email_field :email, autofocus: true, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= f.label :password, class: 'control-label' %>
+				<%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= f.check_box :remember_me %>
+				<%= f.label :remember_me %>
+			</div>
+			<div class='pull-left'>
+				<%= link_to "Forgot your password?", new_password_path(:user) %>
+				<%= link_to new_register_path, class: 'btn btn-default' do %>New Member<% end %>
+			</div>
+			<div class='pull-right'>
+				<%= f.submit "Log in", class: 'btn btn-primary' %>
+			</div>
+			<% end %>
 
 
-<% if user_signed_in? %>
-</br>
-	<%= link_to "Panel", dashboards_path %>
-	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
-<% else %>
-	
-	<h2>Log in</h2>
-	  <%= form_for(:user, :url => session_path(:user)) do |f| %>
-	  <div class="field">
-	    <%= f.label "Email for login" %><br />
-	    <%= f.email_field :email, autofocus: true %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :password %><br />
-	    <%= f.password_field :password, autocomplete: "off" %>
-	  </div>
-	  <div class="field">
-	    <%= f.check_box :remember_me %>
-	    <%= f.label :remember_me %>
-	  </div>
-	  <div class="actions">
-	    <%= f.submit "Log in" %>
-	  </div>
-	<% end %>
+		<% end %>
+	</div>
+</div>
+</div>
 
-	<%= link_to "Forgot your password?", new_password_path(:user) %><br />
-	<%= link_to "Register new user", new_register_path %>
-<% end %>
+<div class='bot_wrapper row'>
+	<div class='col-md-7'>
+		<%= form_for(:user, :url => session_path(:user)) do |f| %>
+		<div class="form-group row">
+			<div class='col-md-6'>
+				<%= f.text_field :name, autofocus: true, class: 'form-control' %>
+			</div>
+			<div class='col-md-6'>
+				<%= f.email_field :email, class: 'form-control' %>
+			</div>
+
+		</div>
+		<div class="form-group">
+			<%= f.text_area :essay, autocomplete: "off",rows: 7, class: 'form-control' %>
+		</div>
+
+		<div class="pull-right">
+			<%= f.submit "Submit", class: 'btn btn-primary' %>
+		</div>
+		<% end %>
+	</div>
+	<div class='col-md-5 information'>
+		<div class='form-group'>
+			<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>jasdinasfa.com
+		</div>
+		<div class='form-group'>
+			<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>(031)- 983749823742
+		</div>
+		<div class='form-group'>
+			<span class='glyphicon glyphicon-map-marker' aria-hidden="true"></span>jalan surabaykjan jahsda
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+
+	var Page = (function() {
+
+		var $navArrows = $( '#nav-arrows' ).hide(),
+		$navOptions = $( '#nav-options' ).hide(),
+		$shadow = $( '#shadow' ).hide(),
+		slicebox = $( '#sb-slider' ).slicebox( {
+			onReady : function() {
+
+				$navArrows.show();
+				$navOptions.show();
+				$shadow.show();
+
+			},
+			orientation : 'h',
+			cuboidsCount : 3
+		} ),
+
+		init = function() {
+
+			initEvents();
+
+		},
+		initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+
+								slicebox.previous();
+								return false;
+
+							} );
+							slicebox.play();
+							$( '#navPlay' ).on( 'click', function() {
+
+								slicebox.play();
+								return false;
+
+							} );
+
+							$( '#navPause' ).on( 'click', function() {
+
+								slicebox.pause();
+								return false;
+
+							} );
+
+						};
+
+						return { init : init };
+
+					})();
+
+					Page.init();
+
+				});
+</script>

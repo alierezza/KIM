@@ -1,18 +1,17 @@
-Tabel menunjukan KIM yang belum di approve sama CREW
-<table border=1>
-<thead>
-	<th>No. Polisi</th>
-	<th>No. Registrasi</th>
-	<Th colspan=2></th>
-</thead>
-<tbody>
-	<% @kims.each_with_index do |kim| %>
-		<tr>
-			<td><%= kim.no_polisi %></td>
-			<td><%= kim.no_registrasi %></td>
-			<td><%= link_to "Approve", edit_dashboard_path(kim, :status=>"approve") %></td>
-			<td><%= link_to "Reject", edit_dashboard_path(kim, :status=>"reject") %></td>
-		</tr>
-	<% end %>
-</tbody>
-</table>
+<div class='inner-body'>
+	<div class='panel panel-default'>
+		
+		<%= form_tag new_dashboard_path,:method=>"GET", :remote=>true do %>
+			<%= label_tag "Search: " %>
+			<%= text_field_tag :search %>
+			<%= submit_tag "OK" %>
+		<% end %>
+
+		<div class='panel-heading'>
+			<h3 class="panel-title">Approval KIM by Crew</h3>
+		</div>
+		<div class='panel-body' id="kim">
+			<%= render "kim_approval_by_crew" %>
+		</div>
+	</div>
+</div>

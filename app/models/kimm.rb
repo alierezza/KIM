@@ -35,4 +35,19 @@ class Kimm < ActiveRecord::Base
     def uppercase_nopol
       self.no_polisi.upcase!
     end
+
+
+  def self.search(no_registration)
+  no_registration = no_registration ? no_registration.upcase : ""
+ 
+    query_adv_domain_name = " (upper(no_registrasi) LIKE '%#{no_registration}%' )"
+
+    if no_registration != ""
+      where("upper(no_registrasi) like ?", "%#{no_registration}%")
+    else
+      all
+    end
+  end
+
+  
 end

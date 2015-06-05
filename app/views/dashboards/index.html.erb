@@ -1,66 +1,35 @@
-<%= "Login as : #{current_user.email}, role : #{current_user.role}" %></br>
+<%= "Login as : #{current_user.email}, role : #{current_user.role}" %>
 
-<%= link_to "Homepage", homepages_path %>
 
-<% if can? :edit_info, current_user %>
-	<%= link_to "Edit Info", edit_info_path(current_user.id) %>
+
+<% if current_user.role == "User" %>
+	<script>
+		$.get("/kimms/", {}, null, "script");
+	</script>
+<% elsif current_user.role == "Admin" %>
+	<script>
+		$.get("/members/", {}, null, "script");
+	</script>
+
+
+
+<% elsif current_user.role == "Crew" %>
+	<script>
+		$.get("/dashboards/new/", {}, null, "script");
+	</script>
+
+
+
+<% elsif current_user.role == "SuperAdmin" %>
+	<% if params[:page] == "crew" %>
+		<script>
+			$.get("/crews/", {}, null, "script");
+		</script>
+	<% else %>
+		<script>
+			$.get("/admins/", {}, null, "script");
+		</script>
+	<% end %>
+
+
 <% end %>
-
-
-
-<% if can? :user_approval, current_user %>
-	<%= link_to "Member", members_path %>
-<% end %>
-
-<% if can? :kim_approval, current_user %>
-	<%= link_to "KIM", kim_approval_path, :remote=>true %>
-<% end %>
-
-<% if can? :create_feedback, current_user %>
-	<%= link_to "Create Feedback", new_feedback_path %>
-<% end %>
-
-<% if can? :view_feedback, current_user %>
-	<%= link_to "Survei", feedbacks_path, :remote=>true %>
-<% end %>
-
-<% if can? :create_lkp, current_user %>
-	<%= link_to "Create LKP", new_lkp_path %>
-<% end %>
-
-<% if can? :view_lkp, current_user %>
-	<%= link_to "LKP", lkps_path %>
-<% end %>
-
-<% if can? :create_admin, current_user %>
-	<%= link_to "Admin", admins_path %>
-<% end %>
-
-<% if can? :create_crew, current_user %>
-	<%= link_to "Crew", crews_path %>
-<% end %>
-
-
-<% if can? :create_kim, current_user %>
-	<%= link_to "Create KIM", kimms_path %>
-<% end %>
-
-<% if can? :kim_approval_by_crew, current_user %>
-	<%= link_to "KIM Approval (by Crew)", new_dashboard_path %>
-<% end %>
-
-
-
-<%= link_to "Change password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete %>
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
-
-
-<br>
-Profile Picture:
-<%= image_tag current_user.photo.url(:medium) %>
-
-<br><br>
-
-<div id="content">
-</div>
-
