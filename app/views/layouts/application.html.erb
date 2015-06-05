@@ -7,9 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+	  <script>
+    <% if notice %>
+    global_notif('<%= notice %>', "success")
+    <% end %>
+    <% if alert %>
+    global_notif('<%= alert %>', "danger")
+    <% end %>
+    </script>
+  <%= render 'layouts/menu' %>
 	<%= yield %>
-
+	<footer>
+		Copyright 2015
+	</footer>
 </body>
 </html>

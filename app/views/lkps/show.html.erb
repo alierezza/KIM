@@ -1,27 +1,42 @@
-<%= link_to "back", lkps_path %></br>
-
-Tanggal Kejadian:
-<%= @lkp.tanggal_kejadian %></br>
-
-jam Kejadian:
-<%= @lkp.jam_kejadian %></br>
-
-Lokasi Kejadian:
-<%= @lkp.lokasi_kejadian %></br>
-
-Bentuk Kejadian:
-<%= @lkp.bentuk_kejadian %></br>
-
-Kronologis:
-<%= @lkp.kronologis %></br>
-
-Sebab-sebab Kejadian:
-<%= @lkp.sebab_kecelakaan %></br>
-
-Akibat yang ditimbulkan</br>
-Korban: <%= @lkp.korban %></br>
-Kerugian Materi: <%= @lkp.kerugian_materi %></br>
-Gangguan Operasi: <%= @lkp.gangguan_operasi %></br></br>
-
-Upaya Pennggulangan: <%= @lkp.upaya_penanggulangan %></br>
-Saran Pencegahan: <%= @lkp.saran_pencegahan %>
+<div class='inner-body'>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+        <h3 class="panel-title">LKP Details</h3>
+    </div>
+    <div class='panel-body'>
+    	<%= link_to lkps_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
+    	<div class="row row_content">
+	        <div class="title_row">Tanggal Kejadian</div><div class="data_row"><%= @lkp.tanggal_kejadian %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">jam Kejadian</div><div class="data_row"><%= @lkp.jam_kejadian %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Lokasi Kejadian</div><div class="data_row"><%= @lkp.lokasi_kejadian %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Bentuk Kejadian:</div><div class="data_row"><%= @lkp.bentuk_kejadian %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Kronologis</div><div class="data_row"><%= @lkp.kronologis %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Sebab-sebab Kejadian</div><div class="data_row"><%= @lkp.sebab_kecelakaan %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Akibat yang ditimbulkan</div>
+	        <div class="data_row">
+	        	Korban: <%= @lkp.korban %></br>
+						Kerugian Materi: <%= @lkp.kerugian_materi %></br>
+						Gangguan Operasi: <%= @lkp.gangguan_operasi %></br>
+					</div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Upaya Pennggulangan</div><div class="data_row"><%= @lkp.upaya_penanggulangan %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Saran Pencegahan</div><div class="data_row"><%= @lkp.saran_pencegahan %></div>
+	      </div>
+    </div>
+  </div>
+</div>

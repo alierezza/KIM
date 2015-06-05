@@ -1,0 +1,22 @@
+<div class='page_header'>
+  <div class='logo'>
+    <%= image_tag "1.jpg", width: 175 %>
+  </div>
+  <div class='login_name pull-right'>
+    <% if user_signed_in? %>
+    <span class='glyphicon glyphicon-user'></span> <span class='login_user'>Hi, <spanclass='current_user'><%= current_user.nama %></span></span>
+    <% end %>
+  </div>
+  <div class='menu'>
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= link_to "Panel", dashboards_path %></li>
+      <% end %>
+      <li><%= link_to "Home", homepages_path %></li>
+      <li><a href='#'>Prasyarat</a></li>
+      <% if user_signed_in? %>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

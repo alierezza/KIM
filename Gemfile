@@ -31,8 +31,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-  gem "mysql2"
+  gem 'bootstrap-sass'
+  gem 'pg'
+  gem 'modernizr-rails'
+  # gem "mysql2"
   gem 'kaminari'
   gem 'devise'
   gem 'cancancan'

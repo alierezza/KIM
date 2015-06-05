@@ -10,7 +10,30 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 
+
 //= require jquery
+//= require modernizr
+//= require jquery.slicebox
+//= require moment.js
+//= require datetimepicker.js
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require bootstrap-growl.min
+// require_tree .
+function global_notif(textfield, types){
+  $.growl(textfield, { type: types, animate: {
+    enter: 'animated fadeInRight',
+    exit: 'animated fadeOutRight'
+    },
+      allow_dismiss: false
+  });
+}
+
+$(function(){
+	$(".date").datetimepicker({
+    pickTime: false,
+    format: "DD/MM/YYYY"
+  });
+  $(".datetime").datetimepicker({
+    pickDate: false
+  });
+})
