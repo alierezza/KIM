@@ -1,68 +1,72 @@
-<div class="container">
-	<div class="wrapper">
-		<ul id="sb-slider" class="sb-slider">
-			<li>
-				<%= image_tag "1.jpg" %>
 
-				<div class="sb-description">
-					<h3>Creative Lifesaver</h3>
-				</div>
-			</li>
-			<li>.
-				<%= image_tag "2.jpg" %>
-				<div class="sb-description">
-					<h3>Honest Entertainer</h3>
-				</div>
-			</li>
-			<li>
-				<%= image_tag "3.jpg" %>
-				<div class="sb-description">
-					<h3>Brave Astronaut</h3>
-				</div>
-			</li>
-			<li>
-				<%= image_tag "4.jpg" %>
-				<div class="sb-description">
-					<h3>Affectionate Decision Maker</h3>
-				</div>
-			</li>
-			<li>
-				<%= image_tag "5.jpg" %>
-				<div class="sb-description">
-					<h3>Faithful Investor</h3>
-				</div>
-			</li>
-			<li>
-				<%= image_tag "6.jpg" %>
-				<div class="sb-description">
-					<h3>Groundbreaking Artist</h3>
-				</div>
-			</li>
-			<li>
-				<%= image_tag "7.jpg" %>
-				<div class="sb-description">
-					<h3>Selfless Philantropist</h3>
-				</div>
-			</li>
-		</ul>
+<div id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+    </ol>
 
-		<div id="shadow" class="shadow"></div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="fill" style="background-image: url('/assets/business-people-discussing.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Caption 1</h2>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('/assets/Business-People-Cheering-cropped.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Caption 2</h2>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('/assets/Bumber-seven-Business-People.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Caption 3</h2>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('/assets/business-people-discussing.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Caption 4</h2>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('/assets/Business-People-Cheering-cropped.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Caption 5</h2>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('/assets/Bumber-seven-Business-People.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Caption 6</h2>
+            </div>
+        </div>
+    </div>
 
-		<div id="nav-arrows" class="nav-arrows">
-			<a href="#">Next</a>
-			<a href="#">Previous</a>
-		</div>
-
-	</div><!-- /wrapper -->
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
 </div>
 
 <div class='mid_wrapper row'>
 	<div class='col-md-12'>
-		<div class='col-md-8' style="border: solid 1px #ccc;">
-			asdasd
+		<div class='col-md-8 about_us'>
+			<h3>About US</h3>
+			Ini adalah web sistem integrasi Kartu Izin Masuk milik pertamina. Kami memberikan pelayanan menyeluruh untuk pendaftaran Kartu Izin Masuk bagi skid tank dan truk guna dapat memasuki area wilayah kami guna kepentingan usaha. Dengan web ini diharapkan semakin mempermudah masyarakat dan bisa membantu banyak dalam efisiensi waktu pada saat pengurusan Kartu Izin Masuk.
 		</div>
 
-		<div class='login_side col-md-4' style="border: solid 1px #ccc; height: 240px;">
+		<div class='login_side col-md-4'>
 			<% if !user_signed_in? %>
 		<%= form_for(:user, :url => session_path(:user)) do |f| %>
 			<div class="form-group">
@@ -128,67 +132,8 @@
 
 <script type="text/javascript">
 $(function() {
-
-	var Page = (function() {
-
-		var $navArrows = $( '#nav-arrows' ).hide(),
-		$navOptions = $( '#nav-options' ).hide(),
-		$shadow = $( '#shadow' ).hide(),
-		slicebox = $( '#sb-slider' ).slicebox( {
-			onReady : function() {
-
-				$navArrows.show();
-				$navOptions.show();
-				$shadow.show();
-
-			},
-			orientation : 'h',
-			cuboidsCount : 3
-		} ),
-
-		init = function() {
-
-			initEvents();
-
-		},
-		initEvents = function() {
-
-							// add navigation events
-							$navArrows.children( ':first' ).on( 'click', function() {
-
-								slicebox.next();
-								return false;
-
-							} );
-
-							$navArrows.children( ':last' ).on( 'click', function() {
-
-								slicebox.previous();
-								return false;
-
-							} );
-							slicebox.play();
-							$( '#navPlay' ).on( 'click', function() {
-
-								slicebox.play();
-								return false;
-
-							} );
-
-							$( '#navPause' ).on( 'click', function() {
-
-								slicebox.pause();
-								return false;
-
-							} );
-
-						};
-
-						return { init : init };
-
-					})();
-
-					Page.init();
-
-				});
+ $('.carousel').carousel({
+   interval: 2500 //changes the speed
+  })
+});
 </script>

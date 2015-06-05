@@ -12,8 +12,7 @@
 
 
 //= require jquery
-//= require modernizr
-//= require jquery.slicebox
+//= require bootstrap.min
 //= require moment.js
 //= require datetimepicker.js
 //= require jquery_ujs

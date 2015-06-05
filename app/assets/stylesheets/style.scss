@@ -168,6 +168,53 @@ div[id^='target_']{
     height: 150px;
   }
 }
+div.carousel {
+  height: 50%;
+}
+
+div.carousel .item,
+div.carousel .item.active,
+div.carousel .carousel-inner {
+  height: 100%;
+}
+
+div.carousel .fill {
+  width: 100%;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+}
+
+.mid_wrapper{
+  margin-top: 28px;
+  border: solid 1px #ccc;
+  .login_side {
+    border-left: solid 1px #ccc;
+    border-top: solid 1px #ccc;
+    padding: 40px;
+  }
+  .about_us {
+    border-top: solid 1px #ccc;
+    font-size: 20px;
+    padding: 35px;
+    height: 304px;
+    text-align: justify;
+  }
+}
+
+.tab-content{
+  border: solid 1px #ccc;
+  border-top: none;
+  padding: 20px;
+
+  li{
+    margin: 15px;
+  }
+}
+
+.nav>li {
+  text-align: center;
+}
 // .box{
 //   background: #ddd;
 //   border: 2px solid #fff;
