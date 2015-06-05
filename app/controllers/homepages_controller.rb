@@ -8,7 +8,7 @@ class HomepagesController < ApplicationController
 
 	end
 
-	def new
+	def new #prasyarat
 
 	end
 
