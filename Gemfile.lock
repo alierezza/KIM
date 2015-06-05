@@ -37,9 +37,15 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    autoprefixer-rails (5.2.0)
+      execjs
+      json
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.4.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     builder (3.2.2)
     cancancan (1.10.1)
     chronic (0.10.2)
@@ -95,8 +101,8 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
+    modernizr-rails (2.7.1)
     multi_json (1.11.0)
-    mysql2 (0.3.18)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -105,6 +111,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.18.2)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -183,6 +190,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   cancancan
   coffee-rails (~> 4.1.0)
   daemons
@@ -192,8 +200,9 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  mysql2
+  modernizr-rails
   paperclip (~> 4.2)
+  pg
   pry
   rails (= 4.2.1)
   sass-rails (~> 5.0)

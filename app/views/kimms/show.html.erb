@@ -1,41 +1,77 @@
-<%= link_to "Back", dashboards_path %></br>
+<div class='inner-body'>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+        <h3 class="panel-title">KIM Details</h3>
+    </div>
+    <div class='panel-body'>
+    	<%= link_to kimms_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
+    	<fieldset>
+    		<legend>Info</legend>
+    		<div class="row row_content">
+	        <div class="title_row">Jenis KIM</div><div class="data_row"><%= @kim.jenis_sim %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">No. Polisi</div><div class="data_row"><%= @kim.no_polisi %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Tipe</div><div class="data_row"><%= @kim.tipe %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Tipe</div><div class="data_row"><%= @kim.kapasitas_tangki %> Liter</div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Surat Permohonan</div>
+	        <div class="data_row"><%= image_tag @kim.surat_permohonan.url(:medium) %></br>
+						<%= link_to "Download Surat Permohonan", download_path(@kim.surat_permohonan_file_name,@kim.id, :status=>"surat permohonan") %>
+					</div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">KTP</div>
+	        <div class="data_row"><%= image_tag @kim.ktp.url(:medium) %></br>
+						<%= link_to "Download KTP", download_path(@kim.ktp_file_name,@kim.id, :status=>"ktp") %>
+					</div>
+	      </div>
+    	</fieldset>
+    	<div class="row">
+    		<div class="col-md-6">
+    			<fieldset>
+    				<legend>SIM</legend>
+    				<div class="row row_content">
+			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_sim.strftime("%d %B %Y") %></div>
+			      </div>
+			      <%= image_tag @kim.sim.url(:medium) %></br>
+						<%= link_to "Download SIM", download_path(@kim.stnk_file_name,@kim.id, :status=>"sim") %>
+    			</fieldset>
+    			<fieldset>
+    				<legend>STNK</legend>
+    				<div class="row row_content">
+			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_stnk.strftime("%d %B %Y") %></div>
+			      </div>
+			      <%= image_tag @kim.stnk.url(:medium) %></br>
+						<%= link_to "Download STNK", download_path(@kim.stnk_file_name,@kim.id, :status=>"stnk") %>
+    			</fieldset>
+    		</div>
 
-Jenis KIM:
-<%= @kim.jenis_sim %></br>
+    		<div class="col-md-6">
+    			<fieldset>
+    				<legend>TERA</legend>
+    				<div class="row row_content">
+			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_tera.strftime("%d %B %Y") %></div>
+			      </div>
+			      <%= image_tag @kim.tera.url(:medium) %></br>
+						<%= link_to "Download TERA", download_path(@kim.tera_file_name,@kim.id, :status=>"tera") %></br>
+    			</fieldset>
 
-Masa berlaku SIM:
-<%= @kim.masa_berlaku_sim %></br>
-<%= image_tag @kim.sim.url(:medium) %></br>
-<%= link_to "Download SIM", download_path(@kim.stnk_file_name,@kim.id, :status=>"sim") %></br>
-
-Masa berlaku STNK:
-<%= @kim.masa_berlaku_stnk %></br>
-<%= image_tag @kim.stnk.url(:medium) %></br>
-<%= link_to "Download STNK", download_path(@kim.stnk_file_name,@kim.id, :status=>"stnk") %></br>
-
-Masa berlaku KIR:
-<%= @kim.masa_berlaku_kir %></br>
-<%= image_tag @kim.kir.url(:medium) %></br>
-<%= link_to "Download KIR", download_path(@kim.stnk_file_name,@kim.id, :status=>"kir") %></br>
-
-Masa berlaku TERA:
-<%= @kim.masa_berlaku_tera %></br>
-<%= image_tag @kim.tera.url(:medium) %></br>
-<%= link_to "Download TERA", download_path(@kim.tera_file_name,@kim.id, :status=>"tera") %></br>
-
-Masa berlaku KTP:
-<%= image_tag @kim.ktp.url(:medium) %></br>
-<%= link_to "Download KTP", download_path(@kim.ktp_file_name,@kim.id, :status=>"ktp") %></br>
-
-Surat Permohonan:
-<%= image_tag @kim.surat_permohonan.url(:medium) %></br>
-<%= link_to "Download Surat Permohonan", download_path(@kim.surat_permohonan_file_name,@kim.id, :status=>"surat permohonan") %></br>
-
-No Polisi:
-<%= @kim.no_polisi %></br>
-
-Tipe:
-<%= @kim.tipe %></br>
-
-Kapasitas Tangki:
-<%= @kim.kapasitas_tangki %> Liter</br>
+    			<fieldset>
+    				<legend>KIR</legend>
+    				<div class="row row_content">
+			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_kir.strftime("%d %B %Y") %></div>
+			      </div>
+			      <%= image_tag @kim.kir.url(:medium) %></br>
+						<%= link_to "Download KIR", download_path(@kim.stnk_file_name,@kim.id, :status=>"kir") %></br>
+    			</fieldset>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>
