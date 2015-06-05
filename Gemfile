@@ -42,6 +42,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'delayed_job_active_record'
   gem 'daemons'
   gem 'devise-async'
+  gem 'execjs'
+  gem 'therubyracer'
+  gem "bigdecimal"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
