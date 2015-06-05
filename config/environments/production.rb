@@ -78,11 +78,16 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+
+  #config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-   :address              => "freya.hideserver.net",
+   :address              => "medusa.hideserver.net",
    :port                 => 465,
-   :user_name            => "testing@hosting.natanetwork.com",
+   :user_name            => "admin@kotakgadget.com",
    :password             => "q1w2e3r4",
    :authentication       => :login,
     :ssl                  => true,
