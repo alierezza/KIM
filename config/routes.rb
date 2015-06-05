@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :homepages, :dashboards, :kimms, :registers, :members, :admins, :crews, :feedbacks, :lkps
   resources :users, path: "admins"
   resources :users, path: "crews"
-  
+
 
   get "prasyarat/" => "homepages#prasyarat", :as => :prasyarat
   get "edit_info/:id" => "dashboards#edit_info", :as => :edit_info
