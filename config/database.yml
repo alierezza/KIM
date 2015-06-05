@@ -25,6 +25,6 @@
  production:
    <<: *default
    host: localhost
-   database: kim_production
-   username: root
-   password: sidosermo
+   database: kotakgad_kim
+   username: kotakgad_kim
+   password: kotakgad_kim
