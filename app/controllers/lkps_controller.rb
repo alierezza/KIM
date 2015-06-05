@@ -1,7 +1,7 @@
 class LkpsController < ApplicationController
 	before_action :authenticate_user!
 	def index
-		@lkps = Lkp.page(params[:id])
+		@lkps = Lkp.page(params[:id]).all
 		authorize! :view_lkp, current_user
 	end
 

@@ -20,3 +20,68 @@
     </ul>
   </div>
 </div>
+
+
+<% if (current_page?("/") or current_page?("/homepages") ) or user_signed_in? == false %>
+<% else %>
+  <div class="top_wrapper row">
+  <!--  <section class="box">
+    <img src="http://goo.gl/zixZ0"/>
+    <p>text on hover for box 2</p>
+  </section> -->
+
+    <div class="image_box">
+      <%= image_tag current_user.photo.url(:medium) %>
+      <!-- <div class="link_edit"><a href="#">Edit Info</a></div> -->
+    </div>
+    <div class="right_menu">
+      <% if can? :edit_info, current_user %>
+      <%= link_to "Edit Info", edit_info_path(current_user.id), class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :user_approval, current_user %>
+      <%= link_to "Member", members_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :kim_approval, current_user %>
+      <%= link_to "KIM", kim_approval_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :create_feedback, current_user %>
+      <%= link_to "Feedback", new_feedback_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :view_feedback, current_user %>
+      <%= link_to "Survei", feedbacks_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :create_lkp, current_user %>
+      <%= link_to "LKP", new_lkp_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :view_lkp, current_user %>
+      <%= link_to "LKP", lkps_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :create_admin, current_user %>
+      <%= link_to "Admin", admins_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :create_crew, current_user %>
+      <%= link_to "Crew", crews_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :create_kim, current_user %>
+      <%= link_to "KIM", kimms_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :kim_approval_by_crew, current_user %>
+      <%= link_to "KIM", new_dashboard_path, class: "btn btn-default" %>
+      <% end %>
+
+      <%= link_to "Change password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete , class: "btn btn-default"%>
+    </div>
+  </div>
+  <div id="content">
+  </div>
+<% end %>

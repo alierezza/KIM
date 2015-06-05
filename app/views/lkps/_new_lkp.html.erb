@@ -1,0 +1,99 @@
+<div class='inner-body'>
+    <div class='panel panel-default'>
+      <div class='panel-heading'>
+          <h3 class="panel-title">Add New LKP</h3>
+      </div>
+      <div class='panel-body'>
+				<%= form_for(@lkp) do |f| %>
+					<div class="form-group">
+						<%= f.label "Tanggal Kejadian", "Tanggal Kejadian", class: "control-label" %>
+						<div class='input-group date'>
+	            <%= f.text_field :tanggal_kejadian, :required=>true, class: "form-control" %>
+	            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+	          </div>
+					</div>
+					<div class="form-group">
+						<%= f.label "Jam Kejadian", "Jam Kejadian", class: "control-label" %>
+						<div class='input-group datetime'>
+	            <%= f.text_field :jam_kejadian, :required=>true, class: "form-control" %>
+	            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+	          </div>
+					</div>
+					<div class="form-group">
+						<%= f.label "Lokasi Kejadian", "Lokasi Kejadian", class: "control-label" %>
+						<%= f.text_field :lokasi_kejadian, :required=>true, class: "form-control" %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label "Bentuk Kejadian", "Bentuk Kejadian", class: "control-label" %>
+						<div class="checkbox">
+	            <label>
+	              <%= f.radio_button :bentuk_kejadian, "Kecelakaan Kerja", :checked => false, :required=>true %>
+	              Kecelakaan Kerja
+	            </label>
+	          </div>
+	          <div class="checkbox">
+	            <label>
+	              <%= f.radio_button :bentuk_kejadian, "Kecelakaan Sarfas", :checked => false, :required=>true %>
+	              Kecelakaan Sarfas
+	            </label>
+	          </div>
+	          <div class="checkbox">
+	            <label>
+	              <%= f.radio_button :bentuk_kejadian, "Kebakaran", :checked => false, :required=>true %>
+	              Kebakaran
+	            </label>
+	          </div>
+	          <div class="checkbox">
+	            <label>
+	              <%= f.radio_button :bentuk_kejadian, "Kecelakaan Lalu Lintas", :checked => false, :required=>true %>
+	              Kecelakaan Lalu Lintas
+	            </label>
+	          </div>
+	          <div class="checkbox">
+	            <label>
+	              <%= f.radio_button :bentuk_kejadian, "Lain-lain", :checked => false, :required=>true %>
+	              Lain-lain
+	            </label>
+	          </div>
+					</div>
+					<div class="form-group">
+						<%= f.label "Kronologis", "Kronologis", class: "control-label" %>
+						<%= f.text_area :kronologis, :required=>true, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.label "Sebab Kecelakaan", "Sebab Kecelakaan", class: "control-label" %>
+						<%= f.text_area :sebab_kecelakaan, :required=>true, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.label "Akibat Yang Ditimbulkan", "Akibat Yang Ditimbulkan", class: "control-label" %>
+						<%= f.label "Korban", "Korban" %>
+						<%= f.number_field :korban, :required=>true, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.label "Kerugian Materi", "Kerugian Materi", class: "control-label" %>
+						<%= f.number_field :kerugian_materi, :required=>true, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.label "Gangguan Operasi", "Gangguan Operasi", class: "control-label" %>
+						<%= f.text_field :gangguan_operasi, :required=>true, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.label "Upaya Penanggulangan", class: "control-label" %>
+						<%= f.text_area :upaya_penanggulangan, :required=>true, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.label "Saran Pencegahan", "Saran Pencegahan", class: "control-label" %>
+						<%= f.text_area :saran_pencegahan, :required=>true, class: "form-control" %>
+					</div>
+
+          <div class='bottom-field row'>
+            <div class='pull-right'>
+              <%#= link_to "back", dashboards_path , class: 'btn btn-default', style: "margin-right: 10px;" %>
+              <%= f.submit "Submit", class: 'btn btn-primary' %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

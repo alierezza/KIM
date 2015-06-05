@@ -1,0 +1,5 @@
+<% if params[:search] %>
+	$("#kim").html("<%= escape_javascript(render 'dashboards/kim_approval_by_crew') %>");
+<% else %>
+	$("#content").html("<%= escape_javascript(render 'dashboards/index_crew') %>");
+<% end %>

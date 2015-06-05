@@ -1,0 +1,18 @@
+<table class="table">
+	<thead>
+		<th>No. Polisi</th>
+		<th>No. Registrasi</th>
+		<Th colspan=2></th>
+	</thead>
+	<tbody>
+		<% @kims.each_with_index do |kim| %>
+			<tr>
+				<td><%= kim.no_polisi %></td>
+				<td><%= kim.no_registrasi %></td>
+				<td><%= link_to edit_dashboard_path(kim, :status=>"approve"), class: 'btn btn-success btn-xs' do %><span class='glyphicon glyphicon-ok'></span> Approve<% end %></td>
+				<td><%= link_to edit_dashboard_path(kim, :status=>"reject"), class: 'btn btn-xs btn-danger' do %><span class='glyphicon glyphicon-remove'></span> Reject<% end %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate @kims %>
