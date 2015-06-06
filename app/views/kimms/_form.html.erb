@@ -20,7 +20,7 @@
 
     <div class='form-group'>
       <%= f.label "No Polisi", class: "control-label" %>
-      <%= f.text_field :no_polisi, class: "form-control" %>
+      <%= f.text_field :no_polisi, class: "form-control", :required=>true %>
     </div>
 
     <%= f.label "Tipe","Tipe" %>
@@ -41,25 +41,35 @@
 
     <div class='form-group'>
       <%= f.label "Kapasitas Tangki", class: "control-label" %>
-      <%= f.number_field :kapasitas_tangki,  class: "form-control" %>
+      <%= f.number_field :kapasitas_tangki,  class: "form-control", :required=>true %>
     </div>
 
     <div class='form-group'>
       <%= f.label "Upload KTP", class: "control-label" %>
-      <%= f.file_field :ktp,  class: "avatar" %>
-      <% if params[:action] == "update" or params[:action] == "edit" %>
-          <%= image_tag @kim.ktp.url(:medium) %>
-      <% end %>
-      <div id="target_kimm_ktp"></div>
+        <% if params[:action] == "update" or params[:action] == "edit" %>
+          <%= f.file_field :ktp,  class: "avatar" %>
+          <div id="target_kimm_ktp">
+            <%= image_tag @kim.ktp.url(:medium) %>
+          </div>
+        <% else %>
+          <%= f.file_field :ktp,  class: "avatar", :required=>true %>
+          <div id="target_kimm_ktp">
+          </div>
+        <% end %>
     </div>
 
     <div class='form-group'>
       <%= f.label "Upload Surat Permohonan", class: "control-label" %>
-      <%= f.file_field :surat_permohonan,  class: "avatar" %>
       <% if params[:action] == "update" or params[:action] == "edit" %>
+        <%= f.file_field :surat_permohonan,  class: "avatar" %>
+        <div id="target_kimm_surat_permohonan">
           <%= image_tag @kim.surat_permohonan.url(:medium) %>
+        </div>
+      <% else %>
+        <%= f.file_field :surat_permohonan,  class: "avatar", :required=>true %>
+        <div id="target_kimm_surat_permohonan">
+        </div>
       <% end %>
-      <div id="target_kimm_surat_permohonan"></div>
     </div>
   </fieldset>
 
@@ -76,15 +86,19 @@
         </div>
         <div class='form-group'>
         <%= f.label "Upload SIM", class: "control-label" %>
-        <%= f.file_field :sim,  class: "avatar" %>
         <% if params[:action] == "update" or params[:action] == "edit" %>
-            <%= image_tag @kim.sim.url(:medium) %>
+            <%= f.file_field :sim,  class: "avatar" %>
+        <% else %>
+            <%= f.file_field :sim,  class: "avatar",:required=>true %>
         <% end %>
         </div>
       </div>
-
       <div class="col-md-6">
-        <div id="target_kimm_sim"></div>
+        <div id="target_kimm_sim">
+          <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= image_tag @kim.sim.url(:medium) %>
+          <% end %>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -103,14 +117,19 @@
         </div>
         <div class='form-group'>
           <%= f.label "Upload stnk", class: "control-label" %>
-          <%= f.file_field :stnk,  class: "avatar" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
-              <%= image_tag @kim.stnk.url(:medium) %>
+              <%= f.file_field :stnk,  class: "avatar" %>
+          <% else %>
+              <%= f.file_field :stnk,  class: "avatar", :required=>true %>
           <% end %>
         </div>
       </div>
       <div class="col-md-6">
-        <div id="target_kimm_stnk"></div>
+        <div id="target_kimm_stnk">
+          <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= image_tag @kim.stnk.url(:medium) %>
+          <% end %>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -129,14 +148,19 @@
         </div>
         <div class='form-group'>
           <%= f.label "Upload KIR", class: "control-label" %>
-          <%= f.file_field :kir,  class: "avatar" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
-              <%= image_tag @kim.kir.url(:medium) %>
+            <%= f.file_field :kir,  class: "avatar" %>
+          <% else %>
+            <%= f.file_field :kir,  class: "avatar", :required=>true %>
           <% end %>
         </div>
       </div>
       <div class="col-md-6">
-        <div id="target_kimm_kir"></div>
+        <div id="target_kimm_kir">
+          <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= image_tag @kim.kir.url(:medium) %>
+          <% end %> 
+        </div>
       </div>
     </div>
   </fieldset>
@@ -155,14 +179,19 @@
         </div>
         <div class='form-group'>
           <%= f.label "Upload TERA", class: "control-label" %>
-          <%= f.file_field :tera,  class: "avatar" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
-              <%= image_tag @kim.tera.url(:medium) %>
+              <%= f.file_field :tera,  class: "avatar" %>
+          <% else %>
+              <%= f.file_field :tera,  class: "avatar",:required=>true %>
           <% end %>
         </div>
       </div>
       <div class="col-md-6">
-        <div id="target_kimm_tera"></div>
+        <div id="target_kimm_tera">
+          <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= image_tag @kim.tera.url(:medium) %>
+          <% end %>
+        </div>
       </div>
     </div>
   </fieldset>

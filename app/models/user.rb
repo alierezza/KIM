@@ -15,7 +15,21 @@ class User < ActiveRecord::Base
   has_many :lkps, :dependent => :destroy
 
   has_attached_file :photo, :styles => { :medium => "200x200>", :thumb => "100x100>" }, :default_url => "https://e62f052f5d28591fecf4-064c57753a2609fd3fdb3247d142c1b4.ssl.cf1.rackcdn.com/empty-avatar-xl.png"
-  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+  validates_attachment :photo, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 500.kilobytes }
+
+  
+  validate :file_dimensions, :unless => "errors.any?"
+
+  def file_dimensions
+    if photo.queued_for_write[:original] != nil
+      dimensions = Paperclip::Geometry.from_file(photo.queued_for_write[:original].path)
+
+      if dimensions.width > 200 && dimensions.height > 200
+        errors.add(:photo,'Width or height must be lest or equal than 200px')
+      end
+    end
+  end
+
 
 
   def self.weekly

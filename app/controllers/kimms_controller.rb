@@ -38,6 +38,12 @@ class KimmsController < ApplicationController
 	        format.html { redirect_to kimms_path, notice: 'Kim has been added'}
 	        format.json { render action: 'new', status: :created, location: @kim }
 	      else
+	      	@kim.errors.messages.delete(:sim)
+	      	@kim.errors.messages.delete(:stnk)
+	      	@kim.errors.messages.delete(:kir)
+	      	@kim.errors.messages.delete(:tera)
+	      	@kim.errors.messages.delete(:ktp)
+	      	@kim.errors.messages.delete(:surat_permohonan)
 	        flash.now.alert = @kim.errors.full_messages.to_sentence
 	        format.html { render action: "new" }
 	        format.json { render json: @kim.errors, status: :unprocessable_entity }

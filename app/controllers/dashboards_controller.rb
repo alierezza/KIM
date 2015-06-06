@@ -49,14 +49,15 @@ class DashboardsController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-
 		respond_to do |format|
 	      if @user.update(params_user)
 	        format.html { redirect_to dashboards_path, notice: 'User Info has been updated'}
 	        format.json { render action: 'new', status: :created, location: @user }
 	      else
+	      	@user.errors.messages.delete(:photo)
 	        flash.now.alert = @user.errors.full_messages.to_sentence
-	        format.html { render action: "new" }
+	        
+	        format.html { render action: "edit_info" }
 	        format.json { render json: @user.errors, status: :unprocessable_entity }
 	      end
 	    end
