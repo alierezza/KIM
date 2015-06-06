@@ -8,13 +8,15 @@ class HomepagesController < ApplicationController
 
 	end
 
-	def new #prasyarat
-
+	def new 
+		
 	end
 
-	def create
-
-	end
+	def create #contact us
+		UserMailer.delay.contact_us(params[:nama],params[:email],params[:konten])
+		flash[:notice] = "Email has been sent"
+		redirect_to homepages_path
+	end	
 
 	def edit
 

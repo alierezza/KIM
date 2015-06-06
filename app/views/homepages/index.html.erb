@@ -98,22 +98,22 @@
 
 <div class='bot_wrapper row'>
 	<div class='col-md-7'>
-		<%= form_for(:user, :url => session_path(:user)) do |f| %>
+		<%= form_tag(homepages_path, :method=>"POST") do %>
 		<div class="form-group row">
 			<div class='col-md-6'>
-				<%= f.text_field :name, autofocus: true, class: 'form-control' %>
+				<%= text_field_tag :nama,nil, autofocus: true, class: 'form-control', :placeholder=>"Nama" %>
 			</div>
 			<div class='col-md-6'>
-				<%= f.email_field :email, class: 'form-control' %>
+				<%= email_field_tag :email,nil, class: 'form-control', :placeholder=>"Email" %>
 			</div>
 
 		</div>
 		<div class="form-group">
-			<%= f.text_area :essay, autocomplete: "off",rows: 7, class: 'form-control' %>
+			<%= text_area_tag :konten,nil, autocomplete: "off",rows: 7, class: 'form-control', :placeholder=>"Pesan" %>
 		</div>
 
 		<div class="pull-right">
-			<%= f.submit "Submit", class: 'btn btn-primary' %>
+			<%= submit_tag "Submit", class: 'btn btn-primary' %>
 		</div>
 		<% end %>
 	</div>

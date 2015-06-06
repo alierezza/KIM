@@ -43,4 +43,12 @@ class UserMailer < ActionMailer::Base
       mail(to: User.find_by(:role=>"SuperAdmin").email_recovery, subject: "[KIM] LOG #{@status}")
     end
 
+    def contact_us(nama,email,konten)
+      @nama = nama
+      @email = email
+      @konten = konten
+
+      mail(to: User.find_by(:role=>"SuperAdmin").email_recovery, subject: "[KIM] Seseorang telah menghubungi anda")
+    end
+
 end
