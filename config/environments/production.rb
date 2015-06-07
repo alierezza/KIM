@@ -86,9 +86,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'kotakgadget.com' }
 
   config.action_mailer.smtp_settings = {
-     :address              => "freya.hideserver.net",
+     :address              => "medusa.hideserver.net",
    :port                 => 465,
-   :user_name            => "kim@hosting.natanetwork.com",
+   :user_name            => "admin@kotakgadget.com",
    :password             => "q1w2e3r4",
    :authentication       => :login,
     :ssl                  => true,

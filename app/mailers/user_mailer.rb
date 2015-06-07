@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
 	include Devise::Mailers::Helpers
 
-	default from: "kim@hosting.natanetwork.com"
+	default from: "admin@kotakgadget.com"
 
 	def user_registration(user, password)
 	    @user = user
