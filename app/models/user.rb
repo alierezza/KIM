@@ -23,9 +23,8 @@ class User < ActiveRecord::Base
   def file_dimensions
     if photo.queued_for_write[:original] != nil
       dimensions = Paperclip::Geometry.from_file(photo.queued_for_write[:original].path)
-
-      if dimensions.width > 200 && dimensions.height > 200
-        errors.add(:photo,'Width or height must be lest or equal than 200px')
+      if dimensions.width > 200 or dimensions.height > 200
+        errors.add("Profile picture ",'width or height must be lest or equal than 200px')
       end
     end
   end

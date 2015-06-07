@@ -6,7 +6,7 @@
   <% end %>
   <fieldset>
     <legend>Info</legend>
-    <%= f.label "Jenis SIM","Jenis SIM", class: "control-label" %>
+    <%= f.label "Jenis SIM","Jenis SIM <font color=red>*</font>".html_safe, class: "control-label" %>
     <div class="checkbox">
       <label>
         <%= f.radio_button :jenis_sim, "B1", :checked => true %>
@@ -19,11 +19,11 @@
     </div>
 
     <div class='form-group'>
-      <%= f.label "No Polisi", class: "control-label" %>
+      <%= f.label "No Polisi","No Polisi <font color=red>*</font>".html_safe, class: "control-label" %>
       <%= f.text_field :no_polisi, class: "form-control", :required=>true %>
     </div>
 
-    <%= f.label "Tipe","Tipe" %>
+    <%= f.label "Tipe","Tipe <font color=red>*</font>".html_safe %>
     <div class="checkbox">
       <label>
         <%= f.radio_button :tipe, "Skid Tank", :checked => true %>
@@ -40,12 +40,12 @@
     </div>
 
     <div class='form-group'>
-      <%= f.label "Kapasitas Tangki", class: "control-label" %>
+      <%= f.label "Kapasitas Tangki","Kapasitas Tangki <font color=red>*</font>".html_safe, class: "control-label" %>
       <%= f.number_field :kapasitas_tangki,  class: "form-control", :required=>true %>
     </div>
 
     <div class='form-group'>
-      <%= f.label "Upload KTP", class: "control-label" %>
+      <%= f.label "Upload KTP", "Upload KTP <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
         <% if params[:action] == "update" or params[:action] == "edit" %>
           <%= f.file_field :ktp,  class: "avatar" %>
           <div id="target_kimm_ktp">
@@ -59,7 +59,7 @@
     </div>
 
     <div class='form-group'>
-      <%= f.label "Upload Surat Permohonan", class: "control-label" %>
+      <%= f.label "Upload Surat Permohonan","Upload Surat Permohonan <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
       <% if params[:action] == "update" or params[:action] == "edit" %>
         <%= f.file_field :surat_permohonan,  class: "avatar" %>
         <div id="target_kimm_surat_permohonan">
@@ -78,14 +78,14 @@
     <div class="row">
       <div class="col-md-6">
         <div class='form-group'>
-          <%= f.label "Masa Berlaku SIM","Masa Berlaku SIM", class: "control-label" %>
+          <%= f.label "Masa Berlaku SIM","Masa Berlaku SIM <font color=red>*</font>".html_safe, class: "control-label" %>
           <div class='input-group date'>
             <%= f.text_field :masa_berlaku_sim, class: "form-control",:readonly=>true %>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
         </div>
         <div class='form-group'>
-        <%= f.label "Upload SIM", class: "control-label" %>
+        <%= f.label "Upload SIM","Upload SIM <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
         <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= f.file_field :sim,  class: "avatar" %>
         <% else %>
@@ -108,7 +108,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class='form-group'>
-          <%= f.label "Masa Berlaku STNK","Masa Berlaku STNK", class: "control-label" %>
+          <%= f.label "Masa Berlaku STNK","Masa Berlaku STNK <font color=red>*</font>".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_stnk %>
           <div class='input-group date'>
             <%= f.text_field :masa_berlaku_stnk, class: "form-control",:readonly=>true %>
@@ -116,7 +116,7 @@
           </div>
         </div>
         <div class='form-group'>
-          <%= f.label "Upload stnk", class: "control-label" %>
+          <%= f.label "Upload stnk","Upload STNK <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
               <%= f.file_field :stnk,  class: "avatar" %>
           <% else %>
@@ -139,7 +139,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class='form-group'>
-          <%= f.label "Masa Berlaku KIR","Masa Berlaku KIR", class: "control-label" %>
+          <%= f.label "Masa Berlaku KIR","Masa Berlaku KIR <font color=red>*</font>".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_kir %>
            <div class='input-group date'>
             <%= f.text_field :masa_berlaku_kir, class: "form-control",:readonly=>true %>
@@ -147,7 +147,7 @@
           </div>
         </div>
         <div class='form-group'>
-          <%= f.label "Upload KIR", class: "control-label" %>
+          <%= f.label "Upload KIR", "Upload KIR <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= f.file_field :kir,  class: "avatar" %>
           <% else %>
@@ -170,7 +170,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class='form-group'>
-          <%= f.label "Masa Berlaku TERA","Masa Berlaku TERA", class: "control-label" %>
+          <%= f.label "Masa Berlaku TERA","Masa Berlaku TERA <font color=red>*</font>".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_tera %>
            <div class='input-group date'>
               <%= f.text_field :masa_berlaku_tera, class: "form-control",:readonly=>true %>
@@ -178,7 +178,7 @@
             </div>
         </div>
         <div class='form-group'>
-          <%= f.label "Upload TERA", class: "control-label" %>
+          <%= f.label "Upload TERA","Upload TERA <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
               <%= f.file_field :tera,  class: "avatar" %>
           <% else %>
@@ -195,7 +195,7 @@
       </div>
     </div>
   </fieldset>
-
+<b>Note: <font color=red>*</font> wajib di isi</b>
 	<div class='bottom-field row'>
     <div class='pull-right'>
       <%= link_to "back", kimms_path , class: 'btn btn-default', style: "margin-right: 10px;" %>

@@ -15,23 +15,23 @@
 				<%= f.text_field :email, :readonly=>true, class: "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= f.label "Email Recovery", class: "control-label" %>
+				<%= f.label "Email Recovery","Email Recovery".html_safe, class: "control-label" %>
 				<%= f.text_field :email_recovery, :required=>true, class: "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= f.label "Alamat", class: "control-label" %>
-				<%= f.text_area :alamat, :required=>true , class: "form-control"%>
+				<%= f.label "Alamat","Alamat".html_safe, class: "control-label" %>
+				<%= f.text_area :alamat , class: "form-control"%>
 			</div>
 			<div class="form-group">
-				<%= f.label "Telp", class: "control-label" %>
-				<%= f.number_field :telp, :required=>true, class: "form-control" %>
+				<%= f.label "Telp","Telp".html_safe, class: "control-label" %>
+				<%= f.number_field :telp, class: "form-control" %>
 			</div>
 			<div class="form-group">
 				<%= f.label "Fax", class: "control-label" %>
 				<%= f.number_field :fax, class: "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= f.label "Profile Picture", class: "control-label" %>
+				<%= f.label "Profile Picture","Profile Picture <font size=2 style='font-weight:normal;'><i>max 200x200 pixel & 500 kilobytes</i></font>".html_safe, class: "control-label" %>
 				<%= f.file_field :photo, :class=>"avatar" %>
 			</div>
 			<div class="form-group">
@@ -39,7 +39,6 @@
 					<%= image_tag current_user.photo.url(:medium), class: "img-thumbnail" %>
 				</div>
 			</div>
-
 			<div class='bottom-field row'>
 				<div class='pull-right'>
 					<%= link_to "back", dashboards_path , class: 'btn btn-default', style: "margin-right: 10px;" %>

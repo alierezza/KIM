@@ -16,16 +16,16 @@
 
     <% if params[:action] == "edit" or params[:action] == "update" %>
       <div class='form-group'>
-        <%= f.label "Email Recovery", class: "control-label" %>
+        <%= f.label "Email Recovery","Email Recovery", class: "control-label" %>
         <%= f.email_field :email_recovery, :required=>true, class: "form-control" %>
       </div>
     <% else %>
       <div class='form-group'>
-        <%= f.label "Password", "Password", class: "control-label" %>
+        <%= f.label "Password", "Password <font size=2 style='font-weight:normal;'><i>(Minimal 7 character)</i></font>".html_safe, class: "control-label" %>
         <%= f.password_field :password, :required=>true, class: "form-control" %>
       </div>
       <div class='form-group'>
-        <%= f.label "Password Confirmation", class: "control-label" %>
+        <%= f.label "Password Confirmation","Password Confirmation <font size=2 style='font-weight:normal;'><i>(Minimal 7 character)</i></font>".html_safe, class: "control-label" %>
         <%= f.password_field :password_confirmation, :required=>true, class: "form-control" %>
       </div>
     <% end %>
