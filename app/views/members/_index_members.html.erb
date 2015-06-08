@@ -1,23 +1,29 @@
+<%= form_tag new_member_path, :method=>"GET" do %>
+<div class="pull-right"><%= submit_tag "Approve All" %><%= submit_tag "Reject All" %></div>
 <table class="table">
 	<thead>
-		<th>Username</th>
+		<th>Email for Login</th>
 		<th>Nama</th>
 		<th>Alamat</th>
 		<th>Kota / Kabupaten</th>
-		<th colspan=2></th>
+		<th colspan=2>Status</th>
+		<th style="width:5%"></th>
 	</thead>
 	<tbody>
 		<% @users.each_with_index do |user| %>
 		<tr>
-			<td><%= user.email %></td>
-			<td><%= user.nama %></td>
-			<td><%= user.alamat %></td>
-			<td><%= user.kota %></td>
+			<td><%= link_to user.email,member_path(user) %></td>
+			<td><%= link_to user.nama, member_path(user) %></td>
+			<td><%= link_to user.alamat, member_path(user) %></td>
+			<td><%= link_to user.kota, member_path(user) %></td>
 			<% if user.admin_approval == false %>
 			<td><%= link_to edit_member_path(user,:status=>true), class: 'btn btn-success btn-xs' do %><span class='glyphicon glyphicon-ok'></span> Approve<% end %></td>
 			<td><%= link_to edit_member_path(user, :status=>false), class: 'btn btn-xs btn-danger' do %><span class='glyphicon glyphicon-remove'></span> Reject<% end %></td>
+			<td><%= check_box_tag "user_#{user.id}", "#{user.id}" %></td>
 			<% else %>
-				<td colspan=2>Approved</td>
+				<td>Approved</td>
+				<td><%= link_to member_path(user), :method=>"DELETE",:class=>"btn btn-xs btn-danger" do %><span class='glyphicon glyphicon-remove'></span> Delete<% end %></td>
+				<td></td>
 			<% end %>
 		</tr>
 		<% end %>
@@ -25,3 +31,4 @@
 </table>
 <%= paginate @users %>
 
+<% end %>

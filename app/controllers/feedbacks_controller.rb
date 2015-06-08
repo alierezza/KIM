@@ -26,10 +26,10 @@ before_action :authenticate_user!
 	end
 
 	def create
-		@feedback = current_user.feedback.new(params_feedback)
+		@feedback = current_user.build_feedback(params_feedback)
 		respond_to do |format|
 	      if @feedback.save
-	        format.html { redirect_to dashboards_path, notice: 'Thankyou for submitting feedback'}
+	        format.html { redirect_to dashboards_path, notice: 'Thankyou for submitting survei'}
 	        format.json { render action: 'new', status: :created, location: @feedback }
 	      else
 	        flash.now.alert = @feedback.errors.full_messages.to_sentence

@@ -1,16 +1,1 @@
-<div class='inner-body'>
-	<div class='panel panel-default'>
-		<div class='panel-heading'>
-			<h3 class="panel-title">List User</h3>
-		</div>
-		<div class='panel-body'>
-		<%= form_tag members_path,:remote=>true, :method=>"GET" do %>
-			<%= text_field_tag :nama,nil,:placeholder=>"Nama" %>
-			<%= submit_tag "Search" %>
-		<% end %>
-			<div id="div_index_member" >
-				<%= render "index_members" %>
-			</div>
-		</div>
-	</div>
-</div>
+<%= render "initial_login" %>

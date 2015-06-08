@@ -2,6 +2,9 @@ class HomepagesController < ApplicationController
 
 	def index # halaman homepage awal
 		@top_5_last_kim = Kimm.order("expired_date ASC").limit(5)
+
+		@top_crew = User.where("role=?","Crew").maximum("sign_in_count")
+
 	end
 
 	def show

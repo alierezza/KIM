@@ -2,11 +2,6 @@ class DashboardsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index 
-		#user
-		@kims = User.find(current_user).kimms.page(params[:page])
-	
-		#crew
-		@kims = Kimm.where("crew_approval IS NULL").page(params[:id])
 
 	end
 
