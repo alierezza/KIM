@@ -31,7 +31,7 @@
 				<%= f.number_field :fax, class: "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= f.label "Profile Picture","Profile Picture <font size=2 style='font-weight:normal;'><i>max 200x200 pixel & 500 kilobytes</i></font>".html_safe, class: "control-label" %>
+				<%= f.label "Profile Picture","Profile Picture <font size=2 style='font-weight:normal;'><i>max 200x200 pixel, 500 kilobytes, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
 				<%= f.file_field :photo, :class=>"avatar" %>
 			</div>
 			<div class="form-group">
