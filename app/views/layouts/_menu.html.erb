@@ -76,7 +76,7 @@
       <% end %>
 
       <% if can? :kim_approval_by_crew, current_user %>
-      <%= link_to "KIM", new_dashboard_path, class: "btn btn-default" %>
+      <%= link_to "Checklist Kendaraan", new_dashboard_path, class: "btn btn-default" %>
       <% end %>
 
       <%= link_to "Change password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete , class: "btn btn-default"%>

@@ -40,7 +40,7 @@ class Kimm < ActiveRecord::Base
     end
 
 
-  def self.search(no_registration)
+  def self.search_no(no_registration)
   no_registration = no_registration ? no_registration.upcase : ""
  
     query_adv_domain_name = " (upper(no_registrasi) LIKE '%#{no_registration}%' )"
