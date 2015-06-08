@@ -1,7 +1,7 @@
 class HomepagesController < ApplicationController
 
 	def index # halaman homepage awal
-
+		@top_5_last_kim = Kimm.order("expired_date ASC").max(5)
 	end
 
 	def show

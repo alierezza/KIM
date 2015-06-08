@@ -10,7 +10,7 @@ class Kimm < ActiveRecord::Base
 	validates :masa_berlaku_tera, :presence=>true
 	validates :no_polisi, :presence=>true
 	validates :tipe, :presence=>true
-	validates :kapasitas_tangki, :presence=>true
+	validates :kapasitas, :presence=>true
 
 	  has_attached_file :sim, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   	validates_attachment :sim, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
@@ -50,6 +50,20 @@ class Kimm < ActiveRecord::Base
     else
       all
     end
+  end
+
+  def self.search(jenis_sim,no_polisi,tipe,no_registrasi)
+      jenis_sim = jenis_sim ? jenis_sim.upcase : ""
+      no_polisi = no_polisi ? no_polisi.upcase : ""
+      tipe = tipe ? tipe.upcase : ""
+      no_registrasi = no_registrasi ? no_registrasi.upcase : ""
+
+      query_no_registrasi = " (upper(no_registrasi) LIKE '%#{no_registrasi}%' )"
+      query_jenis_sim = jenis_sim == "" ? nil : "AND (upper(jenis_sim) LIKE '%#{jenis_sim}%' )"
+      query_no_polisi = no_polisi == "" ? nil : "AND (upper(no_polisi) LIKE '%#{no_polisi}%' )"
+      query_tipe = tipe == "" ? nil : "AND (upper(tipe) LIKE '%#{tipe}%' )"
+
+      where("#{query_no_registrasi} #{query_jenis_sim} #{query_no_polisi} #{query_tipe}")
   end
 
   

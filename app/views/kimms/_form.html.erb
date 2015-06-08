@@ -9,11 +9,11 @@
     <%= f.label "Jenis SIM","Jenis SIM".html_safe, class: "control-label" %>
     <div class="checkbox">
       <label>
-        <%= f.radio_button :jenis_sim, "B1", :checked => true %>
+        <%= f.radio_button :jenis_sim, "B1", :checked => false,:required=>true %>
         B1
       </label>
       <label>
-        <%= f.radio_button :jenis_sim, "B2" %>
+        <%= f.radio_button :jenis_sim, "B2",:required=>true %>
         B2
       </label>
     </div>
@@ -23,26 +23,46 @@
       <%= f.text_field :no_polisi, class: "form-control", :required=>true %>
     </div>
 
+    <div class='form-group'>
+      <%= f.label "Merek Kendaraan","Merek Kendaraan".html_safe, class: "control-label" %>
+      <%= f.text_field :merek_kendaraan, class: "form-control", :required=>true %>
+    </div>
+
     <%= f.label "Tipe","Tipe".html_safe %>
     <div class="checkbox">
       <label>
-        <%= f.radio_button :tipe, "Skid Tank", :checked => true %>
+        <%= f.radio_button :tipe, "Skid Tank", :checked => false, :required=>true %>
         Skid Tank
       </label>
       <label>
-        <%= f.radio_button :tipe, "Truck Tabung 3KG" %>
-        Truck Tabung 3KG
-      </label>
-      <label>
-        <%= f.radio_button :tipe, "Truck Tabung 12KG" %>
-        Truck Tabung 12KG
+        <%= f.radio_button :tipe, "Truck", :required=>true %>
+        Truck
       </label>
     </div>
 
-    <div class='form-group'>
+    <div class='form-group kapasitas-tangki'>
       <%= f.label "Kapasitas Tangki","Kapasitas Tangki".html_safe, class: "control-label" %>
-      <%= f.number_field :kapasitas_tangki,  class: "form-control", :required=>true %>
+      <%= f.number_field :kapasitas,  class: "form-control", :required=>true %>
     </div>
+
+    <div class='form-group kapasitas-lpg'>
+      <%= f.label "Kapasitas LPG","Kapasitas LPG".html_safe, class: "control-label" %>
+        <div class="checkbox">
+        <label>
+          <%= f.radio_button :kapasitas, "3 Kg", :checked => true, :required=>true %>
+          3 Kg
+        </label>
+        <label>
+          <%= f.radio_button :kapasitas, "12 Kg", :required=>true %>
+          12 Kg
+        </label>
+        <label>
+          <%= f.radio_button :kapasitas, "50 Kg", :required=>true %>
+          50 Kg
+        </label>
+      </div>
+    </div>
+
 
     <div class='form-group'>
       <%= f.label "Upload KTP", "Upload KTP <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
@@ -223,4 +243,65 @@ $(function() {
     console.log(files);
   });
 });
+
+$(".kapasitas-tangki").hide();
+$(".kapasitas-lpg").hide();
+
+$("#kimm_tipe_skid_tank").change(function(){
+  if($("#kimm_tipe_skid_tank").prop('checked') == true){
+
+        $(".kapasitas-tangki").show();
+        $(".kapasitas-lpg").hide();
+
+        $("#kimm_kapasitas").attr("disabled",false);
+        $("#kimm_kapasitas_3_kg").attr("disabled",true);
+        $("#kimm_kapasitas_12_kg").attr("disabled",true);
+        $("#kimm_kapasitas_50_kg").attr("disabled",true);
+    }
+  });
+
+$("#kimm_tipe_truck").change(function(){
+  if($("#kimm_tipe_truck").prop('checked') == true){
+
+        $(".kapasitas-lpg").show();
+        $(".kapasitas-tangki").hide();   
+
+        $("#kimm_kapasitas").attr("disabled",true);
+        $("#kimm_kapasitas_3_kg").attr("disabled",false);
+        $("#kimm_kapasitas_12_kg").attr("disabled",false);
+        $("#kimm_kapasitas_50_kg").attr("disabled",false);
+    }
+  });
 </script>
+
+
+<!-- <%# if params[:action] == "create" %>
+<%# binding.pry %>
+  <%# if params[:kimm][:tipe] == "Skid Tank" %>
+      <script>
+                $("#kimm_tipe_skid_truck").prop("checked", true);
+                $("#kimm_kapasitas").val('<%#= params[:kimm][:kapasitas] %>');
+
+                $(".kapasitas-tangki").show();
+                $(".kapasitas-lpg").hide();
+
+                $("#kimm_kapasitas").attr("disabled",false);
+                $("#kimm_kapasitas_3_kg").attr("disabled",true);
+                $("#kimm_kapasitas_12_kg").attr("disabled",true);
+                $("#kimm_kapasitas_50_kg").attr("disabled",true);
+
+      </script>
+  <%# else %>
+      <script>
+                  $("#kimm_tipe_truck").prop("checked", true);
+                  $(".kapasitas-lpg").show();
+                  $(".kapasitas-tangki").hide();   
+
+                  $("#kimm_kapasitas").attr("disabled",true);
+                  $("#kimm_kapasitas_3_kg").attr("disabled",false);
+                  $("#kimm_kapasitas_12_kg").attr("disabled",false);
+                  $("#kimm_kapasitas_50_kg").attr("disabled",false);
+         
+      </script>
+  <%# end %>
+<%# end %> -->

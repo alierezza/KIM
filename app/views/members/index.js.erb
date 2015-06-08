@@ -1,1 +1,5 @@
-$("#content").html("<%= escape_javascript(render 'members/index_members') %>");
+<% if params[:nama] %>
+	$("#div_index_member").html("<%= escape_javascript(render 'index_members') %>");
+<% else %>
+	$("#content").html("<%= escape_javascript(render 'members/index_members') %>");
+<% end %>

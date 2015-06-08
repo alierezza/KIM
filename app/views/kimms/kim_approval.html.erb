@@ -1,1 +1,19 @@
-<%= render "kim_approval" %>
+<div class='inner-body'>
+	<div class='panel panel-default'>
+		<div class='panel-heading'>
+			<h3 class="panel-title">KIM Approval</h3>
+		</div>
+		<div class='panel-body'>
+		<%= form_tag kim_approval_path, :method=>"GET",:remote=>true do %>
+			<%= text_field_tag :jenis_sim,nil, :placeholder=>"Jenis SIM" %>
+			<%= text_field_tag :no_polisi,nil, :placeholder=>"No Polisi" %>
+			<%= text_field_tag :tipe,nil, :placeholder=>"Tipe" %>
+			<%= text_field_tag :no_registration,nil, :placeholder=>"No Registration" %>
+			<%= submit_tag "Search" %>
+		<% end %>
+			<div id="kim_approval">
+				<%= render "kim_approval" %>
+			</div>
+		</div>
+	</div>
+</div>

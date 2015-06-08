@@ -7,7 +7,7 @@ class KimmsController < ApplicationController
 	end
 
 	def kim_approval
-		@kims = Kimm.where("admin_approval IS NULL and message IS NULL").order("admin_approval ASC").page(params[:page])
+		@kims = Kimm.where("admin_approval IS NULL and message IS NULL").search(params[:jenis_sim],params[:no_polisi],params[:tipe],params[:no_registration]).order("admin_approval ASC").page(params[:page])
 		authorize! :kim_approval, current_user
 	end
 
@@ -29,6 +29,9 @@ class KimmsController < ApplicationController
 	end
 
 	def create
+		if params[:kimm][:tipe] == "Skid Tank"
+			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " Liter" 
+		end
 		no_registration = SecureRandom.base64(10).split("=")[0]
 		params[:kimm][:no_registrasi] = no_registration
 		@kim = User.find(current_user).kimms.new(params_kim)

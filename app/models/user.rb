@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :async,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
 
 # attr_accessor :login
@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
 	has_many :kimms, :dependent => :destroy
   has_many :lkps, :dependent => :destroy
+  has_one :feedback
 
   has_attached_file :photo, :styles => { :medium => "200x200>", :thumb => "100x100>" }, :default_url => "https://e62f052f5d28591fecf4-064c57753a2609fd3fdb3247d142c1b4.ssl.cf1.rackcdn.com/empty-avatar-xl.png"
   validates_attachment :photo, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 500.kilobytes }
@@ -26,6 +27,14 @@ class User < ActiveRecord::Base
       if dimensions.width > 200 or dimensions.height > 200
         errors.add("Profile picture ",'width or height must be lest or equal than 200px')
       end
+    end
+  end
+
+  def self.search(nama)
+    if nama != nil
+      where("nama LIKE ?","%#{nama}%")
+    else
+      all
     end
   end
 
