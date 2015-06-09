@@ -107,7 +107,7 @@
         <div class='form-group'>
           <%= f.label "Masa Berlaku SIM","Masa Berlaku SIM".html_safe, class: "control-label" %>
           <div class='input-group date'>
-            <%= f.text_field :masa_berlaku_sim, class: "form-control",:readonly=>true %>
+            <%= f.text_field :masa_berlaku_sim, class: "form-control",:readonly=>true, :required=>true, :required=>true %>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
         </div>
@@ -140,7 +140,7 @@
           <%= f.label "Masa Berlaku STNK","Masa Berlaku STNK".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_stnk %>
           <div class='input-group date'>
-            <%= f.text_field :masa_berlaku_stnk, class: "form-control",:readonly=>true %>
+            <%= f.text_field :masa_berlaku_stnk, class: "form-control",:readonly=>true, :required=>true %>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
         </div>
@@ -166,19 +166,19 @@
   </fieldset>
 
   <fieldset>
-    <legend>KIR</legend>
+    <legend>KIR (Head atau Truck)</legend>
     <div class="row">
       <div class="col-md-6">
         <div class='form-group'>
-          <%= f.label "Masa Berlaku KIR","Masa Berlaku KIR".html_safe, class: "control-label" %>
+          <%= f.label "Masa Berlaku KIR (Head atau Truck)","Masa Berlaku KIR (Head atau Truck)".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_kir %>
            <div class='input-group date'>
-            <%= f.text_field :masa_berlaku_kir, class: "form-control",:readonly=>true %>
+            <%= f.text_field :masa_berlaku_kir, class: "form-control",:readonly=>true, :required=>true %>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
         </div>
         <div class='form-group'>
-          <%= f.label "Upload KIR", "Upload KIR <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
+          <%= f.label "Upload KIR (Head atau Truck)", "Upload KIR (Head atau Truck) <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= f.file_field :kir,  class: "avatar" %>
           <% else %>
@@ -198,6 +198,39 @@
     </div>
   </fieldset>
 
+   <fieldset>
+    <legend>KIR (Skid Tank)</legend>
+    <div class="row">
+      <div class="col-md-6">
+        <div class='form-group'>
+          <%= f.label "Masa Berlaku KIR (Skid Tank)","Masa Berlaku KIR (Skid Tank)".html_safe, class: "control-label" %>
+          <%#= f.date_field :masa_berlaku_kir %>
+           <div class='input-group date'>
+            <%= f.text_field :masa_berlaku_kir_skid_tank, class: "form-control",:readonly=>true, :required=>true %>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          </div>
+        </div>
+        <div class='form-group'>
+          <%= f.label "Upload KIR  (Skid Tank)", "Upload KIR  (Skid Tank) <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
+          <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= f.file_field :kir_skid_tank,  class: "avatar" %>
+          <% else %>
+            <%= f.file_field :kir_skid_tank,  class: "avatar", :required=>true %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div id="target_kimm_kir_skid_tank">
+          <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= image_tag @kim.kir_skid_tank.url(:medium) %>
+          <% else %>
+            <%= image_tag @kim.kir_skid_tank.url(:medium) %>
+          <% end %> 
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
   <fieldset>
     <legend>TERA</legend>
     <div class="row">
@@ -206,7 +239,7 @@
           <%= f.label "Masa Berlaku TERA","Masa Berlaku TERA".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_tera %>
            <div class='input-group date'>
-              <%= f.text_field :masa_berlaku_tera, class: "form-control",:readonly=>true %>
+              <%= f.text_field :masa_berlaku_tera, class: "form-control",:readonly=>true, :required=>true %>
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
         </div>

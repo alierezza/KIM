@@ -12,22 +12,25 @@ class Kimm < ActiveRecord::Base
 	validates :tipe, :presence=>true
 	validates :kapasitas, :presence=>true
 
-	  has_attached_file :sim, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
+	  has_attached_file :sim, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.hollandlift.com/wp-content/themes/hollandlift/assets/images/no_image.jpg"
   	validates_attachment :sim, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :stnk, :styles => { :medium => "300x300>", :thumb => "100x100>" } , :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
+  	has_attached_file :stnk, :styles => { :medium => "300x300>", :thumb => "100x100>" } , :default_url => "http://www.hollandlift.com/wp-content/themes/hollandlift/assets/images/no_image.jpg"
   	validates_attachment :stnk, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :kir, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
+  	has_attached_file :kir, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.hollandlift.com/wp-content/themes/hollandlift/assets/images/no_image.jpg"
   	validates_attachment :kir, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :tera, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
+    has_attached_file :kir_skid_tank, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.hollandlift.com/wp-content/themes/hollandlift/assets/images/no_image.jpg"
+    validates_attachment :kir_skid_tank, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
+
+  	has_attached_file :tera, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.hollandlift.com/wp-content/themes/hollandlift/assets/images/no_image.jpg"
   	validates_attachment :tera, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :ktp, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
+  	has_attached_file :ktp, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.hollandlift.com/wp-content/themes/hollandlift/assets/images/no_image.jpg"
   	validates_attachment :ktp, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :surat_permohonan, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
+  	has_attached_file :surat_permohonan, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.hollandlift.com/wp-content/themes/hollandlift/assets/images/no_image.jpg"
   	validates_attachment :surat_permohonan, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
 

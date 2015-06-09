@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602083919) do
+ActiveRecord::Schema.define(version: 20150609130821) do
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -99,6 +99,11 @@ ActiveRecord::Schema.define(version: 20150602083919) do
     t.string   "surat_permohonan_content_type", limit: 255
     t.integer  "surat_permohonan_file_size",    limit: 4
     t.datetime "surat_permohonan_updated_at"
+    t.string   "masa_berlaku_kir_skid_tank",    limit: 255
+    t.string   "kir_skid_tank_file_name",       limit: 255
+    t.string   "kir_skid_tank_content_type",    limit: 255
+    t.integer  "kir_skid_tank_file_size",       limit: 4
+    t.datetime "kir_skid_tank_updated_at"
   end
 
   create_table "lkps", force: :cascade do |t|
