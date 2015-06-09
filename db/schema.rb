@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20150609130821) do
     t.string   "surat_permohonan_content_type", limit: 255
     t.integer  "surat_permohonan_file_size",    limit: 4
     t.datetime "surat_permohonan_updated_at"
-    t.string   "masa_berlaku_kir_skid_tank",    limit: 255
+    t.datetime "masa_berlaku_kir_skid_tank"
     t.string   "kir_skid_tank_file_name",       limit: 255
     t.string   "kir_skid_tank_content_type",    limit: 255
     t.integer  "kir_skid_tank_file_size",       limit: 4

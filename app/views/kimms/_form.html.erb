@@ -206,7 +206,7 @@
           <%= f.label "Masa Berlaku KIR (Skid Tank)","Masa Berlaku KIR (Skid Tank)".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_kir %>
            <div class='input-group date'>
-            <%= f.text_field :masa_berlaku_kir_skid_tank, class: "form-control",:readonly=>true, :required=>true %>
+            <%= f.text_field :masa_berlaku_kir_skid_tank, class: "form-control",:readonly=>true %>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
         </div>
@@ -215,7 +215,7 @@
           <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= f.file_field :kir_skid_tank,  class: "avatar" %>
           <% else %>
-            <%= f.file_field :kir_skid_tank,  class: "avatar", :required=>true %>
+            <%= f.file_field :kir_skid_tank,  class: "avatar" %>
           <% end %>
         </div>
       </div>
@@ -239,7 +239,7 @@
           <%= f.label "Masa Berlaku TERA","Masa Berlaku TERA".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_tera %>
            <div class='input-group date'>
-              <%= f.text_field :masa_berlaku_tera, class: "form-control",:readonly=>true, :required=>true %>
+              <%= f.text_field :masa_berlaku_tera, class: "form-control",:readonly=>true %>
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
         </div>
@@ -248,7 +248,7 @@
           <% if params[:action] == "update" or params[:action] == "edit" %>
               <%= f.file_field :tera,  class: "avatar" %>
           <% else %>
-              <%= f.file_field :tera,  class: "avatar",:required=>true %>
+              <%= f.file_field :tera,  class: "avatar" %>
           <% end %>
         </div>
       </div>
