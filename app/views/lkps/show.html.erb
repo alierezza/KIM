@@ -6,7 +6,7 @@
     <div class='panel-body'>
     	<%= link_to lkps_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
     	<div class="row row_content">
-	        <div class="title_row">Tanggal Kejadian</div><div class="data_row"><%= @lkp.tanggal_kejadian %></div>
+	        <div class="title_row">Tanggal Kejadian</div><div class="data_row"><%= @lkp.tanggal_kejadian.strftime("%d-%B-%Y") %></div>
 	      </div>
 	      <div class="row row_content">
 	        <div class="title_row">jam Kejadian</div><div class="data_row"><%= @lkp.jam_kejadian %></div>

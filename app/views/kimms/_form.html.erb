@@ -79,6 +79,7 @@
         <% else %>
           <%= f.file_field :ktp,  class: "avatar", :required=>true %>
           <div id="target_kimm_ktp">
+            <%= image_tag @kim.ktp.url(:medium) %>
           </div>
         <% end %>
     </div>
@@ -93,6 +94,7 @@
       <% else %>
         <%= f.file_field :surat_permohonan,  class: "avatar", :required=>true %>
         <div id="target_kimm_surat_permohonan">
+          <%= image_tag @kim.surat_permohonan.url(:medium) %>
         </div>
       <% end %>
     </div>
@@ -121,6 +123,8 @@
       <div class="col-md-6">
         <div id="target_kimm_sim">
           <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= image_tag @kim.sim.url(:medium) %>
+          <% else %>
             <%= image_tag @kim.sim.url(:medium) %>
           <% end %>
         </div>
@@ -153,6 +157,8 @@
         <div id="target_kimm_stnk">
           <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= image_tag @kim.stnk.url(:medium) %>
+          <% else %>
+            <%= image_tag @kim.stnk.url(:medium) %>
           <% end %>
         </div>
       </div>
@@ -184,6 +190,8 @@
         <div id="target_kimm_kir">
           <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= image_tag @kim.kir.url(:medium) %>
+          <% else %>
+            <%= image_tag @kim.kir.url(:medium) %>
           <% end %> 
         </div>
       </div>
@@ -214,6 +222,8 @@
       <div class="col-md-6">
         <div id="target_kimm_tera">
           <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= image_tag @kim.tera.url(:medium) %>
+          <% else %>
             <%= image_tag @kim.tera.url(:medium) %>
           <% end %>
         </div>

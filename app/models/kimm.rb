@@ -12,22 +12,22 @@ class Kimm < ActiveRecord::Base
 	validates :tipe, :presence=>true
 	validates :kapasitas, :presence=>true
 
-	  has_attached_file :sim, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+	  has_attached_file :sim, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
   	validates_attachment :sim, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :stnk, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  	has_attached_file :stnk, :styles => { :medium => "300x300>", :thumb => "100x100>" } , :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
   	validates_attachment :stnk, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :kir, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  	has_attached_file :kir, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
   	validates_attachment :kir, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :tera, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  	has_attached_file :tera, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
   	validates_attachment :tera, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :ktp, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  	has_attached_file :ktp, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
   	validates_attachment :ktp, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
-  	has_attached_file :surat_permohonan, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  	has_attached_file :surat_permohonan, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png"
   	validates_attachment :surat_permohonan, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
 
@@ -53,6 +53,7 @@ class Kimm < ActiveRecord::Base
   end
 
   def self.search(jenis_sim,no_polisi,tipe,no_registrasi,waiting,rollback)
+
       jenis_sim = jenis_sim ? jenis_sim.upcase : ""
       no_polisi = no_polisi ? no_polisi.upcase : ""
       tipe = tipe ? tipe.upcase : ""
@@ -64,10 +65,11 @@ class Kimm < ActiveRecord::Base
       query_jenis_sim = jenis_sim == "" ? nil : "AND (upper(jenis_sim) LIKE '%#{jenis_sim}%' )"
       query_no_polisi = no_polisi == "" ? nil : "AND (upper(no_polisi) LIKE '%#{no_polisi}%' )"
       query_tipe = tipe == "" ? nil : "AND (upper(tipe) LIKE '%#{tipe}%' )"
-      query_waiting = waiting == "" ? nil : "AND ( admin_approval IS NULL )"
+      query_waiting = waiting == "" ? nil : "AND ( admin_approval IS NULL and message IS NULL )"
       query_rollback = rollback == "" ? nil : "AND ( message IS NOT NULL  )"
 
-      where("#{query_no_registrasi} #{query_jenis_sim} #{query_no_polisi} #{query_tipe} #{query_waiting} #{query_waiting}")
+      where("#{query_no_registrasi} #{query_jenis_sim} #{query_no_polisi} #{query_tipe} #{query_waiting} #{query_rollback}")
+
   end
 
   

@@ -10,8 +10,8 @@ class KimmsController < ApplicationController
 		if params[:rollback_id]
 			@kim = Kimm.find(params[:rollback_id])
 		end
-		@kims = Kimm.search(params[:jenis_sim],params[:no_polisi],params[:tipe],params[:no_registration],params[:admin_approval_waiting],params[:admin_approval_rollback]).order("admin_approval ASC").page(params[:page])
-		
+		@kims = Kimm.search(params[:jenis_sim],params[:no_polisi],params[:tipe],params[:no_registration],params[:admin_approval_waiting],params[:admin_approval_rollback]).order("created_at DESC").page(params[:page])
+	
 		authorize! :kim_approval, current_user
 	end
 

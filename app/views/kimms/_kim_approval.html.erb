@@ -38,9 +38,9 @@
 
 				<% if kim.admin_approval == nil and kim.message == nil %>
 
-				<td><%= link_to "Approve", edit_kimm_path(kim, :status=>"approve"), 'data-disable-with'=> "Wait.." %></td>
-				<td><a onclick="show_modal('<%= kim.id %>');" style="cursor:pointer;">Rollback</a></td>
-				<td><%= link_to "Reject", edit_kimm_path(kim, :status=>"reject"), 'data-disable-with'=> "Wait.." %></td>
+				<td><%= link_to "Approve", edit_kimm_path(kim, :status=>"approve"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-success" %></td>
+				<td><a onclick="show_modal('<%= kim.id %>');" style="cursor:pointer;" class="btn btn-xs btn-warning">Rollback</a></td>
+				<td><%= link_to "Reject", edit_kimm_path(kim, :status=>"reject"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-danger" %></td>
 				<% else %>
 					<td></td>
 					<td></td>
@@ -49,7 +49,7 @@
 				<td>
 					<% begin %>
 						<% if kim.admin_approval == true and kim.crew_approval == true and kim.expired_date.to_date >= Time.now.to_date %>
-							Print
+							<span class="glyphicon glyphicon-print"></span> Print
 						<% elsif kim.expired_date.to_date < Time.now.to_date %>
 							-
 						<% end %>
