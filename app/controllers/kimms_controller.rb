@@ -7,7 +7,11 @@ class KimmsController < ApplicationController
 	end
 
 	def kim_approval
-		@kims = Kimm.where("admin_approval IS NULL and message IS NULL").search(params[:jenis_sim],params[:no_polisi],params[:tipe],params[:no_registration]).order("admin_approval ASC").page(params[:page])
+		if params[:rollback_id]
+			@kim = Kimm.find(params[:rollback_id])
+		end
+		@kims = Kimm.search(params[:jenis_sim],params[:no_polisi],params[:tipe],params[:no_registration],params[:admin_approval_waiting],params[:admin_approval_rollback]).order("admin_approval ASC").page(params[:page])
+		
 		authorize! :kim_approval, current_user
 	end
 
@@ -87,6 +91,9 @@ class KimmsController < ApplicationController
 		@kim = Kimm.find(params[:id])
 		if @kim.message != nil
 			params[:kimm][:message] = nil
+		end
+		if params[:kimm][:tipe] == "Skid Tank"
+			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " Liter" 
 		end
 	    respond_to do |format|
 	      if @kim.update(params_kim)

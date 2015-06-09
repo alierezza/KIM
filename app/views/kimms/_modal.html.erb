@@ -1,0 +1,21 @@
+<% if params[:rollback_id] %>
+<div class="modal fade" id="rollback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fa fa-trash-o fa-1x"></i> Alasan Rollback
+            </div>
+            <%= form_tag edit_kimm_path(@kim), :method=>"GET" do %>
+            	<%= hidden_field_tag :status, "rollback" %>
+            <div class="modal-body text-center">
+                <%= text_area_tag :message %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <%= submit_tag "Rollback", :class=>"btn btn-info" %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<% end %>

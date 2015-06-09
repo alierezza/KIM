@@ -76,7 +76,7 @@
 								<%= link_to "Update", edit_kimm_path(kim) %>
 							<% end %>
 						</td>
-						<td><%= link_to "re-send no registrasi", kimm_path(kim,:status=>"email") %></td>
+						<td><%= link_to "re-send no registrasi", kimm_path(kim,:status=>"email"), 'data-disable-with'=> "Wait.." %></td>
 					</tr>
 				<% end %>
 			</tbody>

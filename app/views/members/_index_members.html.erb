@@ -1,5 +1,7 @@
 <%= form_tag new_member_path, :method=>"GET" do %>
-<div class="pull-right"><%= submit_tag "Approve All" %><%= submit_tag "Reject All" %></div>
+<div class="pull-right">
+	<%= submit_tag "Approve All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Approve all ?'} %>
+	<%= submit_tag "Reject All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Reject all ?'} %></div>
 <table class="table">
 	<thead>
 		<th>Email for Login</th>
@@ -17,12 +19,12 @@
 			<td><%= link_to user.alamat, member_path(user) %></td>
 			<td><%= link_to user.kota, member_path(user) %></td>
 			<% if user.admin_approval == false %>
-			<td><%= link_to edit_member_path(user,:status=>true), class: 'btn btn-success btn-xs' do %><span class='glyphicon glyphicon-ok'></span> Approve<% end %></td>
-			<td><%= link_to edit_member_path(user, :status=>false), class: 'btn btn-xs btn-danger' do %><span class='glyphicon glyphicon-remove'></span> Reject<% end %></td>
+			<td><%= link_to edit_member_path(user,:status=>true), class: 'btn btn-success btn-xs', 'data-disable-with'=> "Wait..", :data => {:confirm => 'Are you sure?'} do %><span class='glyphicon glyphicon-ok'></span> Approve<% end %></td>
+			<td><%= link_to edit_member_path(user, :status=>false), class: 'btn btn-xs btn-danger', 'data-disable-with'=> "Wait..", :data => {:confirm => 'Are you sure?'} do %><span class='glyphicon glyphicon-remove'></span> Reject<% end %></td>
 			<td><%= check_box_tag "user_#{user.id}", "#{user.id}" %></td>
 			<% else %>
 				<td>Approved</td>
-				<td><%= link_to member_path(user), :method=>"DELETE",:class=>"btn btn-xs btn-danger" do %><span class='glyphicon glyphicon-remove'></span> Delete<% end %></td>
+				<td><%= link_to member_path(user), :method=>"DELETE",:class=>"btn btn-xs btn-danger", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Are you sure?'} do %><span class='glyphicon glyphicon-remove'></span> Delete<% end %></td>
 				<td></td>
 			<% end %>
 		</tr>
@@ -30,5 +32,4 @@
 	</tbody>
 </table>
 <%= paginate @users %>
-
 <% end %>

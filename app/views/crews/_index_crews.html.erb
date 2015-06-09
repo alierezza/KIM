@@ -18,8 +18,8 @@
 						<td><%= crew.email %></td>
 						<td><%= crew.email_recovery %></td>
 						<td><%= crew.nama %></td>
-						<td><%= link_to edit_crew_path(crew), class: "btn btn-xs btn-default" do %><span class="glyphicon glyphicon-pencil"></span> Update<% end %></td>
-						<td><%= link_to crew_path(crew), :method=>"DELETE", :data => {:confirm => 'Are you sure?'}, class: "btn btn-xs btn-danger" do %><span class="glyphicon glyphicon-remove"></span> Delete<% end %></td>
+						<td><%= link_to edit_crew_path(crew), class: "btn btn-xs btn-default", 'data-disable-with'=> "Wait.." do %><span class="glyphicon glyphicon-pencil"></span> Update<% end %></td>
+						<td><%= link_to crew_path(crew), :method=>"DELETE", :data => {:confirm => 'Are you sure?'}, class: "btn btn-xs btn-danger", 'data-disable-with'=> "Wait.." do %><span class="glyphicon glyphicon-remove"></span> Delete<% end %></td>
 					</tr>
 				<% end %>
 			</tbody>
