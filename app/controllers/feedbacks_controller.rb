@@ -13,6 +13,7 @@ before_action :authenticate_user!
 		@q9 = (( Feedback.sum("q9").to_f ) / Feedback.select("q9").count.to_f).nan? == true ? 0 : (( Feedback.sum("q9").to_f ) / Feedback.select("q9").count.to_f)
 		@q10 = (( Feedback.sum("q10").to_f ) / Feedback.select("q10").count.to_f).nan? == true ? 0 : (( Feedback.sum("q10").to_f ) / Feedback.select("q10").count.to_f)
 
+		@total_user = Feedback.count
 		authorize! :view_feedback, current_user
 	end
 

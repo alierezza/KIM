@@ -17,6 +17,9 @@
 //= require datetimepicker.js
 //= require jquery_ujs
 //= require bootstrap-growl.min
+//= require raphael-min.js
+//= require morris.min.js
+
 // require_tree .
 function global_notif(textfield, types){
   $.growl(textfield, { type: types, animate: {

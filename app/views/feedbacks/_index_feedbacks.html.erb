@@ -1,22 +1,61 @@
-PIE CART atau GRAPHIC yang menggambarkan presentasi feedback
-</br>
-Q1:
-<%= @q1 %> / 10</br>
-Q2:
-<%= @q2 %> / 10</br>
-Q3:
-<%= @q3 %> / 10</br>
-Q4:
-<%= @q4 %> / 10</br>
-Q5:
-<%= @q5 %> / 10</br>
-Q6:
-<%= @q6 %> / 10</br>
-Q7:
-<%= @q7 %> / 10</br>
-Q8:
-<%= @q8 %> / 10</br>
-Q9:
-<%= @q9 %> / 10</br>
-Q10:
-<%= @q10 %> / 10</br>
+<div class='inner-body'>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+        <h3 class="panel-title">Survei</h3>
+    </div>
+	<div class='panel-body'>
+		<div id="graph" style="width:70%; margin-left:auto;margin-right:auto;" class="text-center"></div>
+			<fieldset>
+				<legend>Detail</legend>
+				<div class="text-center form-group">
+					<%= "Total User: " %><b><%= "#{@total_user.to_s}" + " orang" %></b>
+				</div>
+				<div class="row row_content">
+				    <div class="title_row">100</div>
+				    <div class="data_row">: Sangat Setuju</div>
+				</div>
+				<div class="row row_content">
+				    <div class="title_row">75</div>
+				    <div class="data_row">: Setuju</div>
+				</div>
+				<div class="row row_content">
+				    <div class="title_row">5</div>
+				    <div class="data_row">: Netral</div>
+				</div>
+				<div class="row row_content">
+				    <div class="title_row">25</div>
+				    <div class="data_row">: Tidak Setuju</div>
+				</div>
+				<div class="row row_content">
+				    <div class="title_row">0</div>
+				    <div class="data_row">: Sangat Tidak Setuju</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+Morris.Bar({
+  element: 'graph',
+  data: [
+    {x: 'Q1', y: <%= (@q1.to_f/10).round(2)*100 %> },
+    {x: 'Q2', y: <%= (@q2.to_f/10).round(2)*100 %>},
+    {x: 'Q3', y: <%= (@q3.to_f/10).round(2)*100 %>},
+    {x: 'Q4', y: <%= (@q4.to_f/10).round(2)*100 %>},
+    {x: 'Q5', y: <%= (@q5.to_f/10).round(2)*100 %>},
+    {x: 'Q6', y: <%= (@q6.to_f/10).round(2)*100 %>},
+    {x: 'Q7', y: <%= (@q7.to_f/10).round(2)*100 %>},
+    {x: 'Q8', y: <%= (@q8.to_f/10).round(2)*100 %>},
+    {x: 'Q9', y: <%= (@q9.to_f/10).round(2)*100 %>},
+    {x: 'Q10', y: <%= (@q10.to_f/10).round(2)*100 %>}
+  ],
+  xkey: 'x',
+  ykeys: ['y'],
+  labels: ['Rata-rata']
+}).on('click', function(i, row){
+  console.log(i, row);
+});
+</script>
