@@ -26,14 +26,14 @@
 							<%= "Rollback" %>
 						<% else %>
 							<% if kim.admin_approval == true %>
-							 	<%= "Approved by #{kim.admin_approved_by}" %>
+							 	<span class="glyphicon glyphicon-ok"></span><%= " #{kim.admin_approved_by}" %>
 							<% else %>
-								<%= "Rejected" %>
+								<%= "<span class='glyphicon glyphicon-remove'></span>" %>
 							<% end %>
 						<% end %>
 					<% end %>
 				</td>
-				<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved by #{kim.crew_approved_by}" : "Rejected" %></td>
+				<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "<span class='glyphicon glyphicon-ok'></span> #{kim.crew_approved_by}".html_safe : "<span class='glyphicon glyphicon-remove'></span>" %></td>
 
 
 				<% if kim.admin_approval == nil and kim.message == nil %>

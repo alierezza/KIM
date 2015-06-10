@@ -44,9 +44,9 @@
 						<%= "Rollback" %>
 					<% else %>
 						<% if @kim.admin_approval == true %>
-						 	<%= "Approved by #{@kim.admin_approved_by}" %>
+						 	<%= "<span class='glyphicon glyphicon-ok'></span> #{@kim.admin_approved_by}".html_safe %>
 						<% else %>
-							<%= "Rejected" %>
+							<%= "<span class='glyphicon glyphicon-remove'></span>" %>
 						<% end %>
 					<% end %>
 				<% end %>
@@ -55,7 +55,7 @@
 	      <div class="row row_content">
 	        <div class="title_row">Crew Approval</div>
 	        <div class="data_row">
-	        	<%= @kim.crew_approval==nil ? "Waiting.." : @kim.crew_approval==true ? "Approved by #{@kim.crew_approved_by}" : "Rejected" %>
+	        	<%= @kim.crew_approval==nil ? "Waiting.." : @kim.crew_approval==true ? "<span class='glyphicon glyphicon-ok'></span> #{@kim.crew_approved_by}".html_safe : "<span class='glyphicon glyphicon-remove'></span>" %>
 	        </div>
 	      </div>
 	      <div class="row row_content">
