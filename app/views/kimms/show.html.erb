@@ -59,7 +59,13 @@
 	        </div>
 	      </div>
 	      <div class="row row_content">
-	        <div class="title_row">Jatuh Tempo</div><div class="data_row"><%= @kim.expired_date==nil ? "-": @kim.expired_date.strftime("%d-%B-%Y") %></div>
+	        <div class="title_row">Jatuh Tempo</div>
+	        	<div class="data_row">
+	        		<%= @kim.expired_date==nil ? "-": @kim.expired_date.strftime("%d-%B-%Y") %>
+	        		<% if Time.now.to_date > @kim.expired_date.to_date %>
+	        			<font color=red>(Expired)</font>
+	        		<% end %>
+	    		</div>
 	      </div>
 	      <div class="row row_content">
 	        <div class="title_row">Surat Permohonan</div>
