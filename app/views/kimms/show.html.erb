@@ -44,7 +44,7 @@
 						<%= "Rollback" %>
 					<% else %>
 						<% if @kim.admin_approval == true %>
-						 	<%= "Approved by #{kim.admin_approved_by}" %>
+						 	<%= "Approved by #{@kim.admin_approved_by}" %>
 						<% else %>
 							<%= "Rejected" %>
 						<% end %>
@@ -55,11 +55,11 @@
 	      <div class="row row_content">
 	        <div class="title_row">Crew Approval</div>
 	        <div class="data_row">
-	        	<%= @kim.crew_approval==nil ? "Waiting.." : @kim.crew_approval==true ? "Approved by #{kim.crew_approved_by}" : "Rejected" %>
+	        	<%= @kim.crew_approval==nil ? "Waiting.." : @kim.crew_approval==true ? "Approved by #{@kim.crew_approved_by}" : "Rejected" %>
 	        </div>
 	      </div>
 	      <div class="row row_content">
-	        <div class="title_row">Jatuh Tempo</div><div class="data_row"><%= @kim.expired_date==nil ? "-": @kim.crew_approval %></div>
+	        <div class="title_row">Jatuh Tempo</div><div class="data_row"><%= @kim.expired_date==nil ? "-": @kim.expired_date.strftime("%d-%B-%Y") %></div>
 	      </div>
 	      <div class="row row_content">
 	        <div class="title_row">Surat Permohonan</div>

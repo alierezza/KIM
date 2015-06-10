@@ -29,6 +29,7 @@ class KimmsController < ApplicationController
 
 	def new
 		@kim = Kimm.new
+
 		authorize! :create_kim, current_user
 	end
 
@@ -132,6 +133,14 @@ class KimmsController < ApplicationController
 			image = Kimm.find(kim_id).surat_permohonan.path
 		end
 		send_file image
+	end
+
+	def pdf_kim
+	#show PDF when KIM approved
+
+
+
+		authorize! :generate_kim, current_user
 	end
 
 private

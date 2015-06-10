@@ -49,7 +49,7 @@
 				<td>
 					<% begin %>
 						<% if kim.admin_approval == true and kim.crew_approval == true and kim.expired_date.to_date >= Time.now.to_date %>
-							<span class="glyphicon glyphicon-print"></span> Print
+							<%= link_to "<span class='glyphicon glyphicon-print'></span> Print".html_safe ,pdf_kim_path(:id=>kim.id),:class=>"btn btn-info btn-xs" %>
 						<% elsif kim.expired_date.to_date < Time.now.to_date %>
 							-
 						<% end %>
