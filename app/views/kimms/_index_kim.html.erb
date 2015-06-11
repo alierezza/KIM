@@ -15,8 +15,8 @@
 				<th>Crew</th>
 				<th>Due Date</th>
 				<th>Alert</th>
-				
-				<Th colspan=2>Action</th>
+
+				<th colspan=3>Action</th>
 			</thead>
 			<tbody>
 				<% @kims.each_with_index do |kim,index| %>
@@ -42,7 +42,7 @@
 						<td><%= kim.expired_date == nil ? "-": kim.expired_date.strftime("%d-%m-%Y") %></td>
 						<td>
 							<% begin %>
-							<% if kim.expired_date.to_date >= Time.now.to_date %>				
+							<% if kim.expired_date.to_date >= Time.now.to_date %>
 								<% if kim.expired_date.to_date < Time.now.to_date + 1.month and kim.expired_date.to_date >= Time.now.to_date + 7.days %>
 									<img src="http://qph.is.quoracdn.net/main-thumb-t-24040-200-dkX6TaDswV2UVRsXDGOhOKn2uohcJaie.jpeg" class="img-circle circle ">
 								<% elsif kim.expired_date.to_date < Time.now.to_date + 7.days and kim.expired_date.to_date >= Time.now.to_date %>
@@ -57,7 +57,7 @@
 								-
 							<% end %>
 						</td>
-						
+
 						<td>
 							<% if kim.message == nil %>
 								<%= link_to "Detail", kimm_path(kim) %>
@@ -65,7 +65,8 @@
 								<%= link_to "Update", edit_kimm_path(kim), :class=>"btn btn-xs btn-success" %>
 							<% end %>
 						</td>
-						<td><%= link_to "<span class='glyphicon glyphicon-envelope'></span> no registrasi".html_safe, kimm_path(kim,:status=>"email"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-info" %></td>
+						<td width="1%"><%= link_to "<span class='glyphicon glyphicon-envelope'></span> no registrasi".html_safe, kimm_path(kim,:status=>"email"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-info" %></td>
+						<td><%= link_to kim_print_to_pdf_path(kim), target: "_blank", :class=>"btn btn-xs btn-default" do%>Print <% end %></td>
 					</tr>
 				<% end %>
 			</tbody>

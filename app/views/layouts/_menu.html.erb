@@ -1,21 +1,35 @@
 <div class='page_header'>
   <div class='logo'>
-    <%= image_tag "business-people-discussing.jpg", width: 175 %>
+    <%= link_to homepages_path do %><%= image_tag "pertamina.jpg", width: 175 %><% end %>
+
   </div>
-  <div class='login_name pull-right'>
+  <div class='login_name'>
     <% if user_signed_in? %>
-    <span class='glyphicon glyphicon-user'></span> <span class='login_user'>Hi, <spanclass='current_user'><%= current_user.nama %></span></span>
+
+    <span class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= image_tag "#{current_user.photo.url(:medium)}", width: 50, class: "img-circle" %> <span class='login_user'>Hi, <span class='current_user'><%= current_user.nama %></span></span> <span class="caret"></span></a>
+      <ul class="dropdown-menu pull-right" role="menu">
+        <li style=" margin: 5px;">Email : <%= current_user.email %></li>
+        <li style=" margin: 5px;">Role : <%= current_user.role %></li>
+        <li class="divider"></li>
+        <li><%= link_to homepages_path do %><span class="glyphicon glyphicon-home"></span>&nbsp Home<% end %></li>
+        <li><%= link_to dashboards_path do %><span class="glyphicon glyphicon-list"></span>&nbsp  Panel<% end %></li>
+        <li class="divider"></li>
+        <li><%= link_to destroy_user_session_path, :method => :delete do %><span class="glyphicon glyphicon-off"></span>&nbsp  Log Out<% end %></li>
+      </ul>
+    </span>
     <% end %>
   </div>
   <div class='menu'>
     <ul>
-      <% if user_signed_in? %>
-        <li><%= link_to "Panel", dashboards_path %></li>
-      <% end %>
-      <li><%= link_to "Home", homepages_path %></li>
-      <li><%= link_to "Prasyarat" , prasyarat_path %></li>
-      <% if user_signed_in? %>
-        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+      <% if params[:controller] == 'homepages' %>
+        <li><%= link_to "Home" , homepages_path%></li>
+        <li><%= link_to "About Us" , "#about_us" %></li>
+        <li><%= link_to "Prosedur", "#prosedur" %></li>
+        <li><%= link_to "Prasyarat" , "#prasyarat" %></li>
+        <li><%= link_to "Highlight", "#highlight" %></li>
+        <li><%= link_to "Our Crew" , "#our_crew" %></li>
+        <li><%= link_to "Contact Us" , "#contact_us" %></li>
       <% end %>
     </ul>
   </div>

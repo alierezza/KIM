@@ -1,7 +1,3 @@
-<%= "Login as : #{current_user.email}, role : #{current_user.role}" %>
-
-
-
 <% if current_user.role == "User" %>
 	<script>
 		$.get("/kimms/", {}, null, "script");
