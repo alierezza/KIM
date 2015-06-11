@@ -1,12 +1,24 @@
-halo <%= @user.nama %><br><br>
+<p>halo <b><%= @user.nama %></b></p><br>
 
-selamat account anda telah sukses terbuat.<br><br>
+Selamat! Anda telah berhasil melakukan registrasi ID Portal LTMS<br>
+Berikut adalah detail pendaftaran akun anda<br>
 
-Detail<br>
-Email : <%= @user.email %><br>
-password : <%= @password %><br>
+<p style="margin-left:20px;margin-top:10px; margin-bottom:10px">
+Email    	: <%= @user.email %><br>
+password 	: <%= @password %><br>
+</p>
 
-silahkan simpan detail account anda dan <b>tunggu approval dari admin</b>.<br>
-kami akan email anda jika account anda sudah di approve / aktif.<br><br>
+E-mail berlaku sebagai username diportal LTMS Pertamina<br>
+Silahkan Simpan dengan baik detail akun anda<br><br>
 
-terimakasih
+Saat ini anda belum bisa login hingga admin menyetujui pendaftaran anda<br>
+E-mail otomatis akan dikirimkan ketika akun anda telah aktif<br><br><br>
+
+Terima Kasih<br>
+<b>Tim Admin LTMS Pertamina</b><br>
+<a hreff="http://www.ltms.co.id">www.ltms.co.id</a>
+
+
+<div style="float:right">
+	<%= image_tag "http://3.bp.blogspot.com/-RMUND4skSUw/Ul_UwpRcF8I/AAAAAAAAC8U/gQf1n8Vd2Vg/s1600/Logo-Pertamina-transparent.png", :width=>"300", :height=>"70" %>
+</div>

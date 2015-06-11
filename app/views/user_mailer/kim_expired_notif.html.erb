@@ -1,9 +1,17 @@
-Halo <%= @user.nama %><br><br>
+<p>Halo <b><%= @user.nama %></b></p><br><br><br>
 
-KIM anda telah mendekati masa jatuh tempo. berikut detailnya:<br>
+KIM anda telah mendekati masa jatuh tempo dan mohon diperpanjang. berikut detailnya:<br>
 
+<div style="margin-top:10px;margin-bottom:10px; margin-left:20px">
 Nama: <%= @user.nama %><br>
 No Polisi: <%= @kim.no_polisi %><br>
 Jatuh Tempo: <%= @kim.expired_date.to_date.strftime("%d-%m-%Y") %><br><br>
+<div>
 
-Harap diperpanjang, terimakasih.
+<div style="float:right">
+	<%= image_tag "http://3.bp.blogspot.com/-RMUND4skSUw/Ul_UwpRcF8I/AAAAAAAAC8U/gQf1n8Vd2Vg/s1600/Logo-Pertamina-transparent.png", :width=>"300", :height=>"70" %>
+</div>
+<br>
+Terima Kasih<br>
+<b>Tim Admin LTMS Pertamina</b><br>
+<a hreff="http://www.ltms.co.id">www.ltms.co.id</a>

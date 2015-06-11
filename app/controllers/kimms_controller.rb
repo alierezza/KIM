@@ -27,11 +27,11 @@ class KimmsController < ApplicationController
 		authorize! :show_kim, @kim.user
 	end
 
- def kim_print_to_pdf
- 		@kim = Kimm.find(params[:id])
-    output = CetakPDF.new(:page_size => [595.28, 841.89], :margin => [0, 0]).print_pdf(@kim)
-    send_data output, filename: "registrasi_#{@kim.no_polisi}.pdf", type: "application/pdf", disposition: "inline"
-  end
+	 def kim_print_to_pdf
+	 	@kim = Kimm.find(params[:id])
+	    output = CetakPDF.new(:page_size => [595.28, 841.89], :margin => [0, 0]).print_pdf(@kim)
+	    send_data output, filename: "registrasi_#{@kim.no_polisi}.pdf", type: "application/pdf", disposition: "inline"
+	  end
 
 	def new
 		@kim = Kimm.new
