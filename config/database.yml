@@ -23,6 +23,6 @@ test:
 production:
   <<: *default
   host: localhost
-  database: kim_production
-  username: admin
+  database: kotakgad_kim
+  username: kotakgad_kim
   password: q1w2e3r4
