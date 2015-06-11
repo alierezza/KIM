@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 	  <script>
@@ -15,10 +16,12 @@
     global_notif('<%= alert %>', "danger")
     <% end %>
     </script>
+    <div class="one_page">
   <%= render 'layouts/menu' %>
 	<%= yield %>
-	<footer>
-		Copyright 2015
+	<footer style="bottom: -75px;">
+		Copyright Pertamina 2015 All Right Reserved
 	</footer>
+</div>
 </body>
 </html>

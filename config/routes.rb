@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get "edit_info/:id" => "dashboards#edit_info", :as => :edit_info
   get "kim_approval/" => "kimms#kim_approval", :as => :kim_approval
   get "download/:id/kim/:id2" => "kimms#download", :as => :download, constraints: { id: /[^\/]+/, id2: /[^\/]+/ }
+  get "kim_print_to_pdf/:id" => "kimms#kim_print_to_pdf", :as => :kim_print_to_pdf
 end
