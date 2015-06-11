@@ -26,7 +26,7 @@ class Ability
         can :view_feedback, User
 
         can :edit_info, User, :id => user.id
-
+        can :generate_kim, User
 
     elsif user.role == "SuperAdmin"
         can :create_admin, User
