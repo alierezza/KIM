@@ -1,11 +1,11 @@
 <div class='inner-body'>
     <div class='panel panel-default'>
       <div class='panel-heading'>
-          <h3 class="panel-title">Feedback</h3>
+          <h3 class="panel-title">Survei</h3>
       </div>
       <div class='panel-body'>
         <%= form_for(@feedback) do |f| %>
-          <p>1. Produk yang diperoleh dari Depot LPG Tanjung Perak memiliki kualitas yang baik atau bebas dari cacat (Product Quality)</p>
+          <p>1. Produk yang diperoleh dari Depot LPG Tanjung Perak memiliki kualitas yang baik atau bebas dari cacat</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q1, 10, :checked => false, :required=>true %>
@@ -37,7 +37,7 @@
             </label>
           </div>
 
-          <p>2. Depot LPG Tanjung Perak mengetahui kebutuhan anda (Needs)</p>
+          <p>2. Depot LPG Tanjung Perak mengetahui kebutuhan anda</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q2, 10, :checked => false, :required=>true %>
@@ -69,7 +69,7 @@
             </label>
           </div>
 
-          <p>3. Respon atau jawaban Depot LPG Tanjung Perak terhadap pertanyaan atau saran dan masukan sudah baik (Response)</p>
+          <p>3. Respon atau jawaban Depot LPG Tanjung Perak terhadap pertanyaan atau saran dan masukan sudah baik</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q3, 10, :checked => false, :required=>true %>
@@ -101,7 +101,7 @@
             </label>
           </div>
 
-          <p>4. Pekerja Depot LPG Tanjung Perak memiliki kompetensi yang memadai dalam pelayanan (Competency)</p>
+          <p>4. Pekerja Depot LPG Tanjung Perak memiliki kompetensi yang memadai dalam pelayanan</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q4, 10, :checked => false, :required=>true %>
@@ -133,7 +133,7 @@
             </label>
           </div>
 
-          <p>5. Memiliki pengalaman pelayanan yang baik saat pembuatan KIM (Service Experience)</p>
+          <p>5. Memiliki pengalaman pelayanan yang baik saat pembuatan KIM</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q5, 10, :checked => false, :required=>true %>
@@ -165,7 +165,7 @@
             </label>
           </div>
 
-          <p>6. Memiliki pengalaman pelayanan yang baik saat pembuatan Surat Perintah Angkut atau Surat Perintah Isi (Service Experience)</p>
+          <p>6. Memiliki pengalaman pelayanan yang baik saat pembuatan Surat Perintah Angkut atau Surat Perintah Isi</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q6, 10, :checked => false, :required=>true %>
@@ -197,7 +197,7 @@
             </label>
           </div>
 
-          <p>7. Memiliki pengalaman pelayanan yang baik saat pengisian (Service Experience)</p>
+          <p>7. Memiliki pengalaman pelayanan yang baik saat pengisian</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q7, 10, :checked => false, :required=>true %>
@@ -229,7 +229,7 @@
             </label>
           </div>
 
-          <p>8. Memiliki pengalaman pelayanan yang baik saat Good Issue (Service Experience)</p>
+          <p>8. Memiliki pengalaman pelayanan yang baik saat Good Issue</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q8, 10, :checked => false, :required=>true %>
@@ -261,7 +261,7 @@
             </label>
           </div>
 
-          <p>9. Secara umum pelayanan di Depot LPG Tanjung Perak sudah baik (Service Experience)</p>
+          <p>9. Secara umum pelayanan di Depot LPG Tanjung Perak sudah baik</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q9, 10, :checked => false, :required=>true %>
@@ -293,7 +293,7 @@
             </label>
           </div>
 
-          <p>10.Lingkungan Depot LPG Tanjung Perak tergolong bersih  (Housekeeping)</p>
+          <p>10.Lingkungan Depot LPG Tanjung Perak tergolong bersih</p>
           <div class="checkbox">
             <label>
               <%= f.radio_button :q10, 10, :checked => false, :required=>true %>
@@ -327,7 +327,7 @@
           <div class='bottom-field row'>
             <div class='pull-right'>
               <%#= link_to "back", dashboards_path , class: 'btn btn-default', style: "margin-right: 10px;" %>
-              <%= f.submit "Submit", class: 'btn btn-primary' %>
+              <%= f.submit "Submit", class: 'btn btn-primary', 'data-disable-with'=> "Wait.." %>
             </div>
           </div>
       <% end %>

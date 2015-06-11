@@ -2,16 +2,34 @@ class MembersController < ApplicationController
 	before_action :authenticate_user!
 	
 	def index 
-		@users = User.where("role=? ","User").order("admin_approval ASC").page(params[:page]).all
+		@users = User.where("role=? ","User").search(params[:nama]).order("admin_approval ASC").page(params[:page])
 		authorize! :user_approval, current_user
 	end
 
 	def show
-
+		@user = User.find(params[:id])
+		authorize! :user_approval, current_user
 	end
 
 	def new
 
+		params.each_with_index do |user|
+			if user.first.split("_")[0] == "user" and params[:commit] == "Approve All"
+				@user = User.find(user.second)
+				@user.admin_approval = true
+				@user.approved_by = current_user.nama
+				@user.save
+				flash[:notice] = "all users already approved"
+			end
+			if user.first.split("_")[0] == "user" and params[:commit] == "Reject All"
+				@user = User.find(user.second)
+				@user.destroy
+				flash[:alert] = "all users already deleted"
+			end
+		end
+	
+		redirect_to members_path
+		authorize! :user_approval, current_user
 	end
 
 	def create
@@ -34,7 +52,7 @@ class MembersController < ApplicationController
 			redirect_to members_path
 		end
 		
-		authorize! :user_approval, @user
+		authorize! :user_approval, current_user
 	end
 
 	def update
@@ -42,7 +60,11 @@ class MembersController < ApplicationController
 	end
 
 	def destroy
-
+		@user = User.find(params[:id])
+		@user.destroy
+		flash[:notice] = "User has been deleted"
+		redirect_to members_path
+		authorize! :user_approval, current_user
 	end
 
 private

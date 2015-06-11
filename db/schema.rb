@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602083919) do
+ActiveRecord::Schema.define(version: 20150609130821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150602083919) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "feedbacks", force: :cascade do |t|
+    t.integer  "user_id"
     t.float    "q1",         default: 0.0
     t.float    "q2",         default: 0.0
     t.float    "q3",         default: 0.0
@@ -66,13 +67,14 @@ ActiveRecord::Schema.define(version: 20150602083919) do
     t.datetime "masa_berlaku_tera"
     t.string   "no_polisi"
     t.string   "tipe"
-    t.integer  "kapasitas_tangki"
+    t.string   "kapasitas"
     t.boolean  "admin_approval"
     t.boolean  "crew_approval"
     t.string   "message"
     t.string   "admin_approved_by"
     t.string   "crew_approved_by"
     t.string   "no_registrasi"
+    t.string   "merek_kendaraan"
     t.datetime "expired_date"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
@@ -100,6 +102,11 @@ ActiveRecord::Schema.define(version: 20150602083919) do
     t.string   "surat_permohonan_content_type"
     t.integer  "surat_permohonan_file_size"
     t.datetime "surat_permohonan_updated_at"
+    t.datetime "masa_berlaku_kir_skid_tank"
+    t.string   "kir_skid_tank_file_name"
+    t.string   "kir_skid_tank_content_type"
+    t.integer  "kir_skid_tank_file_size"
+    t.datetime "kir_skid_tank_updated_at"
   end
 
   create_table "lkps", force: :cascade do |t|

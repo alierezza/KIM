@@ -10,18 +10,19 @@
 			<table class="table">
 			<thead>
 				<th>No.</th>
+				<th>No Polisi</th>
 				<th>Admin</th>
 				<th>Crew</th>
-				<th>Download KIM</th>
-				<th>Expired Date</th>
+				<th>Due Date</th>
 				<th>Alert</th>
-				<th>No Polisi</th>
-				<Th colspan=2>Action</th>
+
+				<th colspan=3>Action</th>
 			</thead>
 			<tbody>
 				<% @kims.each_with_index do |kim,index| %>
 					<tr>
 						<td><%= index+1 %></td>
+						<td><%= kim.no_polisi %></td>
 						<td>
 							<% if kim.admin_approval==nil and kim.message==nil %>
 								<%= "Waiting.." %>
@@ -38,45 +39,34 @@
 							<% end %>
 						</td>
 						<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "Approved by #{kim.crew_approved_by}" : "Rejected" %></td>
-						
-						<td>
-							<% begin %>
-								<% if kim.admin_approval == true and kim.crew_approval == true and kim.expired_date.to_date >= Time.now.to_date %>
-									Print
-								<% elsif kim.expired_date.to_date < Time.now.to_date %>
-									-
-								<% end %>
-							<% rescue %>
-								-
-							<% end %>
-						</td>
 						<td><%= kim.expired_date == nil ? "-": kim.expired_date.strftime("%d-%m-%Y") %></td>
 						<td>
 							<% begin %>
-							<% if kim.expired_date.to_date >= Time.now.to_date %>				
+							<% if kim.expired_date.to_date >= Time.now.to_date %>
 								<% if kim.expired_date.to_date < Time.now.to_date + 1.month and kim.expired_date.to_date >= Time.now.to_date + 7.days %>
-									kuning
+									<img src="http://qph.is.quoracdn.net/main-thumb-t-24040-200-dkX6TaDswV2UVRsXDGOhOKn2uohcJaie.jpeg" class="img-circle circle ">
 								<% elsif kim.expired_date.to_date < Time.now.to_date + 7.days and kim.expired_date.to_date >= Time.now.to_date %>
-									oranye
+									<img src="http://qph.is.quoracdn.net/main-thumb-t-52446-200-hfaogtbebggwzikykcugzhqhvafgpkfs.jpeg" class="img-circle circle ">
 								<% else %>
-									hijau
+									<img src="http://img3.findthebest.com/sites/default/files/2307/media/images/t2/Dark_Green_X11_1395322.png" class="img-circle circle ">
 								<% end %>
 							<% else %>
-								Merah
+								<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Red.svg/120px-Red.svg.png" class="img-circle circle">
 							<% end %>
 							<% rescue %>
 								-
 							<% end %>
 						</td>
-						<td><%= kim.no_polisi %></td>
+
 						<td>
 							<% if kim.message == nil %>
 								<%= link_to "Detail", kimm_path(kim) %>
 							<% else %>
-								<%= link_to "Update", edit_kimm_path(kim) %>
+								<%= link_to "Update", edit_kimm_path(kim), :class=>"btn btn-xs btn-success" %>
 							<% end %>
 						</td>
-						<td><%= link_to "re-send no registrasi", kimm_path(kim,:status=>"email") %></td>
+						<td width="1%"><%= link_to "<span class='glyphicon glyphicon-envelope'></span> no registrasi".html_safe, kimm_path(kim,:status=>"email"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-info" %></td>
+						<td><%= link_to kim_print_to_pdf_path(kim), target: "_blank", :class=>"btn btn-xs btn-default" do%>Print <% end %></td>
 					</tr>
 				<% end %>
 			</tbody>

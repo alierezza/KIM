@@ -1,0 +1,29 @@
+<div class='inner-body'>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+        <h3 class="panel-title">User Detail</h3>
+    </div>
+    <div class='panel-body'>
+    	<%= link_to members_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
+    	<div class="row row_content">
+	        <div class="title_row">Email for Login</div><div class="data_row"><%= @user.email %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Nama</div><div class="data_row"><%= @user.nama %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Alamat</div><div class="data_row"><%= @user.alamat %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Kota / Kabupaten:</div><div class="data_row"><%= @user.kota %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Telp</div><div class="data_row"><%= @user.telp %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Fax</div><div class="data_row"><%= @user.fax %></div>
+	      </div>
+
+    </div>
+  </div>
+</div>

@@ -4,11 +4,23 @@
         <h3 class="panel-title">KIM Details</h3>
     </div>
     <div class='panel-body'>
-    	<%= link_to kimms_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
+
+    	<% if can? :create_kim, current_user %>	
+    		<%= link_to kimms_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
+    	<% end %>
+
+    	<% if can? :kim_approval, current_user %>	
+    		<%= link_to kim_approval_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
+    	<% end %>
+
+
     	<fieldset>
     		<legend>Info</legend>
     		<div class="row row_content">
 	        <div class="title_row">Jenis KIM</div><div class="data_row"><%= @kim.jenis_sim %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Merek Kendaraan</div><div class="data_row"><%= @kim.merek_kendaraan %></div>
 	      </div>
 	      <div class="row row_content">
 	        <div class="title_row">No. Polisi</div><div class="data_row"><%= @kim.no_polisi %></div>
@@ -17,7 +29,43 @@
 	        <div class="title_row">Tipe</div><div class="data_row"><%= @kim.tipe %></div>
 	      </div>
 	      <div class="row row_content">
-	        <div class="title_row">Tipe</div><div class="data_row"><%= @kim.kapasitas_tangki %> Liter</div>
+	        <div class="title_row">Kapasitas</div><div class="data_row"><%= @kim.kapasitas %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">No Registrasi</div><div class="data_row"><%= @kim.no_registrasi %></div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Admin Approval</div>
+	        <div class="data_row">
+	        	<% if @kim.admin_approval==nil and @kim.message==nil %>
+					<%= "Waiting.." %>
+				<% else %>
+					<% if @kim.message != nil %>
+						<%= "Rollback" %>
+					<% else %>
+						<% if @kim.admin_approval == true %>
+						 	<%= "<span class='glyphicon glyphicon-ok'></span> #{@kim.admin_approved_by}".html_safe %>
+						<% else %>
+							<%= "<span class='glyphicon glyphicon-remove'></span>" %>
+						<% end %>
+					<% end %>
+				<% end %>
+	    	</div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Crew Approval</div>
+	        <div class="data_row">
+	        	<%= @kim.crew_approval==nil ? "Waiting.." : @kim.crew_approval==true ? "<span class='glyphicon glyphicon-ok'></span> #{@kim.crew_approved_by}".html_safe : "<span class='glyphicon glyphicon-remove'></span>" %>
+	        </div>
+	      </div>
+	      <div class="row row_content">
+	        <div class="title_row">Jatuh Tempo</div>
+	        	<div class="data_row">
+	        		<%= @kim.expired_date==nil ? "-": @kim.expired_date.strftime("%d-%B-%Y") %>
+	        		<% if Time.now.to_date > @kim.expired_date.to_date %>
+	        			<font color=red>(Expired)</font>
+	        		<% end %>
+	    		</div>
 	      </div>
 	      <div class="row row_content">
 	        <div class="title_row">Surat Permohonan</div>
@@ -63,12 +111,23 @@
     			</fieldset>
 
     			<fieldset>
-    				<legend>KIR</legend>
+    				<legend>KIR (Head atau Truck)</legend>
     				<div class="row row_content">
 			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_kir.strftime("%d %B %Y") %></div>
 			      </div>
 			      <%= image_tag @kim.kir.url(:medium) %></br>
-						<%= link_to "Download KIR", download_path(@kim.stnk_file_name,@kim.id, :status=>"kir") %></br>
+						<%= link_to "Download KIR", download_path(@kim.kir_file_name,@kim.id, :status=>"kir") %></br>
+    			</fieldset>
+    		</div>
+
+    		<div class="col-md-6">
+    			<fieldset>
+    				<legend>KIR (Skid Tank)</legend>
+    				<div class="row row_content">
+			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_kir_skid_tank.strftime("%d %B %Y") %></div>
+			      </div>
+			      <%= image_tag @kim.kir.url(:medium) %></br>
+						<%= link_to "Download KIR (Skid Tank)", download_path(@kim.kir_skid_tank_file_name,@kim.id, :status=>"kir") %></br>
     			</fieldset>
     		</div>
     	</div>

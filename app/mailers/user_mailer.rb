@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
 	def user_registration(user, password)
 	    @user = user
 	    @password = password
-	    
+
 	    mail(to: @user.email_recovery,
 	         subject: "[KIM] Detail Account Anda")
   	end
@@ -28,9 +28,9 @@ class UserMailer < ActionMailer::Base
   		@token = token
     	devise_mail(record, :reset_password_instructions)
   	end
-    
 
-    def kim_expired_notif(user,kim) 
+
+    def kim_expired_notif(user,kim)
       @user = user
       @kim = kim
       mail(to: @user.email_recovery, subject: "[KIM] Notifikasi Peringatan tanggal jatuh tempo KIM")

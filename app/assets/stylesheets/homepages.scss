@@ -1,3 +1,172 @@
-// Place all the styles related to the homepages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Global */
+.our_crew{
+li.span3 {
+  width: 30%;
+  display: inline-flex;
+  margin: 1%;
+}
+
+/* Container */
+.container-fluid {
+    background: #FFFFFF;
+/*    margin: 40px auto 10px;
+    padding: 20px 40px 0;*/
+    max-width: 960px;
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);*/
+}
+
+
+/* Page Header */
+.page-header {
+    background: #f9f9f9;
+    margin: -30px -40px 40px;
+    padding: 20px 40px;
+    border-top: 4px solid #ccc;
+    color: #999;
+    text-transform: uppercase;
+    }
+    .page-header h3 {
+        line-height: 0.88rem;
+        color: #000;
+        }
+
+
+/* Carousel Control */
+.control-box {
+    text-align: right;
+    width: 100%;
+    }
+    .carousel-control{
+        background: #666;
+        border: 0px;
+        border-radius: 0px;
+        display: inline-block;
+        font-size: 34px;
+        font-weight: 200;
+        line-height: 18px;
+        opacity: 0.5;
+        padding: 4px 10px 0px;
+        position: static;
+        height: 30px;
+        width: 15px;
+        }
+
+
+/* Footer */
+.footer {
+    margin: auto;
+    width: 100%;
+    max-width: 960px;
+    display: block;
+    font-size: 0.69rem;
+    }
+    .footer, .footer a {
+        color: #c9e4f7;
+        }
+        p.right  {
+            float: right;
+            }
+
+
+/* Mobile Only */
+@media (max-width: 767px) {
+    .page-header, .control-box {
+    text-align: center;
+    }
+}
+@media (max-width: 479px) {
+    .caption {
+    word-break: break-all;
+    }
+}
+
+
+/* ADD-ON
+-------------------------------------------------- */
+// body:after{content:"less than 320px";font-size:1rem;font-weight:bold;position:fixed;bottom:0;width:100%;text-align:center;background-color:hsla(1,60%,40%,0.7);color:#fff;height:20px;padding-top:0;margin-left:0;left:0}@media only screen and (min-width:320px){body:after{content:"320 to 480px";background-color:hsla(90,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:480px){body:after{content:"480 to 768px";background-color:hsla(180,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:768px){body:after{content:"768 to 980px";background-color:hsla(270,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:980px){body:after{content:"980 to 1024px";background-color:hsla(300,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:1024px){body:after{content:"1024 and up";background-color:hsla(360,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}
+
+// ::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
+// ::-moz-selection { background: #ff5e99; color: #FFFFFF; }
+
+// a, a:focus, a:active, a:hover, object, embed { outline: none; }
+// :-moz-any-link:focus { outline: none; }
+// input::-moz-focus-inner { border: 0; }
+
+.item.left {
+	.left, .right{
+		top: 35%;
+	}
+}
+
+
+}
+
+
+section{
+  width: 200px;
+  height: 200px;
+  position: relative;
+  left: 50%;
+  top: 1em;
+  margin-left: -100px;
+  overflow: hidden;
+  background: #292929;
+  border: 10px solid #fff;
+}
+
+/*section:hover article{
+  animation-play-state: paused;
+}*/
+
+article{
+  position: absolute;
+  left: 200px;
+  background: #292929;
+  color: #e3e3e3;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font: 2em/1em sans-serif;
+  border-box: box-sizing;
+  // padding-top: 80px;
+}
+
+article:nth-of-type(1){
+  animation: slideIn 50s linear 0s infinite;
+}
+article:nth-of-type(2){
+  animation: slideIn 50s linear 5s infinite;
+}
+article:nth-of-type(3){
+  animation: slideIn 50s linear 10s infinite;
+}
+article:nth-of-type(4){
+  animation: slideIn 50s linear 15s infinite;
+}
+article:nth-of-type(5){
+  animation: slideIn 50s linear 20s infinite;
+}
+article:nth-of-type(6){
+  animation: slideIn 50s linear 25s infinite;
+}
+article:nth-of-type(7){
+  animation: slideIn 50s linear 30s infinite;
+}
+article:nth-of-type(8){
+  animation: slideIn 50s linear 35s infinite;
+}
+article:nth-of-type(9){
+  animation: slideIn 50s linear 40s infinite;
+}
+article:nth-of-type(10){
+  animation: slideIn 50s linear 45s infinite;
+}
+
+@keyframes slideIn{
+  0% {left: 200px;}
+  1% {left: 0;}
+  10% {left: 0;}
+  11% {left: -200px;}
+  100%{left: -200px;}
+}
+

@@ -1,44 +1,74 @@
-<div class='inner-body'>
-	<div class='panel panel-default'>
-		<div class='panel-heading'>
-			<h3 class="panel-title">KIM Approval</h3>
-		</div>
-		<div class='panel-body'>
-			<table class='table'>
-				<thead>
-					<th>Jenis KIM</th>
-					<th>Masa Berlaku SIM</th>
-					<th>Masa Berlaku STNK</th>
-					<th>Masa Berlaku KIR</th>
-					<th>Masa Berlaku TERA</th>
-					<th>KTP</th>
-					<th>Surat Permohonan</th>
-					<th>No Polisi</th>
-					<th>Tipe</th>
-					<th>Kapasitas</th>
-					<th colspan=3>Status</th>
-				</thead>
-				<tbody>
-					<% @kims.each_with_index do |kim| %>
-						<tr>
-							<td><%= link_to kim.jenis_sim, kim %></td>
-							<td><%= kim.masa_berlaku_sim.strftime("%d-%m-%Y") %></br><%= link_to "Download SIM", download_path(kim.stnk_file_name,kim.id, :status=>"sim") %></td>
-							<td><%= kim.masa_berlaku_stnk.strftime("%d-%m-%Y") %></br><%= link_to "Download STNK", download_path(kim.stnk_file_name,kim.id, :status=>"stnk") %></td>
-							<td><%= kim.masa_berlaku_kir.strftime("%d-%m-%Y") %></br><%= link_to "Download KIR", download_path(kim.stnk_file_name,kim.id, :status=>"kir") %></td>
-							<td><%= kim.masa_berlaku_tera.strftime("%d-%m-%Y") %></br><%= link_to "Download TERA", download_path(kim.tera_file_name,kim.id, :status=>"tera") %></td>
-							<td><%= link_to "Download KTP", download_path(kim.ktp_file_name,kim.id, :status=>"ktp") %></td>
-							<td><%= link_to "Download", download_path(kim.surat_permohonan_file_name,kim.id, :status=>"surat permohonan") %></td>
-							<td><%= kim.no_polisi %></td>
-							<td><%= kim.tipe %></td>
-							<td><%= kim.kapasitas_tangki %> Liter</td>
-							<td><%= link_to "Approve", edit_kimm_path(kim, :status=>"approve") %></td>
-							<td><%= link_to "Rollback", edit_kimm_path(kim,:status=>"rollback", :message=>"asdasdasdasd") %></td>
-							<td><%= link_to "Reject", edit_kimm_path(kim, :status=>"reject") %></td>
-						</tr>
-					<% end %> <!-- end do -->
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
+<table class='table'>
+	<thead>
+		<th>Jenis SIM</th>
+		<th>No Polisi</th>
+		<th>Tipe</th>
+		<th>Kapasitas</th>
+		<th>No Registrasi</th>
+		<th>Admin Approval</th>
+		<th>Crew Approval</th>
+		<th colspan=3>Status</th>
+		<th>Print</th>
+	</thead>
+	<tbody>
+		<% @kims.each_with_index do |kim| %>
+			<tr>
+				<td><%= link_to kim.jenis_sim, kim %></td>
+				<td><%= link_to kim.no_polisi, kim %></td>
+				<td><%= link_to kim.tipe, kim %></td>
+				<td><%= link_to kim.kapasitas, kim %></td>
+				<td><%= link_to kim.no_registrasi == nil ? "-" : kim.no_registrasi, kim %></td>
+				<td>
+					<% if kim.admin_approval==nil and kim.message==nil %>
+						<%= "Waiting.." %>
+					<% else %>
+						<% if kim.message != nil %>
+							<%= "Rollback" %>
+						<% else %>
+							<% if kim.admin_approval == true %>
+							 	<span class="glyphicon glyphicon-ok"></span><%= " #{kim.admin_approved_by}" %>
+							<% else %>
+								<%= "<span class='glyphicon glyphicon-remove'></span>" %>
+							<% end %>
+						<% end %>
+					<% end %>
+				</td>
+				<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "<span class='glyphicon glyphicon-ok'></span> #{kim.crew_approved_by}".html_safe : "<span class='glyphicon glyphicon-remove'></span>" %></td>
+
+
+				<% if kim.admin_approval == nil and kim.message == nil %>
+
+				<td><%= link_to "Approve", edit_kimm_path(kim, :status=>"approve"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-success" %></td>
+				<td><a onclick="show_modal('<%= kim.id %>');" style="cursor:pointer;" class="btn btn-xs btn-warning">Rollback</a></td>
+				<td><%= link_to "Reject", edit_kimm_path(kim, :status=>"reject"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-danger" %></td>
+				<% else %>
+					<td></td>
+					<td></td>
+					<td></td>
+				<% end %>
+				<td>
+					<% begin %>
+						<% if kim.admin_approval == true and kim.crew_approval == true and kim.expired_date.to_date >= Time.now.to_date %>
+							<%= link_to "<span class='glyphicon glyphicon-print'></span> Print".html_safe ,pdf_kim_path(:id=>kim.id),:class=>"btn btn-info btn-xs" %>
+						<% elsif kim.expired_date.to_date < Time.now.to_date %>
+							-
+						<% end %>
+					<% rescue %>
+						-
+					<% end %>
+				</td>
+			</tr>
+		<% end %> <!-- end do -->
+	</tbody>
+</table>
 <%= paginate @kims %>
+
+
+<script>
+function show_modal(id){
+	$.get("/kim_approval", {rollback_id: id}, null, "script");
+
+}
+</script>
+
+<div id="modal"></div>

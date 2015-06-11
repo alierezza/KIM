@@ -1,6 +1,8 @@
 class CreateFeedbacks < ActiveRecord::Migration
   def change
     create_table :feedbacks do |t|
+        t.references :user
+
     	t.float :q1, :default=>0
     	t.float :q2, :default=>0
     	t.float :q3, :default=>0

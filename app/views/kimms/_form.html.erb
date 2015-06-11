@@ -1,51 +1,76 @@
 <%= form_for(@kim) do |f| %>
 
   <% if @kim.message != nil %>
-    Alasan di Rollback:
-    <%= @kim.message %></br></br>
+    <fieldset>
+        <legend>Alasan di Rollback</legend>
+        <font color=red><%= @kim.message %></font><font>
+    </fieldset>
   <% end %>
   <fieldset>
     <legend>Info</legend>
-    <%= f.label "Jenis SIM","Jenis SIM <font color=red>*</font>".html_safe, class: "control-label" %>
+    <%= f.label "Jenis SIM","Jenis SIM".html_safe, class: "control-label" %>
     <div class="checkbox">
       <label>
-        <%= f.radio_button :jenis_sim, "B1", :checked => true %>
+        <%= f.radio_button :jenis_sim, "B1",:required=>true %>
         B1
       </label>
       <label>
-        <%= f.radio_button :jenis_sim, "B2" %>
+        <%= f.radio_button :jenis_sim, "B2",:required=>true %>
         B2
       </label>
     </div>
 
     <div class='form-group'>
-      <%= f.label "No Polisi","No Polisi <font color=red>*</font>".html_safe, class: "control-label" %>
+      <%= f.label "No Polisi","No Polisi".html_safe, class: "control-label" %>
       <%= f.text_field :no_polisi, class: "form-control", :required=>true %>
     </div>
 
-    <%= f.label "Tipe","Tipe <font color=red>*</font>".html_safe %>
+    <div class='form-group'>
+      <%= f.label "Merek Kendaraan","Merek Kendaraan".html_safe, class: "control-label" %>
+      <%= f.text_field :merek_kendaraan, class: "form-control", :required=>true %>
+    </div>
+
+    <%= f.label "Tipe","Tipe".html_safe %>
     <div class="checkbox">
       <label>
-        <%= f.radio_button :tipe, "Skid Tank", :checked => true %>
+        <%= f.radio_button :tipe, "Skid Tank", :required=>true %>
         Skid Tank
       </label>
       <label>
-        <%= f.radio_button :tipe, "Truck Tabung 3KG" %>
-        Truck Tabung 3KG
-      </label>
-      <label>
-        <%= f.radio_button :tipe, "Truck Tabung 12KG" %>
-        Truck Tabung 12KG
+        <%= f.radio_button :tipe, "Truck", :required=>true %>
+        Truck
       </label>
     </div>
 
-    <div class='form-group'>
-      <%= f.label "Kapasitas Tangki","Kapasitas Tangki <font color=red>*</font>".html_safe, class: "control-label" %>
-      <%= f.number_field :kapasitas_tangki,  class: "form-control", :required=>true %>
+    <div class='form-group kapasitas-tangki'>
+      <%= f.label "Kapasitas Tangki","Kapasitas Tangki".html_safe, class: "control-label" %>
+      <div class='input-group  col-sm-2'>
+        <%= f.number_field :kapasitas,  class: "form-control", :required=>true %>
+        <span class="input-group-addon">Liter</span>
+      </div>
     </div>
 
+    <div class='form-group kapasitas-lpg'>
+      <%= f.label "Kapasitas LPG","Kapasitas LPG".html_safe, class: "control-label" %>
+        <div class="checkbox">
+        <label>
+          <%= f.radio_button :kapasitas, "3 Kg", :required=>true %>
+          3 Kg
+        </label>
+        <label>
+          <%= f.radio_button :kapasitas, "12 Kg", :required=>true %>
+          12 Kg
+        </label>
+        <label>
+          <%= f.radio_button :kapasitas, "50 Kg", :required=>true %>
+          50 Kg
+        </label>
+      </div>
+    </div>
+
+
     <div class='form-group'>
-      <%= f.label "Upload KTP", "Upload KTP <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
+      <%= f.label "Upload KTP", "Upload KTP <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
         <% if params[:action] == "update" or params[:action] == "edit" %>
           <%= f.file_field :ktp,  class: "avatar" %>
           <div id="target_kimm_ktp">
@@ -54,12 +79,13 @@
         <% else %>
           <%= f.file_field :ktp,  class: "avatar", :required=>true %>
           <div id="target_kimm_ktp">
+            <%= image_tag @kim.ktp.url(:medium) %>
           </div>
         <% end %>
     </div>
 
     <div class='form-group'>
-      <%= f.label "Upload Surat Permohonan","Upload Surat Permohonan <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
+      <%= f.label "Upload Surat Permohonan","Upload Surat Permohonan <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
       <% if params[:action] == "update" or params[:action] == "edit" %>
         <%= f.file_field :surat_permohonan,  class: "avatar" %>
         <div id="target_kimm_surat_permohonan">
@@ -68,6 +94,7 @@
       <% else %>
         <%= f.file_field :surat_permohonan,  class: "avatar", :required=>true %>
         <div id="target_kimm_surat_permohonan">
+          <%= image_tag @kim.surat_permohonan.url(:medium) %>
         </div>
       <% end %>
     </div>
@@ -78,14 +105,14 @@
     <div class="row">
       <div class="col-md-6">
         <div class='form-group'>
-          <%= f.label "Masa Berlaku SIM","Masa Berlaku SIM <font color=red>*</font>".html_safe, class: "control-label" %>
+          <%= f.label "Masa Berlaku SIM","Masa Berlaku SIM".html_safe, class: "control-label" %>
           <div class='input-group date'>
-            <%= f.text_field :masa_berlaku_sim, class: "form-control",:readonly=>true %>
+            <%= f.text_field :masa_berlaku_sim, class: "form-control",:readonly=>true, :required=>true, :required=>true %>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
         </div>
         <div class='form-group'>
-        <%= f.label "Upload SIM","Upload SIM <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
+        <%= f.label "Upload SIM","Upload SIM <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
         <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= f.file_field :sim,  class: "avatar" %>
         <% else %>
@@ -96,6 +123,8 @@
       <div class="col-md-6">
         <div id="target_kimm_sim">
           <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= image_tag @kim.sim.url(:medium) %>
+          <% else %>
             <%= image_tag @kim.sim.url(:medium) %>
           <% end %>
         </div>
@@ -108,15 +137,15 @@
     <div class="row">
       <div class="col-md-6">
         <div class='form-group'>
-          <%= f.label "Masa Berlaku STNK","Masa Berlaku STNK <font color=red>*</font>".html_safe, class: "control-label" %>
+          <%= f.label "Masa Berlaku STNK","Masa Berlaku STNK".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_stnk %>
           <div class='input-group date'>
-            <%= f.text_field :masa_berlaku_stnk, class: "form-control",:readonly=>true %>
+            <%= f.text_field :masa_berlaku_stnk, class: "form-control",:readonly=>true, :required=>true %>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
         </div>
         <div class='form-group'>
-          <%= f.label "Upload stnk","Upload STNK <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
+          <%= f.label "Upload stnk","Upload STNK <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
               <%= f.file_field :stnk,  class: "avatar" %>
           <% else %>
@@ -128,6 +157,8 @@
         <div id="target_kimm_stnk">
           <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= image_tag @kim.stnk.url(:medium) %>
+          <% else %>
+            <%= image_tag @kim.stnk.url(:medium) %>
           <% end %>
         </div>
       </div>
@@ -135,19 +166,19 @@
   </fieldset>
 
   <fieldset>
-    <legend>KIR</legend>
+    <legend>KIR (Head atau Truck)</legend>
     <div class="row">
       <div class="col-md-6">
         <div class='form-group'>
-          <%= f.label "Masa Berlaku KIR","Masa Berlaku KIR <font color=red>*</font>".html_safe, class: "control-label" %>
+          <%= f.label "Masa Berlaku KIR (Head atau Truck)","Masa Berlaku KIR (Head atau Truck)".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_kir %>
            <div class='input-group date'>
-            <%= f.text_field :masa_berlaku_kir, class: "form-control",:readonly=>true %>
+            <%= f.text_field :masa_berlaku_kir, class: "form-control",:readonly=>true, :required=>true %>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
         </div>
         <div class='form-group'>
-          <%= f.label "Upload KIR", "Upload KIR <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
+          <%= f.label "Upload KIR (Head atau Truck)", "Upload KIR (Head atau Truck) <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= f.file_field :kir,  class: "avatar" %>
           <% else %>
@@ -159,6 +190,41 @@
         <div id="target_kimm_kir">
           <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= image_tag @kim.kir.url(:medium) %>
+          <% else %>
+            <%= image_tag @kim.kir.url(:medium) %>
+          <% end %> 
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+   <fieldset>
+    <legend>KIR (Skid Tank)</legend>
+    <div class="row">
+      <div class="col-md-6">
+        <div class='form-group'>
+          <%= f.label "Masa Berlaku KIR (Skid Tank)","Masa Berlaku KIR (Skid Tank)".html_safe, class: "control-label" %>
+          <%#= f.date_field :masa_berlaku_kir %>
+           <div class='input-group date'>
+            <%= f.text_field :masa_berlaku_kir_skid_tank, class: "form-control",:readonly=>true %>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          </div>
+        </div>
+        <div class='form-group'>
+          <%= f.label "Upload KIR  (Skid Tank)", "Upload KIR  (Skid Tank) <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
+          <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= f.file_field :kir_skid_tank,  class: "avatar" %>
+          <% else %>
+            <%= f.file_field :kir_skid_tank,  class: "avatar" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div id="target_kimm_kir_skid_tank">
+          <% if params[:action] == "update" or params[:action] == "edit" %>
+            <%= image_tag @kim.kir_skid_tank.url(:medium) %>
+          <% else %>
+            <%= image_tag @kim.kir_skid_tank.url(:medium) %>
           <% end %> 
         </div>
       </div>
@@ -170,7 +236,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class='form-group'>
-          <%= f.label "Masa Berlaku TERA","Masa Berlaku TERA <font color=red>*</font>".html_safe, class: "control-label" %>
+          <%= f.label "Masa Berlaku TERA","Masa Berlaku TERA".html_safe, class: "control-label" %>
           <%#= f.date_field :masa_berlaku_tera %>
            <div class='input-group date'>
               <%= f.text_field :masa_berlaku_tera, class: "form-control",:readonly=>true %>
@@ -178,11 +244,11 @@
             </div>
         </div>
         <div class='form-group'>
-          <%= f.label "Upload TERA","Upload TERA <font color=red>*</font> <font size=2 style='font-weight:normal;'><i>max file size 1mb</i></font>".html_safe, class: "control-label" %>
+          <%= f.label "Upload TERA","Upload TERA <font size=2 style='font-weight:normal;'><i>max file size 1mb, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
           <% if params[:action] == "update" or params[:action] == "edit" %>
               <%= f.file_field :tera,  class: "avatar" %>
           <% else %>
-              <%= f.file_field :tera,  class: "avatar",:required=>true %>
+              <%= f.file_field :tera,  class: "avatar" %>
           <% end %>
         </div>
       </div>
@@ -190,16 +256,17 @@
         <div id="target_kimm_tera">
           <% if params[:action] == "update" or params[:action] == "edit" %>
             <%= image_tag @kim.tera.url(:medium) %>
+          <% else %>
+            <%= image_tag @kim.tera.url(:medium) %>
           <% end %>
         </div>
       </div>
     </div>
   </fieldset>
-<b>Note: <font color=red>*</font> wajib di isi</b>
 	<div class='bottom-field row'>
     <div class='pull-right'>
       <%= link_to "back", kimms_path , class: 'btn btn-default', style: "margin-right: 10px;" %>
-      <%= f.submit "Save", class: 'btn btn-primary' %>
+      <%= f.submit "Save", class: 'btn btn-primary', 'data-disable-with'=> "Wait.." %>
     </div>
   </div>
 
@@ -224,4 +291,102 @@ $(function() {
     console.log(files);
   });
 });
+
+$(".kapasitas-tangki").hide();
+$(".kapasitas-lpg").hide();
+
+$("#kimm_tipe_skid_tank").change(function(){
+  if($("#kimm_tipe_skid_tank").prop('checked') == true){
+
+        $(".kapasitas-tangki").show();
+        $(".kapasitas-lpg").hide();
+
+        $("#kimm_kapasitas").attr("disabled",false);
+        $("#kimm_kapasitas_3_kg").attr("disabled",true);
+        $("#kimm_kapasitas_12_kg").attr("disabled",true);
+        $("#kimm_kapasitas_50_kg").attr("disabled",true);
+    }
+  });
+
+$("#kimm_tipe_truck").change(function(){
+  if($("#kimm_tipe_truck").prop('checked') == true){
+
+        $(".kapasitas-lpg").show();
+        $(".kapasitas-tangki").hide();   
+
+        $("#kimm_kapasitas").attr("disabled",true);
+        $("#kimm_kapasitas_3_kg").attr("disabled",false);
+        $("#kimm_kapasitas_12_kg").attr("disabled",false);
+        $("#kimm_kapasitas_50_kg").attr("disabled",false);
+    }
+  });
+
+
 </script>
+
+
+<% if params[:action] == "edit" or params[:action] = "update" %>
+
+<script>
+
+  if($("#kimm_tipe_skid_tank").prop('checked') == true){
+
+        $(".kapasitas-tangki").show();
+        $(".kapasitas-lpg").hide();
+
+        $("#kimm_kapasitas").attr("disabled",false);
+        $("#kimm_kapasitas").val('<%= @kim.kapasitas.to_i %>');
+        $("#kimm_kapasitas_3_kg").attr("disabled",true);
+        $("#kimm_kapasitas_12_kg").attr("disabled",true);
+        $("#kimm_kapasitas_50_kg").attr("disabled",true);
+    }
+ 
+
+
+  if($("#kimm_tipe_truck").prop('checked') == true){
+
+        $(".kapasitas-lpg").show();
+        $(".kapasitas-tangki").hide();   
+
+        $("#kimm_kapasitas").attr("disabled",true);
+        $("#kimm_kapasitas_3_kg").attr("disabled",false);
+        $("#kimm_kapasitas_12_kg").attr("disabled",false);
+        $("#kimm_kapasitas_50_kg").attr("disabled",false);
+    }
+
+
+</script>
+<% end %>
+
+
+
+<!-- <%# if params[:action] == "create" %>
+<%# binding.pry %>
+  <%# if params[:kimm][:tipe] == "Skid Tank" %>
+      <script>
+                $("#kimm_tipe_skid_truck").prop("checked", true);
+                $("#kimm_kapasitas").val('<%#= params[:kimm][:kapasitas] %>');
+
+                $(".kapasitas-tangki").show();
+                $(".kapasitas-lpg").hide();
+
+                $("#kimm_kapasitas").attr("disabled",false);
+                $("#kimm_kapasitas_3_kg").attr("disabled",true);
+                $("#kimm_kapasitas_12_kg").attr("disabled",true);
+                $("#kimm_kapasitas_50_kg").attr("disabled",true);
+
+      </script>
+  <%# else %>
+      <script>
+                  $("#kimm_tipe_truck").prop("checked", true);
+                  $(".kapasitas-lpg").show();
+                  $(".kapasitas-tangki").hide();   
+
+                  $("#kimm_kapasitas").attr("disabled",true);
+                  $("#kimm_kapasitas_3_kg").attr("disabled",false);
+                  $("#kimm_kapasitas_12_kg").attr("disabled",false);
+                  $("#kimm_kapasitas_50_kg").attr("disabled",false);
+         
+      </script>
+  <%# end %>
+<%# end %> -->

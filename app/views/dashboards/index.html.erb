@@ -1,24 +1,17 @@
-<%= "Login as : #{current_user.email}, role : #{current_user.role}" %>
-
-
-
 <% if current_user.role == "User" %>
 	<script>
 		$.get("/kimms/", {}, null, "script");
 	</script>
+
 <% elsif current_user.role == "Admin" %>
 	<script>
 		$.get("/members/", {}, null, "script");
 	</script>
 
-
-
 <% elsif current_user.role == "Crew" %>
 	<script>
 		$.get("/dashboards/new/", {}, null, "script");
 	</script>
-
-
 
 <% elsif current_user.role == "SuperAdmin" %>
 	<% if params[:page] == "crew" %>
@@ -30,6 +23,4 @@
 			$.get("/admins/", {}, null, "script");
 		</script>
 	<% end %>
-
-
 <% end %>

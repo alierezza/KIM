@@ -29,7 +29,7 @@
 
 .page_header {
 	height: 150px;
-	background: #ed1b2f;
+	// background: #ed1b2f;
 
   .logo {
     position: absolute;
@@ -37,8 +37,19 @@
     top: 20px;
   }
   .login_name {
-    margin: 10px 4%;
-    font-size: 17px;
+    position: absolute;
+    font-size: 20px;
+    right: 110px;
+    top: 24px;
+
+    a{
+      text-decoration: none;
+    }
+
+    .dropdown-menu{
+      margin-top: 20px;
+      // left: -20px;
+    }
   }
   .login_user {
     margin-left: 10px;
@@ -46,57 +57,59 @@
 }
 
 .inner-body {
-  padding: 30px 50px;
+  padding: 30px 90px;
 }
 
 .bot_wrapper {
 	background: #ccc;
   margin-top: 45px;
-  padding: 30px;
-  padding-left: 55px;
-}
+  padding: 30px 100px;
 
-.information {
-	font-size: 30px;
+  .information {
+  font-size: 20px;
   padding: 26px;
-  padding-left: 7%;
 
   span.glyphicon {
-  	margin: 0px 23px;
+    margin: 0px 23px;
   }
+}
 }
 
 footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 	background: #ed1b2f;
   height: 75px;
   text-align: center;
   color: white;
-  font-size: 22px;
-  padding: 20px;
+  font-size: 17px;
+  padding: 23px;
 }
 
 .menu {
 	color: white;
   position: absolute;
-  right: 3%;
+  right: 100px;
   top: 90px;
 
 
 	ul{
 		list-style: none;
 		display: inline-flex;
-		font-size: 24px;
+		font-size: 17px;
 
 		li {
-			margin: 0px 10px;
+			margin: 3px 5px;
       a {
-        padding: 0px 20px;
+        padding: 0px 14px;
         border: solid 1px;
         border-radius: 25px;
-        background-color: white;
+        background-color: #B3CF4B;
+        color: black;
 
         &:hover {
-          background-color: #ececec;
+          background-color: #9bb245;
           text-decoration: none;
           color: black;
         }
@@ -164,8 +177,8 @@ input[type='radio'] {
 }
 div[id^='target_']{
   img {
-    width: 250px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
 }
 div.carousel {
@@ -187,25 +200,72 @@ div.carousel .fill {
 
 .mid_wrapper{
   margin-top: 28px;
-  border: solid 1px #ccc;
+  padding: 0px 105px ;
+
   .login_side {
-    border-left: solid 1px #ccc;
-    border-top: solid 1px #ccc;
-    padding: 40px;
+    border: solid 1px #ccc;
+    padding: 30px;
+    background-color: #B3CF4B;
   }
   .about_us {
-    border-top: solid 1px #ccc;
-    font-size: 20px;
-    padding: 35px;
+    font-size: 16px;
+    padding: 0px 60px 0px 0px;
     height: 304px;
     text-align: justify;
+
+    img {
+      position: absolute;
+      z-index: -1;
+    }
+    .contain_about {
+      border: solid;
+      padding: 16px;
+      width: 64%;
+      float: right;
+      background-color: #EFEFEF;
+    }
+  }
+  .prosedur {
+    margin-top: 35px;
+    border: solid 1px #ccc;
+  }
+  .prasyarat {
+    margin: 35px 0px;
+    h3 {
+      margin-bottom: 20px;
+    }
+  }
+  .highlight {
+
+    .video_title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
+  .our_crew {
+    margin-top: 40px;
+
+    .top_crew{
+      border: solid 5px #868686;
+      padding: 35px;
+      padding-top: 0px;
+      text-align: center;
+      border-radius: 16px;
+
+      h3 {
+        margin-bottom: 25px;
+      }
+    }
+
   }
 }
 
 .tab-content{
-  border: solid 1px #ccc;
+  border: solid 1px #ddd;
   border-top: none;
   padding: 20px;
+  // margin-right: 1px;
 
   li{
     margin: 15px;
@@ -214,6 +274,42 @@ div.carousel .fill {
 
 .nav>li {
   text-align: center;
+  width: 33.33%;
+
+  &:not(.active){
+      border: solid 1px #ccc;
+  border-bottom: none;
+  height: 42px;
+  }
+}
+
+.img-circle {
+  border: solid 1px #ccc;
+  padding: 3px;
+}
+
+.content, .one_page {
+  position: relative;
+  // min-height: 100%;
+}
+
+.login_panel{
+  width: 400px;
+  margin: 0px auto;
+}
+
+.kim_mati {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+
+  li {
+    text-align: center;
+    border: solid 3px #ddd;
+    margin: 14px;
+    padding: 5px;
+    letter-spacing: 5px;
+  }
 }
 // .box{
 //   background: #ddd;

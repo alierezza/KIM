@@ -2,15 +2,22 @@
 	<thead>
 		<th>No. Polisi</th>
 		<th>No. Registrasi</th>
-		<Th colspan=2></th>
+		<Th colspan=2>Status</th>
 	</thead>
 	<tbody>
 		<% @kims.each_with_index do |kim| %>
 			<tr>
 				<td><%= kim.no_polisi %></td>
 				<td><%= kim.no_registrasi %></td>
-				<td><%= link_to edit_dashboard_path(kim, :status=>"approve"), class: 'btn btn-success btn-xs' do %><span class='glyphicon glyphicon-ok'></span> Approve<% end %></td>
-				<td><%= link_to edit_dashboard_path(kim, :status=>"reject"), class: 'btn btn-xs btn-danger' do %><span class='glyphicon glyphicon-remove'></span> Reject<% end %></td>
+
+				<% if kim.crew_approval == nil %>
+				<td><%= link_to edit_dashboard_path(kim, :status=>"approve"), class: 'btn btn-success btn-xs', :data => {:confirm => 'Are you sure?'}, 'data-disable-with'=> "Wait.." do %><span class='glyphicon glyphicon-ok'></span> Approve<% end %></td>
+				<td><%= link_to edit_dashboard_path(kim, :status=>"reject"), class: 'btn btn-xs btn-danger', :data => {:confirm => 'Are you sure?'}, 'data-disable-with'=> "Wait.." do %><span class='glyphicon glyphicon-remove'></span> Reject<% end %></td>
+				<% else %>
+				<td colspan=2>
+					<%= kim.crew_approval == true ? "Approved" : "Rejected" %>
+				</td>
+				<% end %>
 			</tr>
 		<% end %>
 	</tbody>

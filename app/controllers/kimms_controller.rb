@@ -7,7 +7,11 @@ class KimmsController < ApplicationController
 	end
 
 	def kim_approval
-		@kims = Kimm.where("admin_approval IS NULL and message IS NULL").order("admin_approval ASC").page(params[:page])
+		if params[:rollback_id]
+			@kim = Kimm.find(params[:rollback_id])
+		end
+		@kims = Kimm.search(params[:jenis_sim],params[:no_polisi],params[:tipe],params[:no_registration],params[:admin_approval_waiting],params[:admin_approval_rollback]).order("created_at DESC").page(params[:page])
+
 		authorize! :kim_approval, current_user
 	end
 
@@ -23,12 +27,22 @@ class KimmsController < ApplicationController
 		authorize! :show_kim, @kim.user
 	end
 
+ def kim_print_to_pdf
+ 		@kim = Kimm.find(params[:id])
+    output = CetakPDF.new(:page_size => [595.28, 841.89], :margin => [0, 0]).print_pdf(@kim)
+    send_data output, filename: "registrasi_#{@kim.no_polisi}.pdf", type: "application/pdf", disposition: "inline"
+  end
+
 	def new
 		@kim = Kimm.new
+
 		authorize! :create_kim, current_user
 	end
 
 	def create
+		if params[:kimm][:tipe] == "Skid Tank"
+			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " Liter"
+		end
 		no_registration = SecureRandom.base64(10).split("=")[0]
 		params[:kimm][:no_registrasi] = no_registration
 		@kim = User.find(current_user).kimms.new(params_kim)
@@ -85,6 +99,9 @@ class KimmsController < ApplicationController
 		if @kim.message != nil
 			params[:kimm][:message] = nil
 		end
+		if params[:kimm][:tipe] == "Skid Tank"
+			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " Liter"
+		end
 	    respond_to do |format|
 	      if @kim.update(params_kim)
 	        format.html { redirect_to kimms_path, notice: 'Kim has been updated'}
@@ -122,6 +139,14 @@ class KimmsController < ApplicationController
 			image = Kimm.find(kim_id).surat_permohonan.path
 		end
 		send_file image
+	end
+
+	def pdf_kim
+	#show PDF when KIM approved
+
+
+
+		authorize! :generate_kim, current_user
 	end
 
 private
