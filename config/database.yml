@@ -5,12 +5,12 @@
     encoding: unicode
     pool: 5
 
-  development:
-    <<: *default
-    host: localhost
-    database: kim_development
-    username: sowo_user
-    password: 123456
+ development:
+   <<: *default
+   host: localhost
+   database: kim_development
+   username: root
+   password: root
 
  # Warning: The database defined as "test" will be erased and
  # re-generated from your development database when you run "rake".
@@ -22,9 +22,9 @@
     username: sowo_user
     password: 1234567
 
- # production:
- #   <<: *default
- #   host: localhost
- #   database: kotakgad_kim
- #   username: kotakgad_kim
- #   password: q1w2e3r4
+ production:
+   <<: *default
+   host: localhost
+   database: kotakgad_kim
+   username: kotakgad_kim
+   password: q1w2e3r4
