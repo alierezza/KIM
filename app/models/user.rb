@@ -19,16 +19,16 @@ class User < ActiveRecord::Base
   validates_attachment :photo, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 500.kilobytes }
 
   
-  validate :file_dimensions, :unless => "errors.any?"
+  # validate :file_dimensions, :unless => "errors.any?"
 
-  def file_dimensions
-    if photo.queued_for_write[:original] != nil
-      dimensions = Paperclip::Geometry.from_file(photo.queued_for_write[:original].path)
-      if dimensions.width > 200 or dimensions.height > 200
-        errors.add("Profile picture ",'width or height must be lest or equal than 200px')
-      end
-    end
-  end
+  # def file_dimensions
+  #   if photo.queued_for_write[:original] != nil
+  #     dimensions = Paperclip::Geometry.from_file(photo.queued_for_write[:original].path)
+  #     if dimensions.width > 200 or dimensions.height > 200
+  #       errors.add("Profile picture ",'width or height must be lest or equal than 200px')
+  #     end
+  #   end
+  # end
 
   def self.search(nama)
     if nama != nil

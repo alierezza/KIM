@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
 
 	default from: "admin@kotakgadget.com"
 
-	def user_registration(user, password)
+	  def user_registration(user, password)
 	    @user = user
 	    @password = password
 
@@ -58,4 +58,8 @@ class UserMailer < ActionMailer::Base
       mail(to: User.find_by(:role=>"SuperAdmin").email_recovery, subject: "Seseorang telah menghubungi anda")
     end
 
+    def delete_member(user)
+      @user = user
+      mail(to: User.find(@user).email_recovery, subject: "Akun Gagal Masuk Ke Sistem")
+    end
 end
