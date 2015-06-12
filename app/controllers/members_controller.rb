@@ -46,6 +46,7 @@ class MembersController < ApplicationController
 				UserMailer.delay.user_approved(@user)
 				flash[:notice] = "User has been approved"
 			else
+				UserMailer.delay.delete_member(@user)
 				@user.destroy
 				flash[:alert] = "User has been Rejected"
 			end
@@ -61,6 +62,7 @@ class MembersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
+		UserMailer.delay.delete_member(@user)
 		@user.destroy
 		flash[:notice] = "User has been deleted"
 		redirect_to members_path
