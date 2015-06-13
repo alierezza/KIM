@@ -33,7 +33,7 @@
 
   .logo {
     position: absolute;
-    left: 5%;
+    left: 105px;
     top: 20px;
   }
   .login_name {
@@ -68,11 +68,13 @@
   .information {
   font-size: 20px;
   padding: 26px;
+  padding-right: 0px;
 
-  span.glyphicon {
-    margin: 0px 23px;
+  .data_inf {
+    margin-left: 30px;
   }
-}
+
+  }
 }
 
 footer {
@@ -222,7 +224,7 @@ div.carousel .fill {
       padding: 16px;
       width: 64%;
       float: right;
-      background-color: #EFEFEF;
+      background-color: rgba(239, 239, 239, 0.78);
     }
   }
   .prosedur {
@@ -310,6 +312,10 @@ div.carousel .fill {
     padding: 5px;
     letter-spacing: 5px;
   }
+}
+
+.g-recaptcha iframe {
+  // width: 100%;
 }
 // .box{
 //   background: #ddd;
