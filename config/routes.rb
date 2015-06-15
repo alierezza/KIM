@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :passwords => "passwords" }
+  # devise_for :users, :controllers => { :passwords => "passwords" }
+   devise_for :users, :controllers => {:sessions => "sessions"}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
   resources :homepages, :dashboards, :kimms, :registers, :members, :admins, :crews, :feedbacks, :lkps
   resources :users, path: "admins"
   resources :users, path: "crews"
-
 
   get "prasyarat/" => "homepages#prasyarat", :as => :prasyarat
   get "edit_info/:id" => "dashboards#edit_info", :as => :edit_info
