@@ -2,7 +2,7 @@
 <br><br><br>
 
 <% if @status == "Mingguan" %>
-	berikut data log nya (<%  (Time.now.to_date - 7.days).strftime("%d-%B-%Y").to_s + " s/d " + (Time.now.to_date - 1.day).strftime("%d-%B-%Y").to_s %>):<br>
+	berikut data log nya (<%=  (Time.now.to_date - 7.days).strftime("%d-%B-%Y").to_s + " s/d " + (Time.now.to_date - 1.day).strftime("%d-%B-%Y").to_s %>):<br>
 
 <% else %>
 	Berikut data log nya bulan <%= (Time.now.to_date - 1.month).strftime("%B %Y") %> :<br>
