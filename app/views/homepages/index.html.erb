@@ -61,6 +61,7 @@
 <div class='mid_wrapper'>
 	<div class="row" id="about_us">
 	<div class='col-md-12'>
+		<% if !user_signed_in? %>
 		<div class='col-md-8 about_us'>
 			<%= image_tag "Bumber-seven-Business-People.jpg", width: 475 %>
 			<h3 style="text-align: right;">About Us</h3>
@@ -70,7 +71,7 @@
 		</div>
 
 		<div class='col-md-4'>
-			<% if !user_signed_in? %>
+
 			<div class="login_side">
 				<%= form_for(:user, :url => session_path(:user)) do |f| %>
 					<div class="form-group">
@@ -99,14 +100,17 @@
 					<div style="margin-top: 10px;"><%= link_to "Forgot your password?", new_password_path(:user) %></div>
 				<% end %>
 			</div>
-			<% else %>
-				<section>
-				  <article><%= image_tag "Bumber-seven-Business-People.jpg", width: 200 %></article>
-				  <article><%= image_tag "Bumber-seven-Business-People.jpg", width: 200 %></article>
-				  <article><%= image_tag "Bumber-seven-Business-People.jpg", width: 200 %></article>
-				</section>
-			<% end %>
+
 		</div>
+		<% else %>
+				<div class='about_us' style="padding: 0px;">
+			<%= image_tag "Bumber-seven-Business-People.jpg", width: 475 %>
+			<h3 style="text-align: right;">About Us</h3>
+			<div class="contain_about">
+				Ini adalah web sistem integrasi Kartu Izin Masuk milik pertamina. Kami memberikan pelayanan menyeluruh untuk pendaftaran Kartu Izin Masuk bagi skid tank dan truk guna dapat memasuki area wilayah kami guna kepentingan usaha. Dengan web ini diharapkan semakin mempermudah masyarakat dan bisa membantu banyak dalam efisiensi waktu pada saat pengurusan Kartu Izin Masuk.
+			</div>
+		</div>
+			<% end %>
 		</div>
 	</div>
 
@@ -253,8 +257,8 @@
         </div>
 
         <div class="control-box">
-            <a data-slide="prev" href="#myCarousel2" class="carousel-control left" style="position: absolute; top: 30%;">‹</a>
-            <a data-slide="next" href="#myCarousel2" class="carousel-control right" style="position: absolute; top: 30%; right: -1%;">›</a>
+            <a data-slide="prev" href="#myCarousel2" class="carousel-control left" style="position: absolute; top: 30%; background: white; color:black; margin-left: 17px;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+            <a data-slide="next" href="#myCarousel2" class="carousel-control right" style="position: absolute; top: 30%; background: white; color:black; right: -1%;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
         </div><!-- /.control-box -->
 
     </div><!-- /#myCarousel -->
@@ -292,7 +296,7 @@
 			<%= text_area_tag :konten,nil, autocomplete: "off",rows: 7, class: 'form-control', :placeholder=>"Pesan" %>
 		</div>
 		<div class="form-group">
-      <div class="pull-left">
+      <div class="pull-left" style="width: 75%;">
       <%= recaptcha_tags %>
     </div>
     <div class="pull-right">
@@ -302,20 +306,20 @@
 		<% end %>
 	</div>
 	<div class="col-md-4">
-		<iframe width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.au/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=123+Flinders+St+Melbourne+VIC+3000&amp;sll=-41.6311,146.14501&amp;sspn=8.718822,12.733154&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=123+Flinders+St,+Melbourne+Victoria+3000&amp;z=14&amp;ll=-37.817638,144.967174&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com.au/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=123+Flinders+St+Melbourne+VIC+3000&amp;sll=-41.6311,146.14501&amp;sspn=8.718822,12.733154&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=123+Flinders+St,+Melbourne+Victoria+3000&amp;z=14&amp;ll=-37.817638,144.967174" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.3206667499353!2d112.71972699999999!3d-7.204208899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f131!3m3!1m2!1s0x0000000000000000%3A0x09a056cc80558e56!2sPt.+Pertamina+(Persero)!5e0!3m2!1sen!2sid!4v1434018330681" width="100%" height="280" frameborder="0" style="border:0"></iframe>
 	</div>
 	<div class='col-md-4 information'>
 		<div class='form-group'>
-			<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>jasdinasfa.com
+			<div class="pull-left"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></div><div class="data_inf">Domestic Gas Region V Depot LPG Tanjung Perak</div>
 		</div>
 		<div class='form-group'>
-			<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>(031)- 983749823742
+			<div class="pull-left"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></div><div class="data_inf">(031)- 328 1556 / 1574</div>
 		</div>
 		<div class='form-group'>
-			<span class='glyphicon glyphicon-print' aria-hidden="true"></span>(031)- 983749823742
+			<div class="pull-left"><span class='glyphicon glyphicon-print' aria-hidden="true"></span></div><div class="data_inf">(031)- 329 4215</div>
 		</div>
 		<div class='form-group'>
-			<span class='glyphicon glyphicon-map-marker' aria-hidden="true"></span>jalan surabaykjan jahsda
+			<div class="pull-left"><span class='glyphicon glyphicon-map-marker' aria-hidden="true"></span></div><div class="data_inf">Jl. Nilam Barat 37 Tanjung Perak Surabaya</div>
 		</div>
 	</div>
 </div>
@@ -339,6 +343,8 @@
 <script>
 $(this).scrollTop(0);
 $(function() {
+
+	setTimeout('$(".g-recaptcha iframe").attr("style","transform:scale(0.9);transform-origin:0 0")', 2000);
 
 
  $('.carousel').carousel({

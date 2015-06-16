@@ -5,11 +5,11 @@
     </div>
     <div class='panel-body'>
 
-    	<% if can? :create_kim, current_user %>	
+    	<% if can? :create_kim, current_user %>
     		<%= link_to kimms_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
     	<% end %>
 
-    	<% if can? :kim_approval, current_user %>	
+    	<% if can? :kim_approval, current_user %>
     		<%= link_to kim_approval_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
     	<% end %>
 
@@ -61,9 +61,13 @@
 	      <div class="row row_content">
 	        <div class="title_row">Jatuh Tempo</div>
 	        	<div class="data_row">
-	        		<%= @kim.expired_date==nil ? "-": @kim.expired_date.strftime("%d-%B-%Y") %>
-	        		<% if Time.now.to_date > @kim.expired_date.to_date %>
-	        			<font color=red>(Expired)</font>
+	        		<% if @kim.expired_date == nil %>
+	        			-
+	        		<% else %>
+	        			<%= @kim.expired_date.strftime("%d-%B-%Y") %>
+	        			<% if Time.now.to_date > @kim.expired_date.to_date %>
+		        			<font color=red>(Expired)</font>
+		        		<% end %>
 	        		<% end %>
 	    		</div>
 	      </div>
