@@ -7,7 +7,7 @@ class Kimm < ActiveRecord::Base
 	validates :masa_berlaku_sim, :presence=>true
 	validates :masa_berlaku_stnk, :presence=>true
 	validates :masa_berlaku_kir, :presence=>true
-	validates :masa_berlaku_tera, :presence=>true
+	# validates :masa_berlaku_tera, :presence=>true
 	validates :no_polisi, :presence=>true
 	validates :tipe, :presence=>true
 	validates :kapasitas, :presence=>true

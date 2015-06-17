@@ -105,15 +105,16 @@
     		</div>
 
     		<div class="col-md-6">
-    			<fieldset>
-    				<legend>TERA</legend>
-    				<div class="row row_content">
-			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_tera.strftime("%d %B %Y") %></div>
-			      </div>
-			      <%= image_tag @kim.tera.url(:medium) %></br>
-						<%= link_to "Download TERA", download_path(@kim.tera_file_name,@kim.id, :status=>"tera") %></br>
-    			</fieldset>
-
+    			<% if @kim.masa_berlaku_tera != nil %>
+	    			<fieldset>
+	    				<legend>TERA</legend>
+	    				<div class="row row_content">
+				        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_tera.strftime("%d %B %Y") %></div>
+				      </div>
+				      <%= image_tag @kim.tera.url(:medium) %></br>
+							<%= link_to "Download TERA", download_path(@kim.tera_file_name,@kim.id, :status=>"tera") %></br>
+	    			</fieldset>
+    			<% end %>
     			<fieldset>
     				<legend>KIR (Head atau Truck)</legend>
     				<div class="row row_content">

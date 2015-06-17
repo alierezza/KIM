@@ -127,7 +127,7 @@ module ApplicationHelper
               [data4],
               [data5],
               [data6],                                                                                                        
-              [data7]],  :cell_style => {:inline_format => true, :border_color => "FFFFFF", :padding=>[4.8,0,0,30] }, :position => :center)
+              [data7]],  :cell_style => {:inline_format => true, :border_color => "FFFFFF", :padding=>[4.8,0,0,40] }, :position => :center)
 
       move_down 3
       table([["#{kim.updated_at.strftime('%d-%m-%Y')}"]],  :cell_style => {:inline_format => true, :border_color => "FFFFFF",:padding=>[5.5,0,0,175] }, :position => :center )
@@ -135,7 +135,7 @@ module ApplicationHelper
 
       data = [[""]]
       data += [["<color rgb='FFFFFF'>.</color>"]] * 10
-      table(data,:cell_style => {:inline_format => true, :border_width=>0, :padding=>[0,0,10,0]}, :position=>:right)
+      table(data,:cell_style => {:inline_format => true, :border_width=>0, :padding=>[0,-10,20,0]}, :position=>:right)
 
       
 
@@ -143,7 +143,7 @@ module ApplicationHelper
       image "public/belakang.png",:at => [0,498.2]
 
       font_size 19
-      move_down 47
+      move_down -65
       table([["<b><color rgb='D00000' >#{kim.expired_date.strftime('%d-%m-%Y')}</color></b>"]],:cell_style => {:inline_format => true,:border_width=>0, :padding=>[0,0,0,215] })
 
 
