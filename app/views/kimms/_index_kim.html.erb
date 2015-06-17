@@ -66,7 +66,7 @@
 							<% end %>
 						</td>
 						<td width="1%"><%= link_to "<span class='glyphicon glyphicon-envelope'></span> no registrasi".html_safe, kimm_path(kim,:status=>"email"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-info" %></td>
-						<td><%= link_to kim_print_to_pdf_path(kim), target: "_blank", :class=>"btn btn-xs btn-default" do%>Print <% end %></td>
+						<!-- <td><%#= link_to kim_print_to_pdf_path(kim), target: "_blank", :class=>"btn btn-xs btn-default" do%>Print <%# end %></td> -->
 					</tr>
 				<% end %>
 			</tbody>

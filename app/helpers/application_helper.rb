@@ -94,5 +94,65 @@ module ApplicationHelper
       # binding.pry
       render
     end
+
+    def print_kim(kim)
+      bounding_box([bounds.left, bounds.top], :width  => bounds.width, :height => bounds.height) do
+        print_pdf_kim(kim)
+      end
+      # binding.pry
+      render
+    end
+
+    def print_pdf_kim(kim)
+      font_size 9
+
+      move_down 194
+      image "public/depan.png",:at => [0,498.2]
+
+      data1 = make_cell(:content => kim.no_registrasi)
+      data2 = make_cell(:content => kim.no_polisi)
+      data3 = make_cell(:content => kim.tipe + " " + kim.kapasitas)
+      data4 = make_cell(:content => kim.merek_kendaraan)
+      if kim.tipe == "Truck"
+        data5 = make_cell(:content => "LPG")
+      elsif kim.tipe == "Skid Tank"
+        data5 = make_cell(:content => "Musicool")
+      end
+      data6 = make_cell(:content => kim.user.nama)
+      data7 = make_cell(:content => "<b><color rgb='D00000' >#{kim.expired_date.strftime('%d-%m-%Y')}</color></b>")
+
+      table([ [data1],
+              [data2],
+              [data3],
+              [data4],
+              [data5],
+              [data6],                                                                                                        
+              [data7]],  :cell_style => {:inline_format => true, :border_color => "FFFFFF", :padding=>[4.8,0,0,30] }, :position => :center)
+
+      move_down 3
+      table([["#{kim.updated_at.strftime('%d-%m-%Y')}"]],  :cell_style => {:inline_format => true, :border_color => "FFFFFF",:padding=>[5.5,0,0,175] }, :position => :center )
+
+
+      data = [[""]]
+      data += [["<color rgb='FFFFFF'>.</color>"]] * 10
+      table(data,:cell_style => {:inline_format => true, :border_width=>0, :padding=>[0,0,10,0]}, :position=>:right)
+
+      
+
+
+      image "public/belakang.png",:at => [0,498.2]
+
+      font_size 19
+      move_down 47
+      table([["<b><color rgb='D00000' >#{kim.expired_date.strftime('%d-%m-%Y')}</color></b>"]],:cell_style => {:inline_format => true,:border_width=>0, :padding=>[0,0,0,215] })
+
+
+      font_size 10
+      move_down -1
+      table([["#{kim.masa_berlaku_kir.strftime('%d-%m-%Y')}", "#{kim.masa_berlaku_stnk.strftime('%d-%m-%Y')}", "#{kim.masa_berlaku_sim.strftime('%d-%m-%Y')}"]],:cell_style => {:border_width=>0, :padding=>[4,5,0,45] }, :position=>:center)
+      if kim.masa_berlaku_kir_skid_tank != nil
+        table([["Skid Tank: #{kim.masa_berlaku_kir_skid_tank.strftime('%d-%m-%Y')}"]],:cell_style=>{:padding=>[-2.6,0,0,25], :border_width=>0})
+      end
+    end
   end
 end
