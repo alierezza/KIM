@@ -105,15 +105,16 @@
     		</div>
 
     		<div class="col-md-6">
-    			<fieldset>
-    				<legend>TERA</legend>
-    				<div class="row row_content">
-			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_tera.strftime("%d %B %Y") %></div>
-			      </div>
-			      <%= image_tag @kim.tera.url(:medium) %></br>
-						<%= link_to "Download TERA", download_path(@kim.tera_file_name,@kim.id, :status=>"tera") %></br>
-    			</fieldset>
-
+    			<% if @kim.masa_berlaku_tera != nil %>
+	    			<fieldset>
+	    				<legend>TERA</legend>
+	    				<div class="row row_content">
+				        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_tera.strftime("%d %B %Y") %></div>
+				      </div>
+				      <%= image_tag @kim.tera.url(:medium) %></br>
+							<%= link_to "Download TERA", download_path(@kim.tera_file_name,@kim.id, :status=>"tera") %></br>
+	    			</fieldset>
+    			<% end %>
     			<fieldset>
     				<legend>KIR (Head atau Truck)</legend>
     				<div class="row row_content">
@@ -123,17 +124,18 @@
 						<%= link_to "Download KIR", download_path(@kim.kir_file_name,@kim.id, :status=>"kir") %></br>
     			</fieldset>
     		</div>
-
-    		<div class="col-md-6">
-    			<fieldset>
-    				<legend>KIR (Skid Tank)</legend>
-    				<div class="row row_content">
-			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_kir_skid_tank.strftime("%d %B %Y") %></div>
-			      </div>
-			      <%= image_tag @kim.kir.url(:medium) %></br>
-						<%= link_to "Download KIR (Skid Tank)", download_path(@kim.kir_skid_tank_file_name,@kim.id, :status=>"kir") %></br>
-    			</fieldset>
-    		</div>
+    		<% if @kim.masa_berlaku_kir_skid_tank != nil %>
+	    		<div class="col-md-6">
+	    			<fieldset>
+	    				<legend>KIR (Skid Tank)</legend>
+	    				<div class="row row_content">
+				        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_kir_skid_tank.strftime("%d %B %Y") %></div>
+				      </div>
+				      <%= image_tag @kim.kir.url(:medium) %></br>
+							<%= link_to "Download KIR (Skid Tank)", download_path(@kim.kir_skid_tank_file_name,@kim.id, :status=>"kir") %></br>
+	    			</fieldset>
+	    		</div>
+    		<% end %>
     	</div>
     </div>
   </div>

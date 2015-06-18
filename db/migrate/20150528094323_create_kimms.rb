@@ -7,7 +7,7 @@ class CreateKimms < ActiveRecord::Migration
       t.datetime :masa_berlaku_sim
       t.datetime :masa_berlaku_stnk
       t.datetime :masa_berlaku_kir
-      t.datetime :masa_berlaku_tera
+      t.datetime :masa_berlaku_tera, :default=>nil
       t.string :no_polisi
       t.string :tipe
       t.string :kapasitas

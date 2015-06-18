@@ -27,11 +27,6 @@ class KimmsController < ApplicationController
 		authorize! :show_kim, @kim.user
 	end
 
-	 def kim_print_to_pdf
-	 	@kim = Kimm.find(params[:id])
-	    output = CetakPDF.new(:page_size => [595.28, 841.89], :margin => [0, 0]).print_pdf(@kim)
-	    send_data output, filename: "registrasi_#{@kim.no_polisi}.pdf", type: "application/pdf", disposition: "inline"
-	  end
 
 	def new
 		@kim = Kimm.new
@@ -73,7 +68,11 @@ class KimmsController < ApplicationController
 			@kim.message = nil
 			@kim.admin_approved_by = current_user.nama
 
-			expired = [@kim.masa_berlaku_sim , @kim.masa_berlaku_stnk, @kim.masa_berlaku_kir, @kim.masa_berlaku_tera].min
+			if @kim.masa_berlaku_tera == nil 
+				expired = [@kim.masa_berlaku_sim , @kim.masa_berlaku_stnk, @kim.masa_berlaku_kir].min
+			else
+				expired = [@kim.masa_berlaku_sim , @kim.masa_berlaku_stnk, @kim.masa_berlaku_kir, @kim.masa_berlaku_tera].min
+			end
 			@kim.expired_date = expired
 			@kim.save
 			flash[:notice] = "KIM has been approved"
@@ -142,9 +141,10 @@ class KimmsController < ApplicationController
 	end
 
 	def pdf_kim
-	#show PDF when KIM approved
-
-
+		#show PDF when KIM approved
+		@kim = Kimm.find(params[:id])
+		output = CetakPDF.new(:page_size => [354.33 , 498.90], :margin => [0, 0]).print_kim(@kim)
+	    send_data output, filename: "kim_#{@kim.no_polisi}.pdf", type: "application/pdf", disposition: "inline"
 
 		authorize! :generate_kim, current_user
 	end
