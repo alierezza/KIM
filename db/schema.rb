@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(version: 20150609130821) do
     t.string   "bentuk_kejadian",      limit: 255
     t.text     "kronologis",           limit: 65535
     t.text     "sebab_kecelakaan",     limit: 65535
-    t.integer  "korban",               limit: 4
-    t.integer  "kerugian_materi",      limit: 4
+    t.string   "korban",               limit: 255
+    t.string   "kerugian_materi",      limit: 255
     t.string   "gangguan_operasi",     limit: 255
     t.text     "upaya_penanggulangan", limit: 65535
     t.text     "saran_pencegahan",     limit: 65535

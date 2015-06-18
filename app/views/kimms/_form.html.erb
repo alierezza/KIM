@@ -3,7 +3,7 @@
   <% if @kim.message != nil %>
     <fieldset>
         <legend>Alasan di Rollback</legend>
-        <font color=red><%= @kim.message %></font><font>
+        <font color=red><%= simple_format(@kim.message) %></font><font>
     </fieldset>
   <% end %>
   <fieldset>
