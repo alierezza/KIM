@@ -9,8 +9,8 @@ class CreateLkps < ActiveRecord::Migration
     	t.string :bentuk_kejadian #radio button. ada 6 pilihan
     	t.text :kronologis
     	t.text :sebab_kecelakaan
-    	t.integer :korban
-    	t.integer :kerugian_materi
+    	t.string :korban
+    	t.string :kerugian_materi
     	t.string :gangguan_operasi
     	t.text :upaya_penanggulangan
     	t.text :saran_pencegahan

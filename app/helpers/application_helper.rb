@@ -60,7 +60,7 @@ module ApplicationHelper
         [{:content => "Ketentuan", :font_style => :bold, :size => 10}],
         [{:content => "- Silahkan membawa print nomor registrasi ini ke crew LTMS di l. Nilam Barat 37 Tanjung Perak Surabaya untuk checklist kendaraan dan tindakan lebih lanjut", :size => 8}],
         [{:content => "- Jangan lupa membawa dokumen terkait apabila nanti terkait", :size => 8}],
-        [{:content => "- Hubungi 031 - 999 9999 jika ada yang kurang jelas", :size => 8}],
+        [{:content => "- Hubungi (031)- 328 1556 / 1574 jika ada yang kurang jelas", :size => 8}],
       ],:cell_style => {:inline_format => true, :padding_left => 50, :padding_top => 0, :padding_right => 50,:borders => []}, :width => bounds.width)
 
       move_down 50

@@ -19,7 +19,7 @@
 //= require bootstrap-growl.min
 //= require raphael-min.js
 //= require morris.min.js
-
+//= require smooth-scroll.min
 // require_tree .
 function global_notif(textfield, types){
   $.growl(textfield, { type: types, animate: {

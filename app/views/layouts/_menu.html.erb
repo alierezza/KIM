@@ -1,4 +1,8 @@
-<div class='page_header'>
+<% if params[:controller] != 'homepages' %>
+  <div class='page_header' style='height: 100px; border-bottom: solid 1px #ccc;' >
+<% else %>
+  <div class='page_header' >
+<% end %>
   <div class='logo'>
     <%= link_to homepages_path do %><%= image_tag "pertamina.jpg", width: 175 %><% end %>
 
@@ -23,13 +27,13 @@
   <div class='menu'>
     <ul>
       <% if params[:controller] == 'homepages' %>
-        <li><%= link_to "Home" , homepages_path%></li>
-        <li><%= link_to "About Us" , "#about_us" %></li>
-        <li><%= link_to "Prosedur", "#prosedur" %></li>
-        <li><%= link_to "Prasyarat" , "#prasyarat" %></li>
-        <li><%= link_to "Highlight", "#highlight" %></li>
-        <li><%= link_to "Our Crew" , "#our_crew" %></li>
-        <li><%= link_to "Contact Us" , "#contact_us" %></li>
+        <li><%= link_to "Home" , homepages_path, data: {scroll: true}%></li>
+        <li><%= link_to "About Us" , "#about_us", data: {scroll: true} %></li>
+        <li><%= link_to "Prosedur", "#prosedur", data: {scroll: true} %></li>
+        <li><%= link_to "Prasyarat" , "#prasyarat", data: {scroll: true} %></li>
+        <li><%= link_to "Highlight", "#highlight", data: {scroll: true} %></li>
+        <li><%= link_to "Our Crew" , "#our_crew", data: {scroll: true} %></li>
+        <li><%= link_to "Contact Us" , "#contact_us", data: {scroll: true} %></li>
       <% end %>
     </ul>
   </div>

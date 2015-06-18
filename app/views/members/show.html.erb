@@ -9,6 +9,9 @@
 	        <div class="title_row">Email for Login</div><div class="data_row"><%= @user.email %></div>
 	      </div>
 	      <div class="row row_content">
+	        <div class="title_row">Jenis</div><div class="data_row"><%= @user.jenis_anggota ? @user.jenis_anggota : ""  %></div>
+	      </div>
+	      <div class="row row_content">
 	        <div class="title_row">Nama</div><div class="data_row"><%= @user.nama %></div>
 	      </div>
 	      <div class="row row_content">

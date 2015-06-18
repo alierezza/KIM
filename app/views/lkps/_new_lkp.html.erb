@@ -52,6 +52,12 @@
 	          </div>
 	          <div class="checkbox">
 	            <label>
+	              <%= f.radio_button :bentuk_kejadian, "Pencemaran", :checked => false, :required=>true %>
+	              Pencemaran
+	            </label>
+	          </div>
+	          <div class="checkbox">
+	            <label>
 	              <%= f.radio_button :bentuk_kejadian, "Lain-lain", :checked => false, :required=>true %>
 	              Lain-lain
 	            </label>
@@ -66,8 +72,7 @@
 						<%= f.text_area :sebab_kecelakaan, :required=>true, class: "form-control" %>
 					</div>
 					<div class="form-group">
-						<%= f.label "Akibat Yang Ditimbulkan", "Akibat Yang Ditimbulkan", class: "control-label" %>
-						<%= f.label "Korban", "Korban" %>
+						<%= f.label "Korban", "Korban", class: "control-label" %>
 						<%= f.number_field :korban, :required=>true, class: "form-control" %>
 					</div>
 					<div class="form-group">

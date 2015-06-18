@@ -5,47 +5,21 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
         <li data-target="#myCarousel" data-slide-to="3"></li>
-        <li data-target="#myCarousel" data-slide-to="4"></li>
-        <li data-target="#myCarousel" data-slide-to="5"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="item active">
-            <div class="fill" style="background-image: url('/assets/business-people-discussing.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 1</h2>
-            </div>
+            <div class="fill" style="background-image: url('/assets/slider-1.jpg');"></div>
         </div>
         <div class="item">
-            <div class="fill" style="background-image:url('/assets/Business-People-Cheering-cropped.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 2</h2>
-            </div>
+            <div class="fill" style="background-image:url('/assets/slider-2.jpg');"></div>
         </div>
         <div class="item">
-            <div class="fill" style="background-image:url('/assets/Bumber-seven-Business-People.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 3</h2>
-            </div>
+            <div class="fill" style="background-image:url('/assets/slider-3.jpg');"></div>
         </div>
         <div class="item">
-            <div class="fill" style="background-image:url('/assets/business-people-discussing.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 4</h2>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('/assets/Business-People-Cheering-cropped.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 5</h2>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('/assets/Bumber-seven-Business-People.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 6</h2>
-            </div>
+            <div class="fill" style="background-image:url('/assets/slider-4.jpg');"></div>
         </div>
     </div>
 
@@ -180,9 +154,9 @@
 				</div>
 			</div>
 
-			<div class="pull-right col-md-7">
+			<div class="col-md-7">
 				<div class="video_title"> Video Keselamatan Kerja </div>
-				<iframe width="100%" height="310" src="https://www.youtube.com/embed/09R8_2nJtjg" frameborder="0" allowfullscreen></iframe>
+				<iframe width="100%" height="310" src="https://www.youtube.com/embed/7_Sh8twQPJo" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>
@@ -310,16 +284,23 @@
 	</div>
 	<div class='col-md-4 information'>
 		<div class='form-group'>
-			<div class="pull-left"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></div><div class="data_inf">Domestic Gas Region V Depot LPG Tanjung Perak</div>
+			<div class="pull-left" style="margin-right: 15px;"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div><div class="data_inf">admin@ltms.co.id</div>
 		</div>
 		<div class='form-group'>
-			<div class="pull-left"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></div><div class="data_inf">(031)- 328 1556 / 1574</div>
+			<div class="pull-left" style="margin-right: 15px;"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></div><div class="data_inf">(031)- 328 1556 / 1574</div>
 		</div>
 		<div class='form-group'>
-			<div class="pull-left"><span class='glyphicon glyphicon-print' aria-hidden="true"></span></div><div class="data_inf">(031)- 329 4215</div>
+			<div class="pull-left" style="margin-right: 15px;"><span class='glyphicon glyphicon-print' aria-hidden="true"></span></div><div class="data_inf">(031)- 329 4215</div>
 		</div>
 		<div class='form-group'>
-			<div class="pull-left"><span class='glyphicon glyphicon-map-marker' aria-hidden="true"></span></div><div class="data_inf">Jl. Nilam Barat 37 Tanjung Perak Surabaya</div>
+			<div class="pull-left" style="margin-right: 15px;"><span class='glyphicon glyphicon-map-marker' aria-hidden="true"></span></div><div class="data_inf">Jl. Nilam Barat 37 Tanjung Perak Surabaya</div>
+		</div>
+		<div class='form-group'>
+			<ul class="sosmed">
+				<li class="facebook"><%= link_to  "https://www.facebook.com/ptpertaminapersero", target:"_blank" do %><%= image_tag "social-facebook.png" %> <% end %></li>
+				<li class="twitter"><%= link_to  "https://twitter.com/PTPERTAMINA", target:"_blank" do %><%= image_tag "social-twitter.png" %> <% end %></li>
+				<li class="youtube"><%= link_to  "https://www.youtube.com/user/PTPertamina", target:"_blank" do %><%= image_tag "social-youtube.png" %> <% end %></li>
+			</ul>
 		</div>
 	</div>
 </div>
@@ -343,7 +324,7 @@
 <script>
 $(this).scrollTop(0);
 $(function() {
-
+	smoothScroll.init();
 	setTimeout('$(".g-recaptcha iframe").attr("style","transform:scale(0.9);transform-origin:0 0")', 2000);
 
 

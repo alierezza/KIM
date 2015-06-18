@@ -8,23 +8,28 @@
         <%= form_for(@user, url: registers_path, :method=>"POST") do |f| %>
         <div class='form-group'>
           <%= f.label "Nama Organisasi","Nama Organisasi", class: 'control-label' %>
+          <span class= 'label_required'>*</span>
           <%= f.text_field :nama, class: 'form-control', :required=>true %>
         </div>
         <div class='form-group'>
           <%= f.label "Alamat", "Alamat", class: 'control-label' %>
+          <span class= 'label_required'>*</span>
           <%= f.text_area :alamat, class: 'form-control', :required=>true %>
         </div>
         <div class='form-group'>
           <%= f.label "Kota/Kabupaten", "Kota / Kabupaten", class: 'control-label' %>
+          <span class= 'label_required'>*</span>
           <%= f.text_field :kota, class: 'form-control', :required=>true %>
         </div>
         <div class='form-group'>
           <%= f.label "e-mail", "E-Mail", class: 'control-label' %>
+          <span class= 'label_required'>*</span><span style="color: #A3A3A3; font-style: italic;"> (digunakan untuk login)</span>
           <%= f.email_field :email, class: 'form-control', :required=>true %>
         </div>
         <div class='form-group'>
           <%= f.label "telp", "Telp", class: 'control-label' %>
-          <%= f.text_field :telp, class: 'form-control' %>
+          <span class= 'label_required'>*</span>
+          <%= f.text_field :telp, class: 'form-control', :required => true %>
         </div>
         <div class='form-group'>
           <%= f.label "Fax", "Fax", class: 'control-label' %>
@@ -44,6 +49,10 @@
             <%= f.radio_button :jenis_anggota, "Lain-lain" %>
             Lain - lain
           </label>
+        </div>
+        <div class="form-group">
+          <%= label_tag :verification, "Vefification", class: 'control-label' %>
+          <%= recaptcha_tags %>
         </div>
         <div class='bottom-field row'>
           <div class='pull-right'>
