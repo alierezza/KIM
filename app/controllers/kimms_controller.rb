@@ -38,8 +38,8 @@ class KimmsController < ApplicationController
 		if params[:kimm][:tipe] == "Skid Tank"
 			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " Liter"
 		end
-		no_registration = (Kimm.where("MONTH(created_at) = ? and YEAR(created_at) = ?",Time.now.month,Time.now.year).count+1).to_s+"/"+Time.now.month.to_s+"/"+Time.now.year.to_s
-		#SecureRandom.base64(10).split("=")[0]
+		no_registration = Time.now.year.to_s+Time.now.strftime("%m")+(Kimm.where("MONTH(created_at) = ? and YEAR(created_at) = ?",Time.now.month,Time.now.year).count+1).to_s.rjust(5,"0")
+		
 		params[:kimm][:no_registrasi] = no_registration
 		@kim = User.find(current_user).kimms.new(params_kim)
 		respond_to do |format|
