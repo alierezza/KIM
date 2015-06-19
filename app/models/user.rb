@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :photo, :styles => { :medium => "200x200>", :thumb => "100x100>" }, :default_url => "https://e62f052f5d28591fecf4-064c57753a2609fd3fdb3247d142c1b4.ssl.cf1.rackcdn.com/empty-avatar-xl.png"
   validates_attachment :photo, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 500.kilobytes }
-
+  validates_uniqueness_of :nama
   
   # validate :file_dimensions, :unless => "errors.any?"
 
