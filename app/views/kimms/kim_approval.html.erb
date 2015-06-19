@@ -4,15 +4,20 @@
 			<h3 class="panel-title">KIM Approval</h3>
 		</div>
 		<div class='panel-body'>
-		<%= form_tag kim_approval_path, :method=>"GET",:remote=>true do %>
-			<%= text_field_tag :jenis_sim,nil, :placeholder=>"Jenis SIM" %>
-			<%= text_field_tag :no_polisi,nil, :placeholder=>"No Polisi" %>
-			<%= text_field_tag :tipe,nil, :placeholder=>"Tipe" %>
-			<%= text_field_tag :no_registration,nil, :placeholder=>"No Registrasi" %>
-			<%= check_box_tag :admin_approval_waiting %><%= label_tag "Waiting","Waiting" %>
-			<%= check_box_tag :admin_approval_rollback %><%= label_tag "Rollback","Rollback" %>
-			<%= submit_tag "Search" %>
-		<% end %>
+			<div class="form-group">
+				<%= form_tag kim_approval_path, :method=>"GET",:remote=>true do %>
+					<%= text_field_tag :jenis_sim,nil, :placeholder=>"Jenis SIM" %>
+					<%= text_field_tag :no_polisi,nil, :placeholder=>"No Polisi" %>
+					<%= text_field_tag :tipe,nil, :placeholder=>"Tipe" %>
+					<%= text_field_tag :no_registration,nil, :placeholder=>"No Registrasi" %>
+					&nbsp
+					<%= check_box_tag :admin_approval_waiting %><%= label_tag "Waiting","Waiting" %>
+					&nbsp
+					<%= check_box_tag :admin_approval_rollback %><%= label_tag "Rollback","Rollback" %>
+					&nbsp
+					<%= submit_tag "Search" %>
+				<% end %>
+			</div>
 			<div id="kim_approval">
 				<%= render "kim_approval" %>
 			</div>
