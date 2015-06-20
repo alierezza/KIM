@@ -1,16 +1,16 @@
 <div class='inner-body'>
 	<div class='panel panel-default'>
-
-		<%= form_tag new_dashboard_path,:method=>"GET", :remote=>true do %>
-			<%= label_tag "Search: " %>
-			<%= text_field_tag :search %>
-			<%= submit_tag "OK" %>
-		<% end %>
-
 		<div class='panel-heading'>
 			<h3 class="panel-title">Checklist Kendaraan</h3>
 		</div>
 		<div class='panel-body' id="kim">
+			<div class="form-group">
+				<%= form_tag new_dashboard_path,:method=>"GET", :remote=>true do %>
+					<%= label_tag "Search: " %>
+					<%= text_field_tag :search %>
+					<%= submit_tag "OK" %>
+				<% end %>
+			</div>
 			<%= render "kim_approval_by_crew" %>
 		</div>
 	</div>

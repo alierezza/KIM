@@ -7,8 +7,8 @@
 		<div class='panel-body'>
 		<%= form_tag members_path,:remote=>true, :method=>"GET" do %>
 			<%= text_field_tag :nama,nil,:placeholder=>"Nama" %>
-			<%= submit_tag "Search", class: "btn btn-default" %>
-			<%= link_to "Show All", members_path, class: "btn btn-default", :remote => true %>
+			<%= submit_tag "Search" %>
+			<%= link_to "Show All", members_path, class: "btn btn-info btn-xs", :remote => true %>
 		<% end %>
 			<div id="div_index_member" >
 				<%= render "index_members" %>
