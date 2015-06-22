@@ -28,7 +28,7 @@ class UserMailer < ActionMailer::Base
          :mime_type => 'application/pdf'
       }
       mail(to: @user.email_recovery,
-	         subject: "[KIM] Nomor Registrasi KIM")
+	         subject: "Nomor Registrasi KIM")
   	end
 
   	def reset_password_instructions(record, token, opts={})
