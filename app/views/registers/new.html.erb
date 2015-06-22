@@ -56,12 +56,12 @@
           <div class='form-group'>
             <%= f.label "Nama PIC", "Nama PIC", class: 'control-label' %>
             <span class= 'label_required'>*</span>
-            <%= f.text_field :pic_nama, class: 'form-control' %>
+            <%= f.text_field :pic_nama, :required=>true, class: 'form-control' %>
           </div>
           <div class='form-group'>
             <%= f.label "Telp PIC", "Telp PIC", class: 'control-label' %>
             <span class= 'label_required'>*</span>
-            <%= f.text_field :pic_telp, class: 'form-control' %>
+            <%= f.text_field :pic_telp, :required=>true, class: 'form-control' %>
           </div>
         </fieldset>
         <div class="form-group">
