@@ -36,6 +36,7 @@
           <%= f.text_field :fax, class: 'form-control' %>
         </div>
         <%= f.label :jenis_anggota, class: 'control-label' %>
+        <span class= 'label_required'>*</span>
         <div class="radio">
           <label>
             <%= f.radio_button :jenis_anggota, "Agen", :checked => true %>
@@ -50,6 +51,19 @@
             Lain - lain
           </label>
         </div>
+        <fieldset>
+        <legend>PIC / Contact Person</legend>
+          <div class='form-group'>
+            <%= f.label "Nama PIC", "Nama PIC", class: 'control-label' %>
+            <span class= 'label_required'>*</span>
+            <%= f.text_field :pic_nama, class: 'form-control' %>
+          </div>
+          <div class='form-group'>
+            <%= f.label "Telp PIC", "Telp PIC", class: 'control-label' %>
+            <span class= 'label_required'>*</span>
+            <%= f.text_field :pic_telp, class: 'form-control' %>
+          </div>
+        </fieldset>
         <div class="form-group">
           <%= label_tag :verification, "Vefification", class: 'control-label' %>
           <%= recaptcha_tags %>
