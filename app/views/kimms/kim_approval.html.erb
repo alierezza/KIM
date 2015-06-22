@@ -6,16 +6,26 @@
 		<div class='panel-body'>
 			<div class="form-group">
 				<%= form_tag kim_approval_path, :method=>"GET",:remote=>true do %>
-					<%= text_field_tag :jenis_sim,nil, :placeholder=>"Jenis SIM" %>
-					<%= text_field_tag :no_polisi,nil, :placeholder=>"No Polisi" %>
-					<%= text_field_tag :tipe,nil, :placeholder=>"Tipe" %>
-					<%= text_field_tag :no_registration,nil, :placeholder=>"No Registrasi" %>
+				<div class="col-md-2 form-group">
+					<%= text_field_tag :jenis_sim,nil, :placeholder=>"Jenis SIM", class: "form-control" %>
+				</div>
+				<div class="col-md-2 form-group">
+					<%= text_field_tag :no_polisi,nil, :placeholder=>"No Polisi", class: "form-control" %>
+				</div>
+				<div class="col-md-2 form-group">
+					<%= text_field_tag :tipe,nil, :placeholder=>"Tipe", class: "form-control" %>
+				</div>
+				<div class="col-md-2 form-group">
+					<%= text_field_tag :no_registration,nil, :placeholder=>"No Registrasi", class: "form-control" %>
+				</div>
+				<div class="col-md-4">
 					&nbsp
 					<%= check_box_tag :admin_approval_waiting %><%= label_tag "Waiting","Waiting" %>
 					&nbsp
 					<%= check_box_tag :admin_approval_rollback %><%= label_tag "Rollback","Rollback" %>
 					&nbsp
-					<%= submit_tag "Search" %>
+					<%= submit_tag "Search", class: "btn btn-default btn-sm" %>
+				</div>
 				<% end %>
 			</div>
 			<div id="kim_approval">

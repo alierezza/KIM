@@ -2,7 +2,7 @@ class CrewsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@crews = User.where("role=?","Crew").page(params[:id])
+		@crews = User.where("role=?","Crew").page(params[:page])
 	end
 
 	def new

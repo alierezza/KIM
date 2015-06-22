@@ -28,8 +28,13 @@
 }
 
 .page_header {
-	height: 150px;
-	// background: #ed1b2f;
+	height: 140px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+  border-bottom: solid;
 
   .logo {
     position: absolute;
@@ -191,6 +196,7 @@ div[id^='target_']{
 }
 div.carousel {
   height: 50%;
+
 }
 
 div.carousel .item,
@@ -297,6 +303,7 @@ div.carousel .fill {
 
 .content, .one_page {
   position: relative;
+  margin-top: 140px;
   // min-height: 100%;
 }
 
@@ -344,6 +351,10 @@ div.carousel .fill {
   color: red;
   font-size: 20px;
 }
+
+#back-to-top { padding-top: 5px; color:#fff; position:fixed; bottom:45px; right:20px; z-index:99; display:none; text-align: center; border-radius: 5px; -moz-border-radius: 5px;  -webkit-border-radius: 5px; -o-border-radius: 2px;    z-index: 10000;    height: 29px;    width: 29px;    background-color: rgba(0,0,0,0.4);    background-repeat: no-repeat;    background-position: center;    transition: background-color 0.1s linear;    -moz-transition: background-color 0.1s linear;    -webkit-transition: background-color 0.1s linear;    -o-transition: background-color 0.1s linear;}
+#back-to-top i { padding-top:4px; font-size:17px; }
+#back-to-top:hover { background:#B86662; background: rgba(184,102,98,.7); }
 // .box{
 //   background: #ddd;
 //   border: 2px solid #fff;
