@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609130821) do
+ActiveRecord::Schema.define(version: 20150622041511) do
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -151,6 +151,8 @@ ActiveRecord::Schema.define(version: 20150609130821) do
     t.string   "photo_content_type",     limit: 255
     t.integer  "photo_file_size",        limit: 4
     t.datetime "photo_updated_at"
+    t.string   "pic_nama",               limit: 255
+    t.string   "pic_telp",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
