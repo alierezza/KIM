@@ -4,6 +4,10 @@ li.span3 {
   width: 30%;
   display: inline-flex;
   margin: 1%;
+
+  .thumbnail {
+    width: 100%;
+  }
 }
 
 /* Container */
