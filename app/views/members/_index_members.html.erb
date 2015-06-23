@@ -1,7 +1,7 @@
 <%= form_tag new_member_path, :method=>"GET" do %>
 <div class="pull-right">
-	<%= submit_tag "Approve All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Approve all ?'} %>
-	<%= submit_tag "Reject All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Reject all ?'} %></div>
+	<%= submit_tag "Approve All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Approve all ?'}, class: "btn btn-success btn-sm" %>
+	<%= submit_tag "Reject All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Reject all ?'}, class: "btn btn-danger btn-sm" %></div>
 <table class="table">
 	<thead>
 		<th>Email for Login</th>

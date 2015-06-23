@@ -316,6 +316,8 @@
 	</div>
 </div>
 
+<a href="#top" id="back-to-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
 <% if user_signed_in? && current_user.role = "User" %>
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
@@ -342,6 +344,22 @@ $(function() {
  $('.carousel').carousel({
    interval: 2500 //changes the speed
   })
+
+ // ______________ BACK TO TOP BUTTON
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 300) {
+            $('#back-to-top').fadeIn('slow');
+        } else {
+            $('#back-to-top').fadeOut('slow');
+        }
+    });
+    $('#back-to-top').click(function() {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
 });
 
 </script>
