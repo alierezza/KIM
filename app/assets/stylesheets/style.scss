@@ -63,6 +63,8 @@
 
 body {
   overflow-x: hidden;
+  top: 140px;
+  position: absolute;
 }
 .inner-body {
   padding: 30px 90px;
@@ -117,6 +119,7 @@ footer {
         border-radius: 25px;
         background-color: #B3CF4B;
         color: black;
+        text-decoration: none;
 
         &:hover {
           background-color: #9bb245;
@@ -303,7 +306,7 @@ div.carousel .fill {
 
 .content, .one_page {
   position: relative;
-  margin-top: 140px;
+  // margin-top: 140px;
   // min-height: 100%;
 }
 
