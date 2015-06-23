@@ -258,6 +258,7 @@
 			<h3>Best Crew of the Month</h3>
       <% if @top_crew.present? %>
 			<%= image_tag "#{@top_crew.first.photo.url(:medium)}", width: 175, class: "img-thumbnail" %>
+			<div style="text-align:center"><%= @top_crew.first.nama %></div>
       <% end %>
 		</div>
 	</div>
