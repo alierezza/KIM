@@ -30,17 +30,19 @@
 				<%= f.label "Fax", class: "control-label" %>
 				<%= f.text_field :fax, class: "form-control" %>
 			</div>
-			<fieldset>
-	        	<legend>PIC / Contact Person</legend>
-	          <div class='form-group'>
-	            <%= f.label "Nama PIC", "Nama PIC", class: 'control-label' %>
-	            <%= f.text_field :pic_nama, :required=>true, class: 'form-control' %>
-	          </div>
-	          <div class='form-group'>
-	            <%= f.label "Telp PIC", "Telp PIC", class: 'control-label' %>
-	            <%= f.text_field :pic_telp, :required=>true, class: 'form-control' %>
-	          </div>
-	        </fieldset>
+			<% if current_user.role == "User" %>
+				<fieldset>
+		        	<legend>PIC / Contact Person</legend>
+		          <div class='form-group'>
+		            <%= f.label "Nama PIC", "Nama PIC", class: 'control-label' %>
+		            <%= f.text_field :pic_nama, :required=>true, class: 'form-control' %>
+		          </div>
+		          <div class='form-group'>
+		            <%= f.label "Telp PIC", "Telp PIC", class: 'control-label' %>
+		            <%= f.text_field :pic_telp, :required=>true, class: 'form-control' %>
+		          </div>
+		        </fieldset>
+	        <% end %>
 			<div class="form-group">
 				<%= f.label "Profile Picture","Profile Picture <font size=2 style='font-weight:normal;'><i>max 500 kilobytes, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
 				<%= f.file_field :photo, :class=>"avatar" %>
