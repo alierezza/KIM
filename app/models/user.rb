@@ -55,11 +55,11 @@ class User < ActiveRecord::Base
   
   def self.monthly
     data = Hash.new
-    data["jumlah_anggota_baru"] = User.where("MONTH(created_at) = ? and role = ?",Time.now.to_date - 1.month,"User").count
-    data["jumlah_pendaftar_kim"] = Kimm.where("MONTH(created_at) = ?",Time.now.to_date - 1.month).count
-    data["jumlah_kim_yang_disetujui"] = Kimm.where("MONTH(created_at) = ? and admin_approval = ? and crew_approval = ?",Time.now.to_date - 1.month, true,true).count
-    data["jumlah_kim_yang_ditolak"] = Kimm.where("MONTH(created_at) = ? and admin_approval = ? and crew_approval = ?",Time.now.to_date - 1.month,false,false).count
-    data["jumlah_lkp"] = Lkp.where("MONTH(created_at) = ?",Time.now.to_date - 1.month).count
+    data["jumlah_anggota_baru"] = User.where("MONTH(created_at) = ? and YEAR(created_at) = ? and role = ?",(Time.now.to_date - 1.month).strftime("%m").to_i,(Time.now.to_date - 1.month).strftime("%Y").to_i,"User").count
+    data["jumlah_pendaftar_kim"] = Kimm.where("MONTH(created_at) = ? and YEAR(created_at) = ?",(Time.now.to_date - 1.month).strftime("%m").to_i,(Time.now.to_date - 1.month).strftime("%Y").to_i).count
+    data["jumlah_kim_yang_disetujui"] = Kimm.where("MONTH(created_at) = ? and YEAR(created_at) = ? and admin_approval = ? and crew_approval = ?",(Time.now.to_date - 1.month).strftime("%m").to_i,(Time.now.to_date - 1.month).strftime("%Y").to_i, true,true).count
+    data["jumlah_kim_yang_ditolak"] = Kimm.where("MONTH(created_at) = ? and YEAR(created_at) = ? and admin_approval = ? and crew_approval = ?",(Time.now.to_date - 1.month).strftime("%m").to_i,(Time.now.to_date - 1.month).strftime("%Y").to_i,false,false).count
+    data["jumlah_lkp"] = Lkp.where("MONTH(created_at) = ? and YEAR(created_at) = ?",(Time.now.to_date - 1.month).strftime("%m").to_i,(Time.now.to_date - 1.month).strftime("%Y").to_i).count
     data["jumlah_kim_habis_masa_berlaku"] = Kimm.where("DATE(expired_date) < ?",Time.now.to_date).count
     data["jumlah_kim_yang_menunggu_persetujuan"] = Kimm.where("admin_approval IS NULL or crew_approval IS NULL").count
 
