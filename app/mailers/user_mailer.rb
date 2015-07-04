@@ -2,7 +2,7 @@ class UserMailer < ActionMailer::Base
 	include Devise::Mailers::Helpers
   include ApplicationHelper
 
-	default from: "admin@kotakgadget.com"
+	default from: "admin@ltms.web.id"
 
 	  def user_registration(user, password)
 	    @user = user
