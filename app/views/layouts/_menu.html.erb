@@ -27,13 +27,13 @@
   <div class='menu'>
     <ul>
       <% if params[:controller] == 'homepages' %>
-        <li><%= link_to "Home" , homepages_path, data: {scroll: true}%></li>
-        <li><%= link_to "About Us" , "#about_us", data: {scroll: true} %></li>
+        <li><%= link_to "Beranda" , homepages_path, data: {scroll: true}%></li>
+        <li><%= link_to "Tentang Kita" , "#about_us", data: {scroll: true} %></li>
         <li><%= link_to "Prosedur", "#prosedur", data: {scroll: true} %></li>
         <li><%= link_to "Prasyarat" , "#prasyarat", data: {scroll: true} %></li>
-        <li><%= link_to "Highlight", "#highlight", data: {scroll: true} %></li>
-        <li><%= link_to "Our Crew" , "#our_crew", data: {scroll: true} %></li>
-        <li><%= link_to "Contact Us" , "#contact_us", data: {scroll: true} %></li>
+        <li><%= link_to "Info", "#highlight", data: {scroll: true} %></li>
+        <li><%= link_to "Crew Kami" , "#our_crew", data: {scroll: true} %></li>
+        <li><%= link_to "Kontak" , "#contact_us", data: {scroll: true} %></li>
       <% end %>
     </ul>
   </div>
@@ -94,10 +94,10 @@
       <% end %>
 
       <% if can? :kim_approval_by_crew, current_user %>
-      <%= link_to "Checklist Kendaraan", new_dashboard_path, class: "btn btn-default" %>
+      <%= link_to "Ceklist Kendaraan", new_dashboard_path, class: "btn btn-default" %>
       <% end %>
 
-      <%= link_to "Change password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete , class: "btn btn-default"%>
+      <%= link_to "Rubah Password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete , class: "btn btn-default"%>
     </div>
   </div>
   <div id="content">
