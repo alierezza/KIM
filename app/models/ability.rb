@@ -25,7 +25,7 @@ class Ability
         #kim
         can :generate_kim, User
         can :kim_approval, User
-        
+        can :show_kim, User
 
     elsif user.role == "SuperAdmin"
         can :create_admin, User
@@ -47,13 +47,21 @@ class Ability
         #best of the month
         can :best_of_the_month, User
 
-    elsif user.role == "Crew"
+    elsif user.role == "Crew" #asisten HSE
 
+        #kim
         can :kim_approval_by_crew, User
+        can :show_kim, User
+
+        #LKP
+        can :view_lkp, User
+
+        #survei
+        can :view_feedback, User
 
         can :edit_info, User, :id => user.id
 
-
+        can :namacrew, User
     end
   end
 end

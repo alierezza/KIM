@@ -34,6 +34,8 @@ class Kimm < ActiveRecord::Base
   	validates_attachment :surat_permohonan, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
 
+    has_attached_file :checklist, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.hollandlift.com/wp-content/themes/hollandlift/assets/images/no_image.jpg"
+    validates_attachment :checklist, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 
 
     before_validation :uppercase_nopol

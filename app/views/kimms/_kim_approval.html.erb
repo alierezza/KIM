@@ -5,15 +5,18 @@
 		<th>Tipe</th>
 		<th>Kapasitas</th>
 		<th>No Registrasi</th>
-		<th>Admin Approval</th>
+		<th>Superadmin Approval</th>
 		<th>Asisten HSE Approval</th>
-		<% if can? :generate_kim, current_user %>
+		<th>Crew</th>
+		<% if cannot? :generate_kim, current_user %>
 			<th colspan=3>Status</th>
 		<% end %>
 		<% if can? :generate_kim, current_user %>
 			<th>Print</th>
 		<% end %>
-		<th>Block</th>
+		<% if cannot? :generate_kim, current_user %>
+			<th>Block</th>
+		<% end %>
 	</thead>
 	<tbody>
 		<% @kims.each_with_index do |kim| %>
@@ -39,20 +42,23 @@
 					<% end %>
 				</td>
 				<td><%= kim.crew_approval==nil ? "Waiting.." : kim.crew_approval==true ? "<span class='glyphicon glyphicon-ok'></span> #{kim.crew_approved_by}".html_safe : "<span class='glyphicon glyphicon-remove'></span>" %></td>
+				<td>
+					<%= kim.reference %>
+				</td>
+				<% if cannot? :generate_kim, current_user %>
+					<% if kim.admin_approval == nil and kim.message == nil and kim.crew_approval!=nil %>
 
-
-				<% if kim.admin_approval == nil and kim.message == nil and kim.crew_approval!=nil %>
-
-				<td><%= link_to "Approve", edit_kimm_path(kim, :status=>"approve"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-success", :data => {:confirm => 'Are you sure?'} %></td>
-				<td><a onclick="show_modal('<%= kim.id %>');" style="cursor:pointer;" class="btn btn-xs btn-warning">Rollback</a></td>
-				<td><%= link_to "Reject", edit_kimm_path(kim, :status=>"reject"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-danger", :data => {:confirm => 'Are you sure?'} %></td>
-				<% else %>
-					<% if kim.expired_date != nil %>
-						<% if Time.now.to_date > kim.expired_date.to_date %>
-							<td colspan=3><font color=red><center><b>Expired</b></center></font></td>
-						<% else %>
-							<td colspan=3><center><b>Active</b></center></td>
-							
+					<td><%= link_to "Approve", edit_kimm_path(kim, :status=>"approve"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-success", :data => {:confirm => 'Are you sure?'} %></td>
+					<td><a onclick="show_modal('<%= kim.id %>');" style="cursor:pointer;" class="btn btn-xs btn-warning">Rollback</a></td>
+					<td><%= link_to "Reject", edit_kimm_path(kim, :status=>"reject"), 'data-disable-with'=> "Wait..", :class=>"btn btn-xs btn-danger", :data => {:confirm => 'Are you sure?'} %></td>
+					<% else %>
+						<% if kim.expired_date != nil %>
+							<% if Time.now.to_date > kim.expired_date.to_date %>
+								<td colspan=3><font color=red><center><b>Expired</b></center></font></td>
+							<% else %>
+								<td colspan=3><center><b>Active</b></center></td>
+								
+							<% end %>
 						<% end %>
 					<% end %>
 				<% end %>
@@ -69,22 +75,24 @@
 						<% end %>
 					<% end %>
 				</td>
-				<td>
-					<% begin %>
-						<% if kim.admin_approval == true and kim.crew_approval == true and kim.expired_date.to_date >= Time.now.to_date %>
+				<% if cannot? :generate_kim, current_user %>
+					<td>
+						<% begin %>
+							<% if kim.admin_approval == true and kim.crew_approval == true and kim.expired_date.to_date >= Time.now.to_date %>
 
-							<% if kim.status == true %>
-								<%= link_to "<span class='glyphicon glyphicon-remove'></span> Block".html_safe ,kimm_path(kim.id, :status=>false),:class=>"btn btn-danger btn-xs" %>
-							<% else %>
-								<%= link_to "<span class='glyphicon glyphicon-ok'></span> Unblock".html_safe ,kimm_path(kim.id, :status=>true),:class=>"btn btn-info btn-xs" %>
+								<% if kim.status == true %>
+									<%= link_to "<span class='glyphicon glyphicon-remove'></span> Block".html_safe ,kimm_path(kim.id, :status=>false),:class=>"btn btn-danger btn-xs" %>
+								<% else %>
+									<%= link_to "<span class='glyphicon glyphicon-ok'></span> Unblock".html_safe ,kimm_path(kim.id, :status=>true),:class=>"btn btn-info btn-xs" %>
+								<% end %>
+							<% elsif kim.expired_date.to_date < Time.now.to_date %>
+								-
 							<% end %>
-						<% elsif kim.expired_date.to_date < Time.now.to_date %>
+						<% rescue %>
 							-
 						<% end %>
-					<% rescue %>
-						-
-					<% end %>
-				</td>
+					</td>
+				<% end %>
 			</tr>
 		<% end %> <!-- end do -->
 	</tbody>

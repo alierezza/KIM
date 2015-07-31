@@ -13,7 +13,18 @@
     		<%= link_to kim_approval_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
     	<% end %>
 
-
+    	<% if @kim.checklist_file_name != nil %>
+	    	<fieldset>
+	    		<legend>Formulir Checklist</legend>
+	    		<div class="row row_content">
+		        <div class="title_row">Formulir Checklist</div>
+		        <div class="data_row"><%= image_tag @kim.checklist.url(:medium) %></br>
+							<%= link_to "Download Formulir Checklist", download_path(@kim.checklist_file_name,@kim.id, :status=>"checklist") %>
+						</div>
+		      </div>
+	    	</fieldset>
+    	<% end %>
+    	
     	<fieldset>
     		<legend>Info</legend>
     		<div class="row row_content">
@@ -38,7 +49,7 @@
 	        <div class="title_row">No Registrasi</div><div class="data_row"><%= @kim.no_registrasi %></div>
 	      </div>
 	      <div class="row row_content">
-	        <div class="title_row">Admin Approval</div>
+	        <div class="title_row">Superadmin Approval</div>
 	        <div class="data_row">
 	        	<% if @kim.admin_approval==nil and @kim.message==nil %>
 					<%= "Waiting.." %>
@@ -56,7 +67,7 @@
 	    	</div>
 	      </div>
 	      <div class="row row_content">
-	        <div class="title_row">Crew Approval</div>
+	        <div class="title_row">Asisten HSE Approval</div>
 	        <div class="data_row">
 	        	<%= @kim.crew_approval==nil ? "Waiting.." : @kim.crew_approval==true ? "<span class='glyphicon glyphicon-ok'></span> #{@kim.crew_approved_by}".html_safe : "<span class='glyphicon glyphicon-remove'></span>" %>
 	        </div>

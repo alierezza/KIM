@@ -14,7 +14,7 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= image_tag "#{current_user.photo.url(:medium)}", width: 50, class: "img-circle" %> <span class='login_user'>Hi, <span class='current_user'><%= current_user.nama %></span></span> <span class="caret"></span></a>
       <ul class="dropdown-menu pull-right" role="menu">
         <li style=" margin: 5px;">Email : <%= current_user.email %></li>
-        <li style=" margin: 5px;">Role : <%= current_user.role %></li>
+        <li style=" margin: 5px;">Role : <%= current_user.role == "Crew" ? "Asisten HSE" : current_user.role %></li>
         <li class="divider"></li>
         <li><%= link_to homepages_path do %><span class="glyphicon glyphicon-home"></span>&nbsp Home<% end %></li>
         <li><%= link_to dashboards_path do %><span class="glyphicon glyphicon-list"></span>&nbsp  Panel<% end %></li>
@@ -99,6 +99,10 @@
 
       <% if can? :kim_approval_by_crew, current_user %>
       <%= link_to "Ceklist Kendaraan", new_dashboard_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :namacrew, current_user %>
+      <%= link_to "Crew", namacrews_path, class: "btn btn-default" %>
       <% end %>
 
       <%= link_to "Rubah Password", destroy_user_session_path(:reset_password=>current_user.id), :method => :delete , class: "btn btn-default"%>

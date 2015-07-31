@@ -152,6 +152,8 @@ class KimmsController < ApplicationController
 			image = Kimm.find(kim_id).ktp.path
 		elsif params[:status] == "surat permohonan"
 			image = Kimm.find(kim_id).surat_permohonan.path
+		elsif params[:status] == "checklist"
+			image = Kimm.find(kim_id).checklist.path
 		end
 		send_file image
 	end

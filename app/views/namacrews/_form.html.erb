@@ -1,0 +1,104 @@
+<% if params[:action] == "new" or params[:action] == "create" %>
+  <%= form_for(@crew, url: namacrews_path, :method=>"POST" ) do |f| %>
+   
+    <div class='form-group'>
+      <%= f.label "Nama", class: "control-label" %>
+      <% if params[:action] == "edit" or params[:action] == "update" %>
+        <%= f.text_field :nama, :required=>true, class: "form-control", :disabled=>true %>
+      <% else %>
+        <%= f.text_field :nama, :required=>true, class: "form-control" %>
+      <% end %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label "Alamat", class: "control-label" %>
+      <%= f.text_field :alamat, :required=>true, class: "form-control" %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label "Telp", class: "control-label" %>
+      <%= f.text_field :telp, :required=>true, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label "Profile Picture","Profile Picture <font size=2 style='font-weight:normal;'><i>max 500 kilobytes, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
+        <%= f.file_field :photo, :class=>"avatar" %>
+      </div>
+    <div class="form-group">
+        <div id="target_user_photo">
+          <%= image_tag current_user.photo.url(:medium), class: "img-thumbnail" %>
+        </div>
+      </div>
+
+    <div class='bottom-field row'>
+      <div class='pull-right'>
+        <%= link_to "back", namacrews_path , class: 'btn btn-default', style: "margin-right: 10px;" %>
+        <%= f.submit "Save", class: 'btn btn-primary', 'data-disable-with'=> "Wait.." %>
+      </div>
+    </div>
+
+  <% end %>
+<% else %>
+
+  <%= form_for(@crew, url: namacrew_path(@crew), :method=>"PUT" ) do |f| %>
+   
+    <div class='form-group'>
+      <%= f.label "Nama", class: "control-label" %>
+      <% if params[:action] == "edit" or params[:action] == "update" %>
+        <%= f.text_field :nama, :required=>true, class: "form-control", :disabled=>true %>
+      <% else %>
+        <%= f.text_field :nama, :required=>true, class: "form-control" %>
+      <% end %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label "Alamat", class: "control-label" %>
+      <%= f.text_field :alamat, :required=>true, class: "form-control" %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label "Telp", class: "control-label" %>
+      <%= f.text_field :telp, :required=>true, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label "Profile Picture","Profile Picture <font size=2 style='font-weight:normal;'><i>max 500 kilobytes, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
+        <%= f.file_field :photo, :class=>"avatar" %>
+      </div>
+    <div class="form-group">
+        <div id="target_user_photo">
+          <%= image_tag f.object.photo.url(:medium), class: "img-thumbnail" %>
+        </div>
+      </div>
+
+    <div class='bottom-field row'>
+      <div class='pull-right'>
+        <%= link_to "back", namacrews_path , class: 'btn btn-default', style: "margin-right: 10px;" %>
+        <%= f.submit "Save", class: 'btn btn-primary', 'data-disable-with'=> "Wait.." %>
+      </div>
+    </div>
+
+  <% end %>
+
+<% end %>
+
+<script>
+$(function() {
+
+  $('.avatar').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      console.log(file);
+      img.src = file.target.result;
+      var id = event.target.id;
+      $('#target_'+id).addClass('img-thumbnail');
+      $('#target_'+id).html(img);
+    }
+    reader.readAsDataURL(image);
+    console.log(files);
+  });
+});
+</script>
