@@ -3,6 +3,7 @@ class KimmsController < ApplicationController
 
 	def index
 		@kims = User.find(current_user).kimms.page(params[:page])
+
 		authorize! :read_kim, current_user
 	end
 
@@ -24,6 +25,20 @@ class KimmsController < ApplicationController
 			flash[:notice] = "Email has been sent"
 			redirect_to kimms_path
 		end
+
+		#block & unblock KIM
+		if params[:id] and params[:status]
+			@kim = Kimm.find(params[:id])
+			@kim.status = params[:status]
+			@kim.save
+			if params[:status] == "true"
+				flash[:notice] = "KIM has been unblocked"
+			else
+				flash[:alert] = "KIM has been blocked"
+			end
+			redirect_to kim_approval_path
+		end
+
 		authorize! :show_kim, @kim.user
 	end
 

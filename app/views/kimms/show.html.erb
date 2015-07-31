@@ -17,8 +17,11 @@
     	<fieldset>
     		<legend>Info</legend>
     		<div class="row row_content">
-	        <div class="title_row">Jenis KIM</div><div class="data_row"><%= @kim.jenis_sim %></div>
-	      </div>
+	        	<div class="title_row">Status KIM</div><div class="data_row"><%= @kim.status == true ? "Aktif" : "Terblokir" %></div>
+	      	</div>
+    		<div class="row row_content">
+	        	<div class="title_row">Jenis KIM</div><div class="data_row"><%= @kim.jenis_sim %></div>
+	      	</div>
 	      <div class="row row_content">
 	        <div class="title_row">Merek Kendaraan</div><div class="data_row"><%= @kim.merek_kendaraan %></div>
 	      </div>

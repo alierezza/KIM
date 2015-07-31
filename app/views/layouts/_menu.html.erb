@@ -32,7 +32,7 @@
         <li><%= link_to "Prosedur", "#prosedur", data: {scroll: true} %></li>
         <li><%= link_to "Prasyarat" , "#prasyarat", data: {scroll: true} %></li>
         <li><%= link_to "Info", "#highlight", data: {scroll: true} %></li>
-        <li><%= link_to "Crew Kami" , "#our_crew", data: {scroll: true} %></li>
+        <li><%= link_to "Tim Kami" , "#our_crew", data: {scroll: true} %></li>
         <li><%= link_to "Kontak" , "#contact_us", data: {scroll: true} %></li>
       <% end %>
     </ul>
@@ -86,7 +86,11 @@
       <% end %>
 
       <% if can? :create_crew, current_user %>
-      <%= link_to "Crew", crews_path, class: "btn btn-default" %>
+      <%= link_to "Asisten HSE", crews_path, class: "btn btn-default" %>
+      <% end %>
+
+      <% if can? :best_of_the_month, current_user %>
+      <%= link_to "Anggota Terbaik", bests_path, class: "btn btn-default" %>
       <% end %>
 
       <% if can? :create_kim, current_user %>

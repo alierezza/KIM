@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622041511) do
+ActiveRecord::Schema.define(version: 20150731061134) do
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 20150622041511) do
     t.string   "no_registrasi",                 limit: 255
     t.string   "merek_kendaraan",               limit: 255
     t.datetime "expired_date"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
     t.string   "sim_file_name",                 limit: 255
     t.string   "sim_content_type",              limit: 255
     t.integer  "sim_file_size",                 limit: 4
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20150622041511) do
     t.string   "kir_skid_tank_content_type",    limit: 255
     t.integer  "kir_skid_tank_file_size",       limit: 4
     t.datetime "kir_skid_tank_updated_at"
+    t.boolean  "status",                        limit: 1,   default: true
   end
 
   create_table "lkps", force: :cascade do |t|
@@ -153,6 +154,7 @@ ActiveRecord::Schema.define(version: 20150622041511) do
     t.datetime "photo_updated_at"
     t.string   "pic_nama",               limit: 255
     t.string   "pic_telp",               limit: 255
+    t.boolean  "best",                   limit: 1,   default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

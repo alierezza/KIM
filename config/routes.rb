@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'homepages#index'
 
-  resources :homepages, :dashboards, :kimms, :registers, :members, :admins, :crews, :feedbacks, :lkps
+  resources :homepages, :dashboards, :kimms, :registers, :members, :admins, :crews, :feedbacks, :lkps, :bests
   resources :users, path: "admins"
   resources :users, path: "crews"
 
