@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731161443) do
+ActiveRecord::Schema.define(version: 20150801024742) do
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -110,6 +110,9 @@ ActiveRecord::Schema.define(version: 20150731161443) do
     t.string   "checklist_content_type",        limit: 255
     t.integer  "checklist_file_size",           limit: 4
     t.datetime "checklist_updated_at"
+    t.string   "no_sim",                        limit: 255
+    t.string   "no_stnk",                       limit: 255
+    t.string   "no_ktp",                        limit: 255
   end
 
   create_table "lkps", force: :cascade do |t|
@@ -120,8 +123,8 @@ ActiveRecord::Schema.define(version: 20150731161443) do
     t.string   "bentuk_kejadian",      limit: 255
     t.text     "kronologis",           limit: 65535
     t.text     "sebab_kecelakaan",     limit: 65535
-    t.integer  "korban",               limit: 4
-    t.integer  "kerugian_materi",      limit: 4
+    t.string   "korban",               limit: 255
+    t.string   "kerugian_materi",      limit: 255
     t.string   "gangguan_operasi",     limit: 255
     t.text     "upaya_penanggulangan", limit: 65535
     t.text     "saran_pencegahan",     limit: 65535

@@ -12,6 +12,10 @@ class Kimm < ActiveRecord::Base
 	validates :tipe, :presence=>true
 	validates :kapasitas, :presence=>true
 
+  validates :no_sim, :presence=>true
+  validates :no_stnk, :presence=>true
+  validates :no_ktp, :presence=>true
+
 	  has_attached_file :sim, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.hollandlift.com/wp-content/themes/hollandlift/assets/images/no_image.jpg"
   	validates_attachment :sim, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}, :size => { :less_than => 1000.kilobytes }
 

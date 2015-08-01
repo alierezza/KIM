@@ -51,7 +51,7 @@ class KimmsController < ApplicationController
 
 	def create
 		if params[:kimm][:tipe] == "Skid Tank"
-			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " Liter"
+			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " MT"
 		end
 		no_registration = Time.now.year.to_s+Time.now.strftime("%m")+(Kimm.where("MONTH(created_at) = ? and YEAR(created_at) = ?",Time.now.month,Time.now.year).count+1).to_s.rjust(5,"0")
 		
@@ -115,7 +115,7 @@ class KimmsController < ApplicationController
 			params[:kimm][:message] = nil
 		end
 		if params[:kimm][:tipe] == "Skid Tank"
-			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " Liter"
+			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " MT"
 		end
 	    respond_to do |format|
 	      if @kim.update(params_kim)

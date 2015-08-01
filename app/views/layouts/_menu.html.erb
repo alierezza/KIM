@@ -65,8 +65,8 @@
       <%= link_to "KIM", kim_approval_path, class: "btn btn-default" %>
       <% end %>
 
-      <% if can? :create_feedback, current_user and current_user.feedback == nil %>
-      <%= link_to "Survei", new_feedback_path, class: "btn btn-default" %>
+      <% if can? :create_feedback, current_user %>
+      <%= link_to "Survei Pelanggan", new_feedback_path, class: "btn btn-default" %>
       <% end %>
 
       <% if can? :view_feedback, current_user %>
