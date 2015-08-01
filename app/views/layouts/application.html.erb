@@ -18,13 +18,14 @@
     global_notif('<%= alert %>', "danger")
     <% end %>
     </script>
-    <%= render 'layouts/menu' %>
-    <div class="one_page">
-  
+
+    <div class="one_page" >
+<%= render 'layouts/menu2' %>
 	<%= yield %>
-	<footer style="bottom: -75px;">
-		Copyright Pertamina 2015 All Right Reserved
-	</footer>
+
 </div>
+  <footer >
+    Copyright Pertamina 2015 All Right Reserved
+  </footer>
 </body>
 </html>

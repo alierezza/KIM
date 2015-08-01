@@ -28,7 +28,7 @@
 }
 
 .page_header {
-	height: 140px;
+  height: 140px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -63,16 +63,19 @@
 
 body {
   overflow-x: hidden;
-  top: 140px;
-  position: absolute;
+  // top: 140px;
+  // position: absolute;
+  width: 100%;
+  height: 100%;
 }
 .inner-body {
   padding: 30px 90px;
+
 }
 
 .bot_wrapper {
 	background: #ccc;
-  margin-top: 45px;
+  // margin-top: 45px;
   padding: 30px 100px;
 
   .information {
@@ -90,7 +93,7 @@ body {
 footer {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  // bottom: 0;
 	background: #ed1b2f;
   height: 75px;
   text-align: center;
@@ -108,7 +111,9 @@ footer {
 
 	ul{
 		list-style: none;
-		display: inline-flex;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: inline-flex;
 		font-size: 17px;
 
 		li {
@@ -216,7 +221,7 @@ div.carousel .fill {
 
 .mid_wrapper{
   margin-top: 28px;
-  padding: 0px 105px ;
+  padding: 40px 105px ;
 
   .login_side {
     border: solid 1px #ccc;
@@ -225,7 +230,7 @@ div.carousel .fill {
   }
   .about_us {
     font-size: 16px;
-    padding: 0px 60px 0px 0px;
+    padding: 0px 20px 0px 0px;
     height: 304px;
     text-align: justify;
 
@@ -243,7 +248,9 @@ div.carousel .fill {
   }
   .prosedur {
     margin-top: 35px;
-    border: solid 1px #ccc;
+    img {
+      height: 750px;
+    }
   }
   .prasyarat {
     margin: 35px 0px;
@@ -264,8 +271,8 @@ div.carousel .fill {
 
     .top_crew{
       border: solid 5px #868686;
-      padding: 35px;
-      padding-top: 0px;
+      padding: 15px;
+      // padding-top: 0px;
       text-align: center;
       border-radius: 16px;
 
@@ -288,16 +295,16 @@ div.carousel .fill {
   }
 }
 
-.nav>li {
-  text-align: center;
-  width: 33.33%;
+// .nav>li {
+//   text-align: center;
+//   width: 33.33%;
 
-  &:not(.active){
-      border: solid 1px #ccc;
-  border-bottom: none;
-  height: 42px;
-  }
-}
+//   &:not(.active){
+//       border: solid 1px #ccc;
+//   border-bottom: none;
+//   height: 42px;
+//   }
+// }
 
 .img-circle {
   border: solid 1px #ccc;
@@ -305,7 +312,8 @@ div.carousel .fill {
 }
 
 .content, .one_page {
-  position: relative;
+  min-height: 655px;
+  // position: relative;
   // margin-top: 140px;
   // min-height: 100%;
 }
@@ -330,6 +338,9 @@ div.carousel .fill {
 }
 
 .sosmed {
+
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
   display: inline-flex;
   list-style: none;
 
@@ -395,7 +406,67 @@ div.carousel .fill {
 //   opacity: 1;
 //   transition: opacity 0.5s ease-in-out;
 // }
+.navbar {
+  margin-bottom: 0px;
+}
+.navbar-header{
+  margin: 15px 55px;
+}
+.navbar.navbar-default  {
+   min-height: 135px ;
+   background-color: white;
+}
 
+.container-fluid .homepage {
+  margin-top: 85px;
 
+    .navbar-right a {
+    border-radius: 25px;
+    border: solid 1px;
+    padding: 5px 15px !important;
+    margin: 3px;
+    background-color: #B3CF4B;
+    color: black !important;
+  }
+}
+.navbar-collapse{
+  padding-right: 50px;
+}
+@media only screen and (max-width: 1024px) {
+  .mid_wrapper, .bot_wrapper {
+    padding: 20px 50px;
+  }
+  .navbar-collapse{
+    padding-right: 60px;
+  }
+}
+@media only screen and (max-width: 766px) {
+  .navbar-collapse{
+    padding-right: 15px;
+  }
+  .page_header {
+    background-color: red;
+  }
+  .navbar-header{
+  margin-left: 15px;
+  margin-right: 0;
+  }
+  .navbar.navbar-default  {
+    min-height: 50px !important;
+    height: auto;
+  }
+  .container-fluid {
+    margin-top: 0px;
+  }
+  .navbar-right a {
+    border-radius: 0;
+    border: none;
+    padding: 5px 10px !important;
+    margin: 3px;
+  }
+  .mid_wrapper, .bot_wrapper {
+    padding: 20px 25px;
+  }
+}
 
 

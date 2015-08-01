@@ -34,17 +34,19 @@
 
 <div class='mid_wrapper'>
 	<div class="row" id="about_us">
-	<div class='col-md-12'>
+<!-- 	<div class='col-md-12'> -->
 		<% if !user_signed_in? %>
-		<div class='col-md-8 about_us'>
+		<div class="form-group">
+		<div class='col-md-7 about_us'>
 			<%= image_tag "Bumber-seven-Business-People.jpg", width: 475 %>
-			<h3 style="text-align: right;">About Us</h3>
+			<h3 style="text-align: right;">Tentang Kita</h3>
 			<div class="contain_about">
-				Ini adalah web sistem integrasi Kartu Izin Masuk milik pertamina. Kami memberikan pelayanan menyeluruh untuk pendaftaran Kartu Izin Masuk bagi skid tank dan truk guna dapat memasuki area wilayah kami guna kepentingan usaha. Dengan web ini diharapkan semakin mempermudah masyarakat dan bisa membantu banyak dalam efisiensi waktu pada saat pengurusan Kartu Izin Masuk.
+				Merupakan layanan web terintegrasi sistem kartu ijin masuk, kepuasan pelanggan, dan Laporan Kejadian Penting di Depot LPG Tanjung Perak PT. Pertamina (Persero).
+Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi pihak Depot LPG Tanjung Perak maupun SPPBE dan Agen, artinya disetujui atau tidaknya pengajuan KIM baru/perpanjangan dapat dimonitor atau dipantau dari web ini, selain itu web ini sejalan dengan misi kami untuk mendukung program lingkungan khususnya dalam mengurangi penggunaan kertas
 			</div>
 		</div>
-
-		<div class='col-md-4'>
+</div>
+		<div class='col-md-5'>
 
 			<div class="login_side">
 				<%= form_for(:user, :url => session_path(:user)) do |f| %>
@@ -79,17 +81,19 @@
 		<% else %>
 				<div class='about_us' style="padding: 0px;">
 			<%= image_tag "Bumber-seven-Business-People.jpg", width: 475 %>
-			<h3 style="text-align: right;">About Us</h3>
+			<h3 style="text-align: right;">Tentang Kita</h3>
 			<div class="contain_about">
-				Ini adalah web sistem integrasi Kartu Izin Masuk milik pertamina. Kami memberikan pelayanan menyeluruh untuk pendaftaran Kartu Izin Masuk bagi skid tank dan truk guna dapat memasuki area wilayah kami guna kepentingan usaha. Dengan web ini diharapkan semakin mempermudah masyarakat dan bisa membantu banyak dalam efisiensi waktu pada saat pengurusan Kartu Izin Masuk.
+				Merupakan layanan web terintegrasi sistem kartu ijin masuk, kepuasan pelanggan, dan Laporan Kejadian Penting di Depot LPG Tanjung Perak PT. Pertamina (Persero).
+Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi pihak Depot LPG Tanjung Perak maupun SPPBE dan Agen, artinya disetujui atau tidaknya pengajuan KIM baru/perpanjangan dapat dimonitor atau dipantau dari web ini, selain itu web ini sejalan dengan misi kami untuk mendukung program lingkungan khususnya dalam mengurangi penggunaan kertas
 			</div>
 		</div>
 			<% end %>
-		</div>
+		<!-- </div> -->
 	</div>
 
 	<div id="prosedur" class="prosedur">
 	<h3>Prosedur</h3>
+	<%= image_tag "Prosedur.png", width: "100%" %>
 	</div>
 
 	<div id="prasyarat" class="prasyarat">
@@ -165,7 +169,7 @@
 		<div class="row">
 	<div class="col-md-7">
 		<h3>Crew Kami</h3>
-		<div class="container-fluid">
+		<div class="container-fluid" style="margin-top: 20px">
 <div class="row-fluid">
 <div class="span12">
 
@@ -242,7 +246,7 @@
         </div>
 
         <div class="control-box">
-            <a data-slide="prev" href="#myCarousel2" class="carousel-control left" style="position: absolute; top: 30%; background: white; color:black; margin-left: 17px;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+            <a data-slide="prev" href="#myCarousel2" class="carousel-control left" style="position: absolute; top: 30%; background: white; color:black; left: -20px;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
             <a data-slide="next" href="#myCarousel2" class="carousel-control right" style="position: absolute; top: 30%; background: white; color:black; right: -1%;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
         </div><!-- /.control-box -->
 

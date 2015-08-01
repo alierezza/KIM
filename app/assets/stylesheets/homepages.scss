@@ -1,7 +1,10 @@
+
 /* Global */
 .our_crew{
 li.span3 {
   width: 30%;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
   display: inline-flex;
   margin: 1%;
 

@@ -39,7 +39,7 @@ $(function(){
     pickDate: false
   });
 
-  var width = $( window ).height();
+  // var width = $( window ).height();
 
-  $(".one_page, .content").attr("style","min-height: "+width+"px;")
+  // $(".one_page, .content").attr("style","min-height: "+width+"px;")
 })

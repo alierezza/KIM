@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
   gem 'bootstrap-sass'
   gem 'modernizr-rails'
-  gem "mysql2"
+  gem "pg"
   gem 'kaminari'
   gem 'devise'
   gem 'cancancan'
