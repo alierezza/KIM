@@ -54,7 +54,7 @@ class KimmsController < ApplicationController
 			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " MT"
 		end
 		no_registration = Time.now.year.to_s+Time.now.strftime("%m")+(Kimm.where("MONTH(created_at) = ? and YEAR(created_at) = ?",Time.now.month,Time.now.year).count+1).to_s.rjust(5,"0")
-		
+
 		params[:kimm][:no_registrasi] = no_registration
 		@kim = User.find(current_user).kimms.new(params_kim)
 		respond_to do |format|
@@ -84,7 +84,7 @@ class KimmsController < ApplicationController
 			@kim.message = nil
 			@kim.admin_approved_by = current_user.nama
 
-			if @kim.masa_berlaku_tera == nil 
+			if @kim.masa_berlaku_tera == nil
 				expired = [@kim.masa_berlaku_sim , @kim.masa_berlaku_stnk, @kim.masa_berlaku_kir].min
 			else
 				expired = [@kim.masa_berlaku_sim , @kim.masa_berlaku_stnk, @kim.masa_berlaku_kir, @kim.masa_berlaku_tera].min

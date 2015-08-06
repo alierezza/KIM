@@ -5,8 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+require "#{File.dirname(__FILE__)}/../lib/import_csv_module.rb"
+include ImportCsvModule
 
 # seed buat SUPERADMIN
-
+import_csv_kabupaten
 User.create!(:email=>"superadmin@yahoo.com", :password=>"1234567", :password_confirmation=>"1234567", :email_recovery=>"hendranatas@yahoo.com", :role=>"SuperAdmin", :admin_approval=>true, :created_by => "SuperAdmin", :nama=>"SuperAdmin")

@@ -4,7 +4,7 @@ class HomepagesController < ApplicationController
 		@top_5_last_kim = Kimm.where("expired_date IS NOT NULL").order("expired_date ASC").limit(5)
 
 		# @top_crew = User.where("role=?","Crew").maximum("sign_in_count")
-		@top_crew = User.where("role=?","Crew").order("sign_in_count DESC").limit(7)
+		@top_crew = User.where(" best = true").first
 
 	end
 

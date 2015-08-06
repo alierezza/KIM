@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
   gem 'bootstrap-sass'
   gem 'modernizr-rails'
-  gem "mysql2"
+  gem "pg"
   gem 'kaminari'
   gem 'devise'
   gem 'cancancan'
@@ -47,6 +47,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem "recaptcha", :require => "recaptcha/rails"
   gem "prawn"
   gem "prawn-table"
+  gem "select2-rails"
 
 group :production do
   gem "bigdecimal"
