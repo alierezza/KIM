@@ -47,6 +47,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem "recaptcha", :require => "recaptcha/rails"
   gem "prawn"
   gem "prawn-table"
+  gem "select2-rails"
 
 group :production do
   gem "bigdecimal"

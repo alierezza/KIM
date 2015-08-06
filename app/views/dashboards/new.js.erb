@@ -1,5 +1,9 @@
 <% if params[:search] %>
-	$("#kim").html("<%= escape_javascript(render 'dashboards/kim_approval_by_crew') %>");
+	$("#kim_approval").html("<%= escape_javascript(render 'dashboards/kim_approval_by_crew') %>");
+<% elsif params[:approve] %>
+	$("#modal").html("<%= escape_javascript(render 'dashboards/modal') %>");
+	$("#approve").modal("show");
+	
 <% else %>
 	$("#content").html("<%= escape_javascript(render 'dashboards/index_crew') %>");
 <% end %>

@@ -37,6 +37,8 @@ class MembersController < ApplicationController
 	end
 
 	def edit
+		@member = User.find(params[:id])
+
 		if params[:status]
 			@user = User.find(params[:id])
 			@user.admin_approval = params[:status]
@@ -57,7 +59,19 @@ class MembersController < ApplicationController
 	end
 
 	def update
+		@member = User.find(params[:id])
+		respond_to do |format|
+	      if @member.update(params_member)
+	        format.html { redirect_to dashboards_path, notice: 'Member has been updated'}
+	        format.json { render action: 'new', status: :created, location: @member }
+	      else
+	        flash.now.alert = @member.errors.full_messages.to_sentence
+	        format.html { render action: "new" }
+	        format.json { render json: @member.errors, status: :unprocessable_entity }
+	      end
+	    end
 
+		authorize! :user_approval, current_user
 	end
 
 	def destroy
@@ -70,4 +84,7 @@ class MembersController < ApplicationController
 	end
 
 private
+	def params_member
+		params.require(:user).permit!
+	end
 end

@@ -1,0 +1,36 @@
+<% if params[:approve] %>
+<div class="modal fade" id="approve" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fa fa-trash-o fa-1x"></i><span class="glyphicon glyphicon-user"></span> <b>Pilih Satu Crew</b>
+            </div>
+            <%= form_tag approve_path(@kim), :method=>"put", :multipart => true do %>
+            <%= hidden_field_tag :status, "approve" %>
+            <div class="modal-body text-center">
+                <%= select_tag :crew, options_for_select(User.where("role=?","RealCrew").all.map{ |c| [c.nama, c.nama] }), :include_blank => '-- Pilih Satu --', :class=>"form-control", :required=>true  %>
+            
+
+            <div class="form-group">
+                <%= label_tag "Formulir Checklist","Formulir Checklist <font size=2 style='font-weight:normal;'><i>max 500 kilobytes, format: jpeg,png,gif</i></font>".html_safe, class: "control-label" %>
+                <%= file_field_tag :checklist, :class=>"avatar", :required=>true %>
+            </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <%= submit_tag "Setuju", :class=>"btn btn-info" %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //$("#crew").select2();
+
+</script>
+
+<% end %>

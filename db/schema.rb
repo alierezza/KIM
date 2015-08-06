@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622041511) do
+ActiveRecord::Schema.define(version: 20150804171253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,12 @@ ActiveRecord::Schema.define(version: 20150622041511) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "kabupatens", force: :cascade do |t|
+    t.string   "nama"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "kimms", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "jenis_sim"
@@ -76,8 +82,8 @@ ActiveRecord::Schema.define(version: 20150622041511) do
     t.string   "no_registrasi"
     t.string   "merek_kendaraan"
     t.datetime "expired_date"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.string   "sim_file_name"
     t.string   "sim_content_type"
     t.integer  "sim_file_size"
@@ -102,11 +108,20 @@ ActiveRecord::Schema.define(version: 20150622041511) do
     t.string   "surat_permohonan_content_type"
     t.integer  "surat_permohonan_file_size"
     t.datetime "surat_permohonan_updated_at"
-    t.string   "masa_berlaku_kir_skid_tank"
+    t.datetime "masa_berlaku_kir_skid_tank"
     t.string   "kir_skid_tank_file_name"
     t.string   "kir_skid_tank_content_type"
     t.integer  "kir_skid_tank_file_size"
     t.datetime "kir_skid_tank_updated_at"
+    t.boolean  "status",                        default: true
+    t.string   "reference"
+    t.string   "checklist_file_name"
+    t.string   "checklist_content_type"
+    t.integer  "checklist_file_size"
+    t.datetime "checklist_updated_at"
+    t.string   "no_sim"
+    t.string   "no_stnk"
+    t.string   "no_ktp"
   end
 
   create_table "lkps", force: :cascade do |t|
@@ -117,8 +132,8 @@ ActiveRecord::Schema.define(version: 20150622041511) do
     t.string   "bentuk_kejadian"
     t.text     "kronologis"
     t.text     "sebab_kecelakaan"
-    t.integer  "korban"
-    t.integer  "kerugian_materi"
+    t.string   "korban"
+    t.string   "kerugian_materi"
     t.string   "gangguan_operasi"
     t.text     "upaya_penanggulangan"
     t.text     "saran_pencegahan"
@@ -156,6 +171,7 @@ ActiveRecord::Schema.define(version: 20150622041511) do
     t.datetime "photo_updated_at"
     t.string   "pic_nama"
     t.string   "pic_telp"
+    t.boolean  "best",                   default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

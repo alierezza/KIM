@@ -10,8 +10,12 @@ class DashboardsController < ApplicationController
 	end
 
 	def new
-		@kims = Kimm.search_no(params[:search]).page(params[:page])
+		@kims = Kimm.search_no(params[:search]).order("created_at DESC").page(params[:page])
 		
+		if params[:approve]
+			@kim = Kimm.find(params[:approve])
+		end
+
 		authorize! :kim_approval_by_crew, current_user
 	end
 
@@ -19,14 +23,22 @@ class DashboardsController < ApplicationController
 
 	end
 
+	def approve
+		@kim = Kimm.find(params[:id])
+		status = @kim.update!(:crew_approval=>true,:crew_approved_by=>current_user.nama,:reference=>params[:crew],:checklist=>params[:checklist])
+		if status == true
+			flash[:notice] = "KIM has been approved"	
+			redirect_to new_dashboard_path
+		elsif status == false
+			flash[:alert] = "Please Try Again"	
+			redirect_to new_dashboard_path
+		end
+	end
+
 	def edit
 		@kim = Kimm.find(params[:id])
-		if params[:status] == "approve"
-			@kim.crew_approval = true
-			@kim.crew_approved_by = current_user.nama
-			@kim.save
-			flash[:notice] = "KIM has been approved"
-		elsif params[:status] == "reject"
+			
+		if params[:status] == "reject"
 			@kim.crew_approval = false
 			@kim.admin_approval = false
 			@kim.message = nil

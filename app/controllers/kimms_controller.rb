@@ -3,6 +3,7 @@ class KimmsController < ApplicationController
 
 	def index
 		@kims = User.find(current_user).kimms.page(params[:page])
+
 		authorize! :read_kim, current_user
 	end
 
@@ -24,6 +25,20 @@ class KimmsController < ApplicationController
 			flash[:notice] = "Email has been sent"
 			redirect_to kimms_path
 		end
+
+		#block & unblock KIM
+		if params[:id] and params[:status]
+			@kim = Kimm.find(params[:id])
+			@kim.status = params[:status]
+			@kim.save
+			if params[:status] == "true"
+				flash[:notice] = "KIM has been unblocked"
+			else
+				flash[:alert] = "KIM has been blocked"
+			end
+			redirect_to kim_approval_path
+		end
+
 		authorize! :show_kim, @kim.user
 	end
 
@@ -36,10 +51,10 @@ class KimmsController < ApplicationController
 
 	def create
 		if params[:kimm][:tipe] == "Skid Tank"
-			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " Liter"
+			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " MT"
 		end
 		no_registration = Time.now.year.to_s+Time.now.strftime("%m")+(Kimm.where("MONTH(created_at) = ? and YEAR(created_at) = ?",Time.now.month,Time.now.year).count+1).to_s.rjust(5,"0")
-		
+
 		params[:kimm][:no_registrasi] = no_registration
 		@kim = User.find(current_user).kimms.new(params_kim)
 		respond_to do |format|
@@ -69,7 +84,7 @@ class KimmsController < ApplicationController
 			@kim.message = nil
 			@kim.admin_approved_by = current_user.nama
 
-			if @kim.masa_berlaku_tera == nil 
+			if @kim.masa_berlaku_tera == nil
 				expired = [@kim.masa_berlaku_sim , @kim.masa_berlaku_stnk, @kim.masa_berlaku_kir].min
 			else
 				expired = [@kim.masa_berlaku_sim , @kim.masa_berlaku_stnk, @kim.masa_berlaku_kir, @kim.masa_berlaku_tera].min
@@ -100,7 +115,7 @@ class KimmsController < ApplicationController
 			params[:kimm][:message] = nil
 		end
 		if params[:kimm][:tipe] == "Skid Tank"
-			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " Liter"
+			params[:kimm][:kapasitas] = params[:kimm][:kapasitas].to_s + " MT"
 		end
 	    respond_to do |format|
 	      if @kim.update(params_kim)
@@ -137,6 +152,8 @@ class KimmsController < ApplicationController
 			image = Kimm.find(kim_id).ktp.path
 		elsif params[:status] == "surat permohonan"
 			image = Kimm.find(kim_id).surat_permohonan.path
+		elsif params[:status] == "checklist"
+			image = Kimm.find(kim_id).checklist.path
 		end
 		send_file image
 	end

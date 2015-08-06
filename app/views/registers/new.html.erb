@@ -7,7 +7,7 @@
       <div class='panel-body'>
         <%= form_for(@user, url: registers_path, :method=>"POST") do |f| %>
         <div class='form-group'>
-          <%= f.label "Nama Organisasi","Nama Organisasi", class: 'control-label' %>
+          <%= f.label "Nama Badan Usaha","Nama Badan Usaha", class: 'control-label' %>
           <span class= 'label_required'>*</span>
           <%= f.text_field :nama, class: 'form-control', :required=>true %>
         </div>
@@ -19,7 +19,8 @@
         <div class='form-group'>
           <%= f.label "Kota/Kabupaten", "Kota / Kabupaten", class: 'control-label' %>
           <span class= 'label_required'>*</span>
-          <%= f.text_field :kota, class: 'form-control', :required=>true %>
+          <%#= f.text_field :kota, class: 'form-control', :required=>true %>
+          <%= f.select :kota, options_from_collection_for_select(Kabupaten.all, 'id', 'nama'), {}, class: 'form-control', required: true %>
         </div>
         <div class='form-group'>
           <%= f.label "e-mail", "E-Mail", class: 'control-label' %>
@@ -44,7 +45,7 @@
           </label>
           <label>
             <%= f.radio_button :jenis_anggota, "SPBE" %>
-            SPBE
+            SPPBE
           </label>
           <label>
             <%= f.radio_button :jenis_anggota, "Lain-lain" %>
@@ -61,7 +62,7 @@
           <div class='form-group'>
             <%= f.label "Telp PIC", "Telp PIC", class: 'control-label' %>
             <span class= 'label_required'>*</span>
-            <%= f.text_field :pic_telp, :required=>true, class: 'form-control' %>
+            <%= f.number_field :pic_telp, :required=>true, class: 'form-control' %>
           </div>
         </fieldset>
         <div class="form-group">
@@ -77,4 +78,6 @@
     </div>
   </div>
 </div>
-
+<script>
+$("#user_kota").select2();
+</script>

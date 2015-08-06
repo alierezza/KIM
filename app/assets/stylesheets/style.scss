@@ -432,12 +432,18 @@ div.carousel .fill {
 .navbar-collapse{
   padding-right: 50px;
 }
+.login_name{
+  margin-right: 50px;
+}
+.homepage .dropdown {
+  display: none;
+}
 @media only screen and (max-width: 1024px) {
   .mid_wrapper, .bot_wrapper {
     padding: 20px 50px;
   }
   .navbar-collapse{
-    padding-right: 60px;
+    padding-right: 20px;
   }
 }
 @media only screen and (max-width: 766px) {
@@ -455,8 +461,20 @@ div.carousel .fill {
     min-height: 50px !important;
     height: auto;
   }
-  .container-fluid {
+  .container-fluid .homepage{
     margin-top: 0px;
+  }
+  .homepage {
+    .dropdown {
+      display: block;
+    }
+    .navbar-right a {
+      border-radius: 0px !important;
+    }
+  }
+
+  li.login_name {
+    display: none;
   }
   .navbar-right a {
     border-radius: 0;

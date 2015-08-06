@@ -1,0 +1,31 @@
+<div class='inner-body'>
+	<div class='panel panel-default'>
+		<div class='panel-heading'>
+			<h3 class="panel-title">List Semua Member</h3>
+
+		</div>
+		<div class='panel-body'>
+		<%= form_tag bests_path,:remote=>true, :method=>"GET" do %>
+		<div class="row">
+		  <div class="col-lg-4">
+		    <div class="input-group">
+		      <%= text_field_tag :nama,nil,:placeholder=>"Nama", class: "form-control" %>
+		      <span class="input-group-btn">
+		        <%= submit_tag "Search", class: "btn btn-default" %>
+		      </span>
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->
+		  <div class="col-md-8">
+		  	<%= link_to "Show All", bests_path, class: "btn btn-info btn-sm", :remote => true %>
+		  </div>
+		</div><!-- /.row -->
+
+
+
+		<% end %>
+			<div id="div_index_best" >
+				<%= render "index_bests" %>
+			</div>
+		</div>
+	</div>
+</div>

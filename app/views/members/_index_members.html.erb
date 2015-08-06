@@ -1,10 +1,10 @@
 <%= form_tag new_member_path, :method=>"GET" do %>
 <div class="pull-right">
-	<%= submit_tag "Approve All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Approve all ?'}, class: "btn btn-success btn-sm" %>
-	<%= submit_tag "Reject All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Reject all ?'}, class: "btn btn-danger btn-sm" %></div>
+	<%= submit_tag "Approve All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Approve semuanya ?'}, class: "btn btn-success btn-sm" %>
+	<%= submit_tag "Reject All", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Reject semuanya ?'}, class: "btn btn-danger btn-sm" %></div>
 <table class="table">
 	<thead>
-		<th>Email for Login</th>
+		<th>Email Untuk Login</th>
 		<th>Nama</th>
 		<th>Alamat</th>
 		<th>Kota / Kabupaten</th>
@@ -24,6 +24,9 @@
 			<td><%= check_box_tag "user_#{user.id}", "#{user.id}" %></td>
 			<% else %>
 				<td>Approved</td>
+				<td>
+					<%= link_to edit_member_path(user), class: "btn btn-xs btn-default", 'data-disable-with'=> "Wait.." do %><span class="glyphicon glyphicon-pencil"></span> Update<% end %>
+				</td>
 				<td><%= link_to member_path(user), :method=>"DELETE",:class=>"btn btn-xs btn-danger", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Are you sure?'} do %><span class='glyphicon glyphicon-remove'></span> Delete<% end %></td>
 				<td></td>
 			<% end %>

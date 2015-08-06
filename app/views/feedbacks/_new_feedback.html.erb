@@ -4,332 +4,337 @@
           <h3 class="panel-title">Survei</h3>
       </div>
       <div class='panel-body'>
-        <%= form_for(@feedback) do |f| %>
-          <p>1. Produk yang diperoleh dari Depot LPG Tanjung Perak memiliki kualitas yang baik atau bebas dari cacat</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q1, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q1, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q1, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q1, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q1, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-
-          <p>2. Depot LPG Tanjung Perak mengetahui kebutuhan anda</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q2, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q2, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q2, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q2, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q2, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-
-          <p>3. Respon atau jawaban Depot LPG Tanjung Perak terhadap pertanyaan atau saran dan masukan sudah baik</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q3, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q3, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q3, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q3, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q3, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-
-          <p>4. Pekerja Depot LPG Tanjung Perak memiliki kompetensi yang memadai dalam pelayanan</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q4, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q4, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q4, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q4, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q4, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-
-          <p>5. Memiliki pengalaman pelayanan yang baik saat pembuatan KIM</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q5, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q5, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q5, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q5, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q5, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-
-          <p>6. Memiliki pengalaman pelayanan yang baik saat pembuatan Surat Perintah Angkut atau Surat Perintah Isi</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q6, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q6, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q6, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q6, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q6, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-
-          <p>7. Memiliki pengalaman pelayanan yang baik saat pengisian</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q7, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q7, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q7, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q7, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q7, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-
-          <p>8. Memiliki pengalaman pelayanan yang baik saat Good Issue</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q8, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q8, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q8, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q8, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q8, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-
-          <p>9. Secara umum pelayanan di Depot LPG Tanjung Perak sudah baik</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q9, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q9, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q9, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q9, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q9, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-
-          <p>10.Lingkungan Depot LPG Tanjung Perak tergolong bersih</p>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q10, 10, :checked => false, :required=>true %>
-              Sangat Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q10, 7.5, :checked => false, :required=>true %>
-              Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q10, 5, :checked => false, :required=>true %>
-              Netral
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q10, 2.5, :checked => false, :required=>true %>
-              Tidak Setuju
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.radio_button :q10, 0, :checked => false, :required=>true %>
-              Sangat Tidak Setuju
-            </label>
-          </div>
-          <div class='bottom-field row'>
-            <div class='pull-right'>
-              <%#= link_to "back", dashboards_path , class: 'btn btn-default', style: "margin-right: 10px;" %>
-              <%= f.submit "Submit", class: 'btn btn-primary', 'data-disable-with'=> "Wait.." %>
+        <p><strong>Kepuasan pelanggan</strong> bertujuan untuk selalu mendapat umpan balik / feedback dari SPPBE atau agen terkait pelayanan kami di Depot LPG Tanjung Perak, sehingga ke depannya kami mampu meningkatkan pelayanan kami apabila terdapat kekurangan. </p>
+        <% if current_user.feedback == nil %>
+          <%= form_for(@feedback) do |f| %>
+            <p>1. Produk yang diperoleh dari Depot LPG Tanjung Perak memiliki kualitas yang baik atau bebas dari cacat</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q1, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
             </div>
-          </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q1, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q1, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q1, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q1, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+
+            <p>2. Depot LPG Tanjung Perak mengetahui kebutuhan anda</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q2, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q2, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q2, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q2, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q2, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+
+            <p>3. Respon atau jawaban Depot LPG Tanjung Perak terhadap pertanyaan atau saran dan masukan sudah baik</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q3, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q3, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q3, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q3, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q3, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+
+            <p>4. Pekerja Depot LPG Tanjung Perak memiliki kompetensi yang memadai dalam pelayanan</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q4, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q4, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q4, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q4, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q4, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+
+            <p>5. Memiliki pengalaman pelayanan yang baik saat pembuatan KIM</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q5, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q5, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q5, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q5, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q5, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+
+            <p>6. Memiliki pengalaman pelayanan yang baik saat pembuatan Surat Perintah Angkut atau Surat Perintah Isi</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q6, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q6, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q6, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q6, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q6, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+
+            <p>7. Memiliki pengalaman pelayanan yang baik saat pengisian</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q7, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q7, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q7, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q7, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q7, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+
+            <p>8. Memiliki pengalaman pelayanan yang baik saat Good Issue</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q8, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q8, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q8, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q8, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q8, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+
+            <p>9. Secara umum pelayanan di Depot LPG Tanjung Perak sudah baik</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q9, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q9, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q9, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q9, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q9, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+
+            <p>10.Lingkungan Depot LPG Tanjung Perak tergolong bersih</p>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q10, 10, :checked => false, :required=>true %>
+                Sangat Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q10, 7.5, :checked => false, :required=>true %>
+                Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q10, 5, :checked => false, :required=>true %>
+                Netral
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q10, 2.5, :checked => false, :required=>true %>
+                Tidak Setuju
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.radio_button :q10, 0, :checked => false, :required=>true %>
+                Sangat Tidak Setuju
+              </label>
+            </div>
+            <div class='bottom-field row'>
+              <div class='pull-right'>
+                <%#= link_to "back", dashboards_path , class: 'btn btn-default', style: "margin-right: 10px;" %>
+                <%= f.submit "Submit", class: 'btn btn-primary', 'data-disable-with'=> "Wait.." %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          Terimakasih telah mengunakan survey pelanggan.
       <% end %>
     </div>
   </div>

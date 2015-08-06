@@ -102,7 +102,7 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 			  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">
 		    <li role="presentation" class="active"><a href="#agen" aria-controls="agen" role="tab" data-toggle="tab">Agen</a></li>
-		    <li role="presentation"><a href="#spbe" aria-controls="spbe" role="tab" data-toggle="tab">SPBE</a></li>
+		    <li role="presentation"><a href="#spbe" aria-controls="spbe" role="tab" data-toggle="tab">SPPBE</a></li>
 		    <li role="presentation"><a href="#lain" aria-controls="lain" role="tab" data-toggle="tab">Lain - Lain</a></li>
 		  </ul>
 
@@ -110,7 +110,7 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 			  <div role="tabpanel" class="tab-pane fade in active" id="agen">
 			  	<ol>
 			  		<li>Attachment Scan Surat Permohonan Pengajuan / Pembuatan KIM</li>
-			  		<li>Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR / KIR)</li>
+			  		<li>Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR)</li>
 			  		<li>Attachment Scan Surat Izin Mengemudi (SIM) Pengemudi minimal B1</li>
 			  		<li>Attachment Scan Surat Tanda Nomor Kendaraan (STNK)</li>
 			  		<li>Attachment Kartu Tanda Penduduk (KTP) Pengemudi </li>
@@ -119,7 +119,7 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 			  <div role="tabpanel" class="tab-pane fade" id="spbe">
 			  	<ol>
 			  		<li>Attachment Scan Surat Permohonan Pengajuan / Pembuatan KIM</li>
-			  		<li>Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR / KIR) head dan skid tank</li>
+			  		<li>Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR) head dan skid tank</li>
 			  		<li>Attachment Scan Surat Izin Mengemudi (SIM) Pengemudi minimal B2</li>
 			  		<li>Attachment Scan Surat Tanda Nomor Kendaraan (STNK)</li>
 			  		<li>Attachment Kartu Tanda Penduduk (KTP) Pengemudi</li>
@@ -129,7 +129,7 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 			  <div role="tabpanel" class="tab-pane fade" id="lain">
 			  	<ol>
 			  		<li> Attachment Scan Surat Permohonan Pengajuan / Pembuatan KIM</li>
-						<li> Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR / KIR) </li>
+						<li> Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR) </li>
 						<li> Attachment Scan Surat Izin Mengemudi (SIM) Pengemudi</li>
 						<li> Attachment Scan Surat Tanda Nomor Kendaraan (STNK)</li>
 						<li> Attachment Kartu Tanda Penduduk (KTP) Pengemudi </li>
@@ -259,10 +259,10 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 	</div>
 	<div class="col-md-5">
 		<div class="top_crew">
-			<h3>Crew Teraktif Bulan Ini</h3>
+			<h3>Crew Terbaik Bulan Ini</h3>
       <% if @top_crew.present? %>
-			<%= image_tag "#{@top_crew.first.photo.url(:medium)}", width: 175, class: "img-thumbnail" %>
-			<div style="text-align:center"><%= @top_crew.first.nama %></div>
+			<%= image_tag "#{@top_crew.photo.url(:medium)}", width: 175, class: "img-thumbnail" %>
+			<div style="text-align:center"><%= @top_crew.nama %></div>
       <% end %>
 		</div>
 	</div>

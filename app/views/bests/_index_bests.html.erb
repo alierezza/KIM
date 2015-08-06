@@ -1,0 +1,34 @@
+<table class="table">
+	<thead>
+		<th>Nama</th>
+		<th>Alamat</th>
+		<th>Kota / Kabupaten</th>
+		<th colspan=2>Status</th>
+		<th style="width:5%"></th>
+	</thead>
+	<tbody>
+		<% @bests.each_with_index do |user| %>
+		<tr>
+			<td><%= link_to user.nama, member_path(user) %></td>
+			<td><%= user.alamat %></td>
+			<td><%= user.kota %></td>
+			<% if user.admin_approval == false %>
+			<td><%= link_to edit_member_path(user,:status=>true), class: 'btn btn-success btn-xs', 'data-disable-with'=> "Wait..", :data => {:confirm => 'Are you sure?'} do %><span class='glyphicon glyphicon-ok'></span> Approve<% end %></td>
+			<td><%= link_to edit_member_path(user, :status=>false), class: 'btn btn-xs btn-danger', 'data-disable-with'=> "Wait..", :data => {:confirm => 'Are you sure?'} do %><span class='glyphicon glyphicon-remove'></span> Reject<% end %></td>
+			<td><%= check_box_tag "user_#{user.id}", "#{user.id}" %></td>
+			<% else %>
+				<td>Approved</td>
+				<td>
+				<% if user.best == false %>
+					<%= link_to bests_path(:id=>user.id,:status=>true), :method=>"GET",:class=>"btn btn-xs btn-default", 'data-disable-with'=> "Wait..", :data => {:confirm => 'Anda Yakin ?'} do %><span class='glyphicon glyphicon-ok'></span> Set Terbaik<% end %>
+				<% else %>
+					<div class="btn btn-xs btn-success"><span class='glyphicon glyphicon-heart'></span> Terbaik</div>
+				<% end %>
+				</td>
+				<td></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate @bests %>

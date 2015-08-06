@@ -19,7 +19,9 @@
 //= require bootstrap-growl.min
 //= require raphael-min.js
 //= require morris.min.js
+//= require jquery.fancybox
 //= require smooth-scroll.min
+//= require select2
 // require_tree .
 function global_notif(textfield, types){
   $.growl(textfield, { type: types, animate: {
@@ -31,12 +33,14 @@ function global_notif(textfield, types){
 }
 
 $(function(){
+  $(".fancybox-button").fancybox();
 	$(".date").datetimepicker({
     pickTime: false,
     format: "DD/MM/YYYY"
   });
   $(".datetime").datetimepicker({
-    pickDate: false
+    pickDate: false,
+    format: 'HH:mm'
   });
 
   // var width = $( window ).height();

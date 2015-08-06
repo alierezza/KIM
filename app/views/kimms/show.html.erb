@@ -13,12 +13,26 @@
     		<%= link_to kim_approval_path, class: "btn btn-default" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
     	<% end %>
 
+    	<% if @kim.checklist_file_name != nil %>
+	    	<fieldset>
+	    		<legend>Formulir Checklist</legend>
+	    		<div class="row row_content">
+		        <div class="title_row">Formulir Checklist</div>
+		        <div class="data_row"><%= image_tag @kim.checklist.url(:medium) %></br>
+							<%= link_to "Download Formulir Checklist", download_path(@kim.checklist_file_name,@kim.id, :status=>"checklist") %>
+						</div>
+		      </div>
+	    	</fieldset>
+    	<% end %>
 
     	<fieldset>
     		<legend>Info</legend>
     		<div class="row row_content">
-	        <div class="title_row">Jenis KIM</div><div class="data_row"><%= @kim.jenis_sim %></div>
-	      </div>
+	        	<div class="title_row">Status KIM</div><div class="data_row"><%= @kim.status == true ? "Aktif" : "Terblokir" %></div>
+	      	</div>
+    		<div class="row row_content">
+	        	<div class="title_row">Jenis KIM</div><div class="data_row"><%= @kim.jenis_sim %></div>
+	      	</div>
 	      <div class="row row_content">
 	        <div class="title_row">Merek Kendaraan</div><div class="data_row"><%= @kim.merek_kendaraan %></div>
 	      </div>
@@ -35,7 +49,7 @@
 	        <div class="title_row">No Registrasi</div><div class="data_row"><%= @kim.no_registrasi %></div>
 	      </div>
 	      <div class="row row_content">
-	        <div class="title_row">Admin Approval</div>
+	        <div class="title_row">Superadmin Approval</div>
 	        <div class="data_row">
 	        	<% if @kim.admin_approval==nil and @kim.message==nil %>
 					<%= "Waiting.." %>
@@ -53,7 +67,7 @@
 	    	</div>
 	      </div>
 	      <div class="row row_content">
-	        <div class="title_row">Crew Approval</div>
+	        <div class="title_row">Asisten HSE Approval</div>
 	        <div class="data_row">
 	        	<%= @kim.crew_approval==nil ? "Waiting.." : @kim.crew_approval==true ? "<span class='glyphicon glyphicon-ok'></span> #{@kim.crew_approved_by}".html_safe : "<span class='glyphicon glyphicon-remove'></span>" %>
 	        </div>
@@ -73,13 +87,20 @@
 	      </div>
 	      <div class="row row_content">
 	        <div class="title_row">Surat Permohonan</div>
-	        <div class="data_row"><%= image_tag @kim.surat_permohonan.url(:medium) %></br>
+	        <div class="data_row">
+	        	<a class="fancybox-button" rel="fancybox-button" href="<%= @kim.surat_permohonan.url(:medium) %>">
+							<%= image_tag @kim.surat_permohonan.url(:medium) %>
+						</a>
+	        	<%#= image_tag @kim.surat_permohonan.url(:medium) %></br>
 						<%= link_to "Download Surat Permohonan", download_path(@kim.surat_permohonan_file_name,@kim.id, :status=>"surat permohonan") %>
 					</div>
 	      </div>
 	      <div class="row row_content">
 	        <div class="title_row">KTP</div>
-	        <div class="data_row"><%= image_tag @kim.ktp.url(:medium) %></br>
+	        <div class="data_row">
+	        	<a class="fancybox-button" rel="fancybox-button" href="<%= @kim.ktp.url(:medium) %>">
+	        		<%= image_tag @kim.ktp.url(:medium) %>
+	        	</a></br>
 						<%= link_to "Download KTP", download_path(@kim.ktp_file_name,@kim.id, :status=>"ktp") %>
 					</div>
 	      </div>
@@ -91,7 +112,9 @@
     				<div class="row row_content">
 			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_sim.strftime("%d %B %Y") %></div>
 			      </div>
-			      <%= image_tag @kim.sim.url(:medium) %></br>
+			      <a class="fancybox-button" rel="fancybox-button" href="<%= @kim.sim.url(:medium) %>">
+				      <%= image_tag @kim.sim.url(:medium) %>
+				    </a></br>
 						<%= link_to "Download SIM", download_path(@kim.stnk_file_name,@kim.id, :status=>"sim") %>
     			</fieldset>
     			<fieldset>
@@ -99,7 +122,9 @@
     				<div class="row row_content">
 			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_stnk.strftime("%d %B %Y") %></div>
 			      </div>
-			      <%= image_tag @kim.stnk.url(:medium) %></br>
+			      <a class="fancybox-button" rel="fancybox-button" href="<%= @kim.stnk.url(:medium) %>">
+				      <%= image_tag @kim.stnk.url(:medium) %>
+				    </a></br>
 						<%= link_to "Download STNK", download_path(@kim.stnk_file_name,@kim.id, :status=>"stnk") %>
     			</fieldset>
     		</div>
@@ -111,28 +136,34 @@
 	    				<div class="row row_content">
 				        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_tera.strftime("%d %B %Y") %></div>
 				      </div>
-				      <%= image_tag @kim.tera.url(:medium) %></br>
+				      <a class="fancybox-button" rel="fancybox-button" href="<%= @kim.tera.url(:medium) %>">
+					      <%= image_tag @kim.tera.url(:medium) %>
+					    </a></br>
 							<%= link_to "Download TERA", download_path(@kim.tera_file_name,@kim.id, :status=>"tera") %></br>
 	    			</fieldset>
     			<% end %>
     			<fieldset>
-    				<legend>KIR (Head atau Truck)</legend>
+    				<legend>KEUR (Head atau Truck)</legend>
     				<div class="row row_content">
 			        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_kir.strftime("%d %B %Y") %></div>
 			      </div>
-			      <%= image_tag @kim.kir.url(:medium) %></br>
-						<%= link_to "Download KIR", download_path(@kim.kir_file_name,@kim.id, :status=>"kir") %></br>
+			      <a class="fancybox-button" rel="fancybox-button" href="<%= @kim.kir.url(:medium) %>">
+				      <%= image_tag @kim.kir.url(:medium) %>
+				    </a></br>
+						<%= link_to "Download KEUR", download_path(@kim.kir_file_name,@kim.id, :status=>"kir") %></br>
     			</fieldset>
     		</div>
     		<% if @kim.masa_berlaku_kir_skid_tank != nil %>
 	    		<div class="col-md-6">
 	    			<fieldset>
-	    				<legend>KIR (Skid Tank)</legend>
+	    				<legend>KEUR (Skid Tank)</legend>
 	    				<div class="row row_content">
 				        <div class="title_row">Masa Berlaku</div><div class="data_row"><%= @kim.masa_berlaku_kir_skid_tank.strftime("%d %B %Y") %></div>
 				      </div>
-				      <%= image_tag @kim.kir.url(:medium) %></br>
-							<%= link_to "Download KIR (Skid Tank)", download_path(@kim.kir_skid_tank_file_name,@kim.id, :status=>"kir") %></br>
+				      <a class="fancybox-button" rel="fancybox-button" href="<%= @kim.ktp.url(:medium) %>">
+					      <%= image_tag @kim.ktp.url(:medium) %>
+					    </a></br>
+							<%= link_to "Download KEUR (Skid Tank)", download_path(@kim.kir_skid_tank_file_name,@kim.id, :status=>"kir") %></br>
 	    			</fieldset>
 	    		</div>
     		<% end %>
