@@ -2,6 +2,17 @@
   <%= form_for(@crew, url: namacrews_path, :method=>"POST" ) do |f| %>
    
     <div class='form-group'>
+      <%= f.label "Email Login", class: "control-label" %>
+      <%= f.text_field :email, :required=>true, class: "form-control" %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label "Password", class: "control-label" %>
+      <%= f.password_field :password, :required=>true, class: "form-control" %>
+    </div>
+
+
+    <div class='form-group'>
       <%= f.label "Nama", class: "control-label" %>
       <% if params[:action] == "edit" or params[:action] == "update" %>
         <%= f.text_field :nama, :required=>true, class: "form-control", :disabled=>true %>

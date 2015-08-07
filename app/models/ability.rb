@@ -62,6 +62,9 @@ class Ability
         can :edit_info, User, :id => user.id
 
         can :namacrew, User
+    elsif user.role == "RealCrew"
+        can :edit_info, User, :id => user.id
+    
     end
   end
 end
