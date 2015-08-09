@@ -20,7 +20,7 @@
           <%= f.label "Kota/Kabupaten", "Kota / Kabupaten", class: 'control-label' %>
           <span class= 'label_required'>*</span>
           <%#= f.text_field :kota, class: 'form-control', :required=>true %>
-          <%= f.select :kota, options_from_collection_for_select(Kabupaten.all, 'id', 'nama'), {}, class: 'form-control', required: true %>
+          <%= f.select :kota, options_from_collection_for_select(Kabupaten.all, 'nama', 'nama'), {}, class: 'form-control', required: true %>
         </div>
         <div class='form-group'>
           <%= f.label "e-mail", "E-Mail", class: 'control-label' %>
