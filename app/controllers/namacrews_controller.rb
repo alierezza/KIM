@@ -10,8 +10,9 @@ class NamacrewsController < ApplicationController
 	end
 
 	def create
-		params[:user][:email] = "#{SecureRandom.hex(5)}@xxx.com"
-		params[:user][:password] = "asdiusjdiad98sudasd"
+		#params[:user][:email] = "#{SecureRandom.hex(5)}@xxx.com"
+		#params[:user][:password] = "asdiusjdiad98sudasd"
+		params[:user][:admin_approval] = 1
 		params[:user][:role] = "RealCrew"
 		params[:user][:created_by] = current_user.nama
 		@crew = User.new(params_crew)

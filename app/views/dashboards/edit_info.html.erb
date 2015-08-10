@@ -19,7 +19,11 @@
 				<%= f.text_field :email_recovery, :required=>true, class: "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= f.label "Alamat","Alamat".html_safe, class: "control-label" %>
+				<%= f.label "Kota/Kabupaten", "Kota / Kabupaten", class: 'control-label' %>
+				<%= f.select :kota, options_from_collection_for_select(Kabupaten.all, 'nama', 'nama', :selected=>@user.kota), {}, class: 'form-control', required: true %>
+			</div>
+			<div class="form-group">
+				<%= f.label "","Alamat".html_safe, class: "control-label" %>
 				<%= f.text_area :alamat , :required=>true, class: "form-control"%>
 			</div>
 			<div class="form-group">
@@ -66,7 +70,7 @@
 
 <script>
 $(function() {
-
+$("#user_kota").select2();
   $('.avatar').on('change', function(event) {
     var files = event.target.files;
     var image = files[0]
@@ -83,4 +87,8 @@ $(function() {
     console.log(files);
   });
 });
+
+
+
+
 </script>
