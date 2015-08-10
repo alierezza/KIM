@@ -76,7 +76,7 @@ body {
 .bot_wrapper {
 	background: #ccc;
   // margin-top: 45px;
-  padding: 30px 100px;
+  padding: 30px 115px;
 
   .information {
   font-size: 20px;
@@ -221,7 +221,7 @@ div.carousel .fill {
 
 .mid_wrapper{
   margin-top: 28px;
-  padding: 40px 105px ;
+  padding: 40px 145px ;
 
   .login_side {
     border: solid 1px #ccc;
@@ -230,7 +230,7 @@ div.carousel .fill {
   }
   .about_us {
     font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    // padding: 0px 20px 0px 0px;
     height: 304px;
     text-align: justify;
 
@@ -241,7 +241,7 @@ div.carousel .fill {
     .contain_about {
       border: solid;
       padding: 16px;
-      width: 64%;
+      width: 85%;
       float: right;
       background-color: rgba(239, 239, 239, 0.78);
     }
@@ -366,7 +366,12 @@ div.carousel .fill {
   font-size: 20px;
 }
 
-#back-to-top { padding-top: 5px; color:#fff; position:fixed; bottom:45px; right:20px; z-index:99; display:none; text-align: center; border-radius: 5px; -moz-border-radius: 5px;  -webkit-border-radius: 5px; -o-border-radius: 2px;    z-index: 10000;    height: 29px;    width: 29px;    background-color: rgba(0,0,0,0.4);    background-repeat: no-repeat;    background-position: center;    transition: background-color 0.1s linear;    -moz-transition: background-color 0.1s linear;    -webkit-transition: background-color 0.1s linear;    -o-transition: background-color 0.1s linear;}
+#back-to-top { padding-top: 5px; color:#fff; position:fixed; bottom:45px; right:20px; z-index:99; display:none; text-align: center; border-radius: 5px; -moz-border-radius: 5px;  -webkit-border-radius: 5px; -o-border-radius: 2px;    z-index: 10000;    height: 45px;    width: 70px;    background-color: rgba(0,0,0,0.4);    background-repeat: no-repeat;    background-position: center;    transition: background-color 0.1s linear;    -moz-transition: background-color 0.1s linear;    -webkit-transition: background-color 0.1s linear;    -o-transition: background-color 0.1s linear;
+
+}
+#back-to-top span.glyphicon.glyphicon-chevron-up{
+    vertical-align: -webkit-baseline-middle !important;
+  }
 #back-to-top i { padding-top:4px; font-size:17px; }
 #back-to-top:hover { background:#B86662; background: rgba(184,102,98,.7); }
 // .box{
@@ -410,7 +415,7 @@ div.carousel .fill {
   margin-bottom: 0px;
 }
 .navbar-header{
-  margin: 15px 55px;
+  margin: 15px 145px;
 }
 .navbar.navbar-default  {
    min-height: 135px ;
@@ -430,10 +435,10 @@ div.carousel .fill {
   }
 }
 .navbar-collapse{
-  padding-right: 50px;
+  padding-right: 145px;
 }
 .login_name{
-  margin-right: 50px;
+  margin-right: 145px;
 }
 .homepage .dropdown {
   display: none;
@@ -443,7 +448,16 @@ div.carousel .fill {
     padding: 20px 50px;
   }
   .navbar-collapse{
-    padding-right: 20px;
+    padding-right: 25px;
+  }
+  .login_name{
+    margin-right: 25px;
+  }
+  .navbar-header{
+    margin: 15px 25px;
+  }
+  .about_us .contain_about {
+    width: 100% !important;
   }
 }
 @media only screen and (max-width: 766px) {

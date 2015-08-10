@@ -1,70 +1,70 @@
 <div id="myCarousel" class="carousel slide">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+	</ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <div class="fill" style="background-image: url('/assets/slider-1.jpg');"></div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('/assets/slider-2.jpg');"></div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('/assets/slider-3.jpg');"></div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('/assets/slider-4.jpg');"></div>
-        </div>
-    </div>
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner">
+		<div class="item active">
+			<div class="fill" style="background-image: url('/assets/slider-1.jpg');"></div>
+		</div>
+		<div class="item">
+			<div class="fill" style="background-image:url('/assets/slider-2.jpg');"></div>
+		</div>
+		<div class="item">
+			<div class="fill" style="background-image:url('/assets/slider-3.jpg');"></div>
+		</div>
+		<div class="item">
+			<div class="fill" style="background-image:url('/assets/slider-4.jpg');"></div>
+		</div>
+	</div>
 
-    <!-- Controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="icon-next"></span>
-    </a>
+	<!-- Controls -->
+	<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		<span class="icon-prev"></span>
+	</a>
+	<a class="right carousel-control" href="#myCarousel" data-slide="next">
+		<span class="icon-next"></span>
+	</a>
 </div>
 
 <div class='mid_wrapper'>
-	<div class="row" id="about_us">
-<!-- 	<div class='col-md-12'> -->
+	<div id="about_us">
+		<!-- 	<div class='col-md-12'> -->
 		<% if !user_signed_in? %>
-		<div class="form-group">
-		<div class='col-md-7 about_us'>
-			<%= image_tag "Bumber-seven-Business-People.jpg", width: 475 %>
-			<h3 style="text-align: right;">Tentang Kita</h3>
-			<div class="contain_about">
-				Merupakan layanan web terintegrasi sistem kartu ijin masuk, kepuasan pelanggan, dan Laporan Kejadian Penting di Depot LPG Tanjung Perak PT. Pertamina (Persero).
-Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi pihak Depot LPG Tanjung Perak maupun SPPBE dan Agen, artinya disetujui atau tidaknya pengajuan KIM baru/perpanjangan dapat dimonitor atau dipantau dari web ini, selain itu web ini sejalan dengan misi kami untuk mendukung program lingkungan khususnya dalam mengurangi penggunaan kertas
+		<div class='row'>
+			<div class='col-md-7 about_us'>
+				<%= image_tag "Bumber-seven-Business-People.jpg", width: 475 %>
+				<h3 style="text-align: right;">Tentang Kita</h3>
+				<div class="contain_about">
+					Merupakan layanan web terintegrasi sistem kartu ijin masuk, kepuasan pelanggan, dan Laporan Kejadian Penting di Depot LPG Tanjung Perak PT. Pertamina (Persero).
+					Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi pihak Depot LPG Tanjung Perak maupun SPPBE dan Agen, artinya disetujui atau tidaknya pengajuan KIM baru/perpanjangan dapat dimonitor atau dipantau dari web ini, selain itu web ini sejalan dengan misi kami untuk mendukung program lingkungan khususnya dalam mengurangi penggunaan kertas
+				</div>
 			</div>
-		</div>
-</div>
+
 		<div class='col-md-5'>
 
 			<div class="login_side">
 				<%= form_for(:user, :url => session_path(:user)) do |f| %>
-					<div class="form-group">
-						<%= f.label :email, class: 'control-label' %>
-						<%= f.email_field :email, class: 'form-control' %>
-					</div>
-					<div class="form-group">
-						<%= f.label :password, class: 'control-label' %>
-						<%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-					</div>
+				<div class="form-group">
+					<%= f.label :email, class: 'control-label' %>
+					<%= f.email_field :email, class: 'form-control' %>
+				</div>
+				<div class="form-group">
+					<%= f.label :password, class: 'control-label' %>
+					<%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+				</div>
 
-					<!-- <div class="g-recaptcha" data-sitekey="6LfOHAgTAAAAABb86qr2DUCJcWmNf9gRW_qmzCuC"></div> -->
-					<div class="form-group">
-						<%= f.check_box :remember_me %>
-						<%= f.label :remember_me %>
-					</div>
-					<div class="row">
+				<!-- <div class="g-recaptcha" data-sitekey="6LfOHAgTAAAAABb86qr2DUCJcWmNf9gRW_qmzCuC"></div> -->
+				<div class="form-group">
+					<%= f.check_box :remember_me %>
+					<%= f.label :remember_me %>
+				</div>
+				<div class="row">
 					<div class="col-md-6">
 
 						<%= link_to new_register_path, class: 'btn btn-default' do %>New Member<% end %>
@@ -72,70 +72,70 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 					<div class="col-md-6">
 						<%= f.submit "Log in", class: 'btn btn-primary pull-right' %>
 					</div>
-					</div>
-					<div style="margin-top: 10px;"><%= link_to "Forgot your password?", new_password_path(:user) %></div>
+				</div>
+				<div style="margin-top: 10px;"><%= link_to "Forgot your password?", new_password_path(:user) %></div>
 				<% end %>
 			</div>
-
+			</div>
 		</div>
 		<% else %>
-				<div class='about_us' style="padding: 0px;">
+		<div class='about_us' style="padding: 0px;">
 			<%= image_tag "Bumber-seven-Business-People.jpg", width: 475 %>
 			<h3 style="text-align: right;">Tentang Kita</h3>
 			<div class="contain_about">
 				Merupakan layanan web terintegrasi sistem kartu ijin masuk, kepuasan pelanggan, dan Laporan Kejadian Penting di Depot LPG Tanjung Perak PT. Pertamina (Persero).
-Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi pihak Depot LPG Tanjung Perak maupun SPPBE dan Agen, artinya disetujui atau tidaknya pengajuan KIM baru/perpanjangan dapat dimonitor atau dipantau dari web ini, selain itu web ini sejalan dengan misi kami untuk mendukung program lingkungan khususnya dalam mengurangi penggunaan kertas
+				Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi pihak Depot LPG Tanjung Perak maupun SPPBE dan Agen, artinya disetujui atau tidaknya pengajuan KIM baru/perpanjangan dapat dimonitor atau dipantau dari web ini, selain itu web ini sejalan dengan misi kami untuk mendukung program lingkungan khususnya dalam mengurangi penggunaan kertas
 			</div>
 		</div>
-			<% end %>
+		<% end %>
 		<!-- </div> -->
 	</div>
 
 	<div id="prosedur" class="prosedur">
-	<h3>Prosedur</h3>
-	<%= image_tag "Prosedur.png", width: "100%" %>
+		<h3>Prosedur</h3>
+		<%= image_tag "Prosedur.png", width: "100%" %>
 	</div>
 
 	<div id="prasyarat" class="prasyarat">
 		<h3>Prasyarat</h3>
 		<div role="tabpanel">
-			  <!-- Nav tabs -->
-		  <ul class="nav nav-tabs" role="tablist">
-		    <li role="presentation" class="active"><a href="#agen" aria-controls="agen" role="tab" data-toggle="tab">Agen</a></li>
-		    <li role="presentation"><a href="#spbe" aria-controls="spbe" role="tab" data-toggle="tab">SPPBE</a></li>
-		    <li role="presentation"><a href="#lain" aria-controls="lain" role="tab" data-toggle="tab">Lain - Lain</a></li>
-		  </ul>
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#agen" aria-controls="agen" role="tab" data-toggle="tab">Agen</a></li>
+				<li role="presentation"><a href="#spbe" aria-controls="spbe" role="tab" data-toggle="tab">SPPBE</a></li>
+				<li role="presentation"><a href="#lain" aria-controls="lain" role="tab" data-toggle="tab">Lain - Lain</a></li>
+			</ul>
 
-		  <div class="tab-content">
-			  <div role="tabpanel" class="tab-pane fade in active" id="agen">
-			  	<ol>
-			  		<li>Attachment Scan Surat Permohonan Pengajuan / Pembuatan KIM</li>
-			  		<li>Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR)</li>
-			  		<li>Attachment Scan Surat Izin Mengemudi (SIM) Pengemudi minimal B1</li>
-			  		<li>Attachment Scan Surat Tanda Nomor Kendaraan (STNK)</li>
-			  		<li>Attachment Kartu Tanda Penduduk (KTP) Pengemudi </li>
-			  	</ol>
-			  </div>
-			  <div role="tabpanel" class="tab-pane fade" id="spbe">
-			  	<ol>
-			  		<li>Attachment Scan Surat Permohonan Pengajuan / Pembuatan KIM</li>
-			  		<li>Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR) head dan skid tank</li>
-			  		<li>Attachment Scan Surat Izin Mengemudi (SIM) Pengemudi minimal B2</li>
-			  		<li>Attachment Scan Surat Tanda Nomor Kendaraan (STNK)</li>
-			  		<li>Attachment Kartu Tanda Penduduk (KTP) Pengemudi</li>
-			  		<li>Attachment Scan Sertifikat Tera</li>
-			  	</ol>
-			  </div>
-			  <div role="tabpanel" class="tab-pane fade" id="lain">
-			  	<ol>
-			  		<li> Attachment Scan Surat Permohonan Pengajuan / Pembuatan KIM</li>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="agen">
+					<ol>
+						<li>Attachment Scan Surat Permohonan Pengajuan / Pembuatan KIM</li>
+						<li>Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR)</li>
+						<li>Attachment Scan Surat Izin Mengemudi (SIM) Pengemudi minimal B1</li>
+						<li>Attachment Scan Surat Tanda Nomor Kendaraan (STNK)</li>
+						<li>Attachment Kartu Tanda Penduduk (KTP) Pengemudi </li>
+					</ol>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="spbe">
+					<ol>
+						<li>Attachment Scan Surat Permohonan Pengajuan / Pembuatan KIM</li>
+						<li>Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR) head dan skid tank</li>
+						<li>Attachment Scan Surat Izin Mengemudi (SIM) Pengemudi minimal B2</li>
+						<li>Attachment Scan Surat Tanda Nomor Kendaraan (STNK)</li>
+						<li>Attachment Kartu Tanda Penduduk (KTP) Pengemudi</li>
+						<li>Attachment Scan Sertifikat Tera</li>
+					</ol>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="lain">
+					<ol>
+						<li> Attachment Scan Surat Permohonan Pengajuan / Pembuatan KIM</li>
 						<li> Attachment Scan Buku Uji Berkala Kendaraan Bermotor (KEUR) </li>
 						<li> Attachment Scan Surat Izin Mengemudi (SIM) Pengemudi</li>
 						<li> Attachment Scan Surat Tanda Nomor Kendaraan (STNK)</li>
 						<li> Attachment Kartu Tanda Penduduk (KTP) Pengemudi </li>
 						<li> Attachment Scan Sertifikat Tera (tergantung kondisi kendaraan)</li>
-			  	</ol>
-			  </div>
+					</ol>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -150,10 +150,10 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 					</div>
 					<div class='panel-body'>
 						<ul class="kim_mati">
-						<% @top_5_last_kim .each do |kim| %>
+							<% @top_5_last_kim .each do |kim| %>
 							<li><%= kim.no_polisi %></li>
-						<% end %>
-					</ul>
+							<% end %>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -167,52 +167,52 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 
 	<div id="our_crew" class="our_crew">
 		<div class="row">
-	<div class="col-md-7">
-		<h3>Crew Kami</h3>
-		<div class="container-fluid" style="margin-top: 20px">
-<div class="row-fluid">
-<div class="span12">
+			<div class="col-md-7">
+				<h3>Crew Kami</h3>
+				<div class="container-fluid" style="margin-top: 20px">
+					<div class="row-fluid">
+						<div class="span12">
 
-    <div class="carousel slide" id="myCarousel2">
-    	<% count_item = 1 %>
-    	<% xx = 0 %>
-    	<% tot_crew = @all_crew.count < 4 ? xx = 1 : xx=0 %>
-    	<div class="carousel-inner">
-      	<% @all_crew.each_with_index do |crew, index| %>
+							<div class="carousel slide" id="myCarousel2">
+								<% count_item = 1 %>
+								<% xx = 0 %>
+								<% tot_crew = @all_crew.count < 4 ? xx = 1 : xx=0 %>
+								<div class="carousel-inner">
+									<% @all_crew.each_with_index do |crew, index| %>
 
-        	<% if count_item == 1 %>
-          	<% if index == 0  %>
-          		<div class="item active">
-          	<% else %>
-          		<div class="item">
-          	<% end %>
-        			<ul class="thumbnails">
-          <% end %>
+									<% if count_item == 1 %>
+									<% if index == 0  %>
+									<div class="item active">
+										<% else %>
+										<div class="item">
+											<% end %>
+											<ul class="thumbnails">
+												<% end %>
 
-        		<li class="span3">
-              <div class="thumbnail">
-              	<% if crew.present? %>
-              		<a href="#"><%= image_tag "#{crew.photo.url(:medium)}", width: 175 %></a>
-              		<div style="text-align:center;"><%= crew.nama %></div>
-              	<% else %>
-              		<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-              	<% end %>
-              </div>
-            </li>
+												<li class="span3">
+													<div class="thumbnail">
+														<% if crew.present? %>
+														<a href="#"><%= image_tag "#{crew.photo.url(:medium)}", width: 175 %></a>
+														<div style="text-align:center;"><%= crew.nama %></div>
+														<% else %>
+														<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+														<% end %>
+													</div>
+												</li>
 
-            <% if count_item == 3 %>
-              	</ul>
-        			</div><!-- end item -->
-      				<% count_item = 0 %>
-            <% end %>
+												<% if count_item == 3 %>
+											</ul>
+										</div><!-- end item -->
+										<% count_item = 0 %>
+										<% end %>
 
-            <% count_item += 1 %>
-      	<% end %>
-      	<% if xx != 1 %>
-      		</div>
-      	<% end %>
+										<% count_item += 1 %>
+										<% end %>
+										<% if xx != 1 %>
+									</div>
+									<% end %>
 
-    </div>	<!-- carousel-inner -->
+								</div>	<!-- carousel-inner -->
 
         <!-- <div class="carousel-inner">
             <div class="item active">
@@ -286,28 +286,28 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
         </div> -->
 
         <div class="control-box">
-            <a data-slide="prev" href="#myCarousel2" class="carousel-control left" style="position: absolute; top: 30%; background: white; color:black; left: -20px;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
-            <a data-slide="next" href="#myCarousel2" class="carousel-control right" style="position: absolute; top: 30%; background: white; color:black; right: -1%;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+        	<a data-slide="prev" href="#myCarousel2" class="carousel-control left" style="position: absolute; top: 30%; background: white; color:black; left: -20px;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+        	<a data-slide="next" href="#myCarousel2" class="carousel-control right" style="position: absolute; top: 30%; background: white; color:black; right: -1%;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
         </div><!-- /.control-box -->
 
-    </div><!-- /#myCarousel -->
+      </div><!-- /#myCarousel -->
 
-</div><!-- /.span12 -->
-</div><!-- /.row -->
+    </div><!-- /.span12 -->
+  </div><!-- /.row -->
 </div><!-- /.container -->
 
-	</div>
-	<div class="col-md-5">
-		<div class="top_crew">
-			<h3>Crew Terbaik Bulan Ini</h3>
-      <% if @top_crew.present? %>
-			<%= image_tag "#{@top_crew.photo.url(:medium)}", width: 175, class: "img-thumbnail" %>
-			<div style="text-align:center"><%= @top_crew.nama %></div>
-      <% end %>
-		</div>
+</div>
+<div class="col-md-5">
+	<div class="top_crew">
+		<h3>Crew Terbaik Bulan Ini</h3>
+		<% if @top_crew.present? %>
+		<%= image_tag "#{@top_crew.photo.url(:medium)}", width: 175, class: "img-thumbnail" %>
+		<div style="text-align:center"><%= @top_crew.nama %></div>
+		<% end %>
 	</div>
 </div>
-	</div>
+</div>
+</div>
 </div>
 
 <div id="contact_us" class='bot_wrapper row'>
@@ -326,12 +326,12 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 			<%= text_area_tag :konten,nil, autocomplete: "off",rows: 7, class: 'form-control', :placeholder=>"Pesan" %>
 		</div>
 		<div class="form-group">
-      <div class="pull-left" style="width: 75%;">
-	      <%= recaptcha_tags %>
-	    </div>
-	    <div class="pull-right">
+			<div class="pull-left" style="width: 75%;">
+				<%= recaptcha_tags %>
+			</div>
+			<div class="pull-right">
 				<%= submit_tag "Submit", class: 'btn btn-primary', style: "margin-top: 15px;" %>
-	    </div>
+			</div>
 		</div>
 		<% end %>
 	</div>
@@ -364,19 +364,19 @@ Kartu ijin masuk bertujuan untuk mempermudah sistem pembuatan KIM baik bagi piha
 <a href="#top" id="back-to-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
 <% if user_signed_in? && current_user.role = "User" %>
-	<!--Start of Tawk.to Script-->
-	<script type="text/javascript">
-	var $_Tawk_API={},$_Tawk_LoadStart=new Date();
-	(function(){
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var $_Tawk_API={},$_Tawk_LoadStart=new Date();
+(function(){
 	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 	s1.async=true;
 	s1.src='https://embed.tawk.to/55784a23ff005a34523a7329/default';
 	s1.charset='UTF-8';
 	s1.setAttribute('crossorigin','*');
 	s0.parentNode.insertBefore(s1,s0);
-	})();
-	</script>
-	<!--End of Tawk.to Script-->
+})();
+</script>
+<!--End of Tawk.to Script-->
 <% end %>
 
 <script>
@@ -386,25 +386,25 @@ $(function() {
 	setTimeout('$(".g-recaptcha iframe").attr("style","transform:scale(0.8);transform-origin:0 0")', 2000);
 
 
- // $('.carousel').carousel({
- //   interval: 2500 //changes the speed
- //  })
+ $('.carousel').carousel({
+   interval: 2500 //changes the speed
+  })
 
  // ______________ BACK TO TOP BUTTON
 
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 300) {
-            $('#back-to-top').fadeIn('slow');
-        } else {
-            $('#back-to-top').fadeOut('slow');
-        }
-    });
-    $('#back-to-top').click(function() {
-        $("html, body").animate({
-            scrollTop: 0
-        }, 600);
-        return false;
-    });
+ $(window).scroll(function() {
+ 	if ($(this).scrollTop() > 300) {
+ 		$('#back-to-top').fadeIn('slow');
+ 	} else {
+ 		$('#back-to-top').fadeOut('slow');
+ 	}
+ });
+ $('#back-to-top').click(function() {
+ 	$("html, body").animate({
+ 		scrollTop: 0
+ 	}, 600);
+ 	return false;
+ });
 });
 
 </script>
