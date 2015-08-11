@@ -151,7 +151,7 @@
 					<div class='panel-body'>
 						<ul class="kim_mati">
 							<% @top_5_last_kim .each do |kim| %>
-							<li><%= kim.no_polisi %></li>
+							<li><%= kim.no_polisi %> - <font size=2><%= kim.expired_date.strftime("%d/%B/%Y") %></font></li>
 							<% end %>
 						</ul>
 					</div>

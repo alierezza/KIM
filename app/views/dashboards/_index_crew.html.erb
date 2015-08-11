@@ -7,7 +7,7 @@
 			<div class="form-group">
 				<%= form_tag new_dashboard_path,:method=>"GET", :remote=>true do %>
 					<%= label_tag "Search: " %>
-					<%= text_field_tag :search %>
+					<%= text_field_tag :search,"" %>
 					<%= submit_tag "OK" %>
 				<% end %>
 			</div>

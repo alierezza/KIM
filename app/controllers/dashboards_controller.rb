@@ -10,7 +10,7 @@ class DashboardsController < ApplicationController
 	end
 
 	def new
-		@kims = Kimm.search_no(params[:search]).order("created_at DESC").page(params[:page])
+		@kims = Kimm.where("no_polisi LIKE ?","%#{params[:search]}%").order("created_at DESC").page(params[:page])
 		
 		if params[:approve]
 			@kim = Kimm.find(params[:approve])
