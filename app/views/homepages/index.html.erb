@@ -177,43 +177,45 @@
 							<div class="carousel slide" id="myCarousel2">
 								<% count_item = 1 %>
 								<% xx = 0 %>
-								<% tot_crew = @all_crew.count < 4 ? xx = 1 : xx=0 %>
+								<% tot_crew = @all_crew.count % 3 !=0 ? xx = 0 : xx=1 %>
 								<div class="carousel-inner">
 									<% @all_crew.each_with_index do |crew, index| %>
 
 									<% if count_item == 1 %>
-									<% if index == 0  %>
-									<div class="item active">
+										<% if index == 0  %>
+											<div class="item active">
 										<% else %>
-										<div class="item">
+											<div class="item">
+										<% end %>
+										<ul class="thumbnails">
+									<% end %>
+
+									<li class="span3">
+										<div class="thumbnail">
+											<% if crew.present? %>
+											<a href="#"><%= image_tag "#{crew.photo.url(:medium)}", width: 175 %></a>
+											<div style="text-align:center;"><%= crew.nama %></div>
+											<% else %>
+											<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
 											<% end %>
-											<ul class="thumbnails">
-												<% end %>
+										</div>
+									</li>
 
-												<li class="span3">
-													<div class="thumbnail">
-														<% if crew.present? %>
-														<a href="#"><%= image_tag "#{crew.photo.url(:medium)}", width: 175 %></a>
-														<div style="text-align:center;"><%= crew.nama %></div>
-														<% else %>
-														<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-														<% end %>
-													</div>
-												</li>
-
-												<% if count_item == 3 %>
-											</ul>
-										</div><!-- end item -->
-										<% count_item = 0 %>
+										<% if count_item == 3 %>
+												</ul>
+											</div><!-- end item -->
+											<% count_item = 0 %>
+											<% elsif xx == 1 && count_item == 3 %>
+										</div>
 										<% end %>
 
 										<% count_item += 1 %>
 										<% end %>
 										<% if xx != 1 %>
 									</div>
-									<% end %>
 
-								</div>	<!-- carousel-inner -->
+									<% end %></div>
+									<!-- carousel-inner -->
 
         <!-- <div class="carousel-inner">
             <div class="item active">
