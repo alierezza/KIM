@@ -21,6 +21,11 @@
       <% end %>
     </div>
 
+    <div class="form-group">
+      <%= f.label "Kota/Kabupaten", "Kota / Kabupaten", class: 'control-label' %>
+      <%= f.select :kota, options_from_collection_for_select(Kabupaten.all, 'nama', 'nama', :selected=>@crew.kota), {}, class: 'form-control', required: true %>
+    </div>
+
     <div class='form-group'>
       <%= f.label "Alamat", class: "control-label" %>
       <%= f.text_field :alamat, :required=>true, class: "form-control" %>
@@ -54,12 +59,22 @@
   <%= form_for(@crew, url: namacrew_path(@crew), :method=>"PUT" ) do |f| %>
    
     <div class='form-group'>
+      <%= f.label "Email Login", class: "control-label" %>
+      <%= f.text_field :email, :disabled=>true, class: "form-control" %>
+    </div>
+
+    <div class='form-group'>
       <%= f.label "Nama", class: "control-label" %>
       <% if params[:action] == "edit" or params[:action] == "update" %>
         <%= f.text_field :nama, :required=>true, class: "form-control", :disabled=>true %>
       <% else %>
         <%= f.text_field :nama, :required=>true, class: "form-control" %>
       <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Kota/Kabupaten", "Kota / Kabupaten", class: 'control-label' %>
+      <%= f.select :kota, options_from_collection_for_select(Kabupaten.all, 'nama', 'nama', :selected=>@crew.kota), {}, class: 'form-control', required: true %>
     </div>
 
     <div class='form-group'>
@@ -95,7 +110,7 @@
 
 <script>
 $(function() {
-
+$("#user_kota").select2();
   $('.avatar').on('change', function(event) {
     var files = event.target.files;
     var image = files[0]

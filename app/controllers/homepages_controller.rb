@@ -2,7 +2,7 @@ class HomepagesController < ApplicationController
 
 	def index # halaman homepage awal
 		@top_5_last_kim = Kimm.where("expired_date IS NOT NULL").order("expired_date ASC").limit(5)
-		@all_crew = User.where("role!=?","SuperAdmin").all
+		@all_crew = User.where("role!=? and role !=?","SuperAdmin","User").all
 		# @top_crew = User.where("role=?","Crew").maximum("sign_in_count")
 		@top_crew = User.where(" best = true").first
 
